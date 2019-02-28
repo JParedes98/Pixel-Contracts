@@ -1,0 +1,17 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+canvas{
+    margin:0 auto;
+    width: 800px;
+    height: 500px;
+    display: block;
+    border: 2px solid #000;
+    border-radius: 6px;
+}
