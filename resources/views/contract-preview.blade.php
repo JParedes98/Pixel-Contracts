@@ -421,12 +421,13 @@
                                 <h3>CONSOLIDACION DE CONTRATO</h3>
                                 <h6>FIRMA </h6>
                                 <canvas width="800" height="500"></canvas>
+                                <p class="signature-border">Firmar Aqui</p>
                                 <input type="hidden" name="signature">
                                 <input type="hidden" name="rtn" value="{{ $contrato->rtn }}">
                                 <br>
                                 <ul class="list-inline pull-right">
                                     <li><button type="button" class="clearSign btn btn-danger">Limpiar Firma</button></li>
-                                    <li><button type="button" class="submitForm btn btn-danger">Ver Firma</button></li>
+                                    <li><button type="button" class="submitForm btn btn-danger">Firmar</button></li>
                                 </ul>
                         </div>
                     </div>

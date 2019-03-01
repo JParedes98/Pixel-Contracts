@@ -15,3 +15,14 @@ canvas{
     border: 2px solid #000;
     border-radius: 6px;
 }
+
+.signature-border{
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    border-top: 2px dashed #AAA;
+    padding: 10px; 
+    margin: -120px auto 150px;
+    color: #AAA;
+    text-align: center;
+}

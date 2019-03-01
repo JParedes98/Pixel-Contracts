@@ -19,7 +19,7 @@ class CreateContractsTable extends Migration
             $table->string('name_rep', 60);
             $table->string('social_reason', 60);
             $table->string('rtn', 24)->unique();
-            $table->string('n_identidad',24)->unique();
+            $table->string('n_identidad',24);
 
             $table->string('contact', 30);
             $table->string('adress', 80);

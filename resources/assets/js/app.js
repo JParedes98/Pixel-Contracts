@@ -9,8 +9,11 @@ require('./bootstrap');
 
 var canvas = document.querySelector("canvas");
 
-if(canvas)
+if(canvas){
     var signaturePad = new SignaturePad(canvas);
+    signaturePad.minWidth = 2;
+    signaturePad.maxWidth = 5;
+}
 
 $('.clearSign').click(function(e){
     signaturePad.clear();
