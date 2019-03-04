@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Contract;
 use App\Notifications\ContractCopy;
+use App\Notifications\ContractUrl;
 use Spipu\Html2Pdf\Html2Pdf;
 use Illuminate\Http\Request;
 
@@ -48,6 +49,8 @@ class ContractController extends Controller
         ]);
         
         Contract::create($request->all());
+        $contrato = Contract::where('rtn',$request->input('rtn'))->first();
+        $contrato->notify(new ContractUrl());
         return redirect('home');
     }
 
