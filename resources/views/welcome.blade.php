@@ -20,35 +20,28 @@
                 height: 100vh;
                 margin: 0;
             }
-
             .full-height {
                 height: 100vh;
             }
-
             .flex-center {
                 align-items: center;
                 display: flex;
                 justify-content: center;
             }
-
             .position-ref {
                 position: relative;
             }
-
             .top-right {
                 position: absolute;
                 right: 10px;
                 top: 18px;
             }
-
             .content {
                 text-align: center;
             }
-
             .title {
                 font-size: 84px;
             }
-
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -58,11 +51,9 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
-
             .m-b-md {
                 margin-bottom: 30px;
             }
-
             .slide-img{
               display: block;
               width: 100%;
@@ -73,13 +64,13 @@
 
     <body>
     @section('content')
-        <div class="container">
-            <div class="jumbotron">
+        <div class="container vertical-center">
+            <div class="jumbotron text-center">
                 <h1 class="display-4">Contratos PixelPay</h1>
-                <p class="lead">Generador de Contratos de PixelPay, por y para la PixelPay y representantes de clientes afiliados.</p>
-                <!--hr class="my-4">
-                <p></p-->
-                <a class="btn btn-primary btn-lg" href="{{ route ('contrato.nuevo') }}" role="button">Generar Contrato</a>
+                <br>
+                <p class="lead">Generador de Contratos</p>
+                <p>Contratos privados de integracion PixelPay con comercios en linea.</p>
+                <a class="btn btn-primary btn-lg" href="{{ route ('nuevo.cliente') }}" role="button">Generar Contrato</a>
               </div>
         </div>
     @endsection

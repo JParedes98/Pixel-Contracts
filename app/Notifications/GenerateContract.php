@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class ContractCopy extends Notification
+class GenerateContract extends Notification
 {
     use Queueable;
 
@@ -41,12 +41,13 @@ class ContractCopy extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->from('contratos@pixel.hn', 'PixelPay')
-                    ->subject('Copia Contrato PixelPay')
-                    ->greeting('Buen dia')
-                    ->line('Estimado (a) '. $notifiable->name_rep)
-                    ->line('Ahora eres parte de una enorme red de Crecimiento E-comerce, Adjunto encontraras una copia del contrato respectivo a PixelPay')
-                    ->attach(public_path('contracts/contrato-'.$notifiable->id.'.pdf'));
+                ->from('contratos@pixel.hn', 'PixelPay')
+                ->subject('Contrato PixelPay')
+                ->greeting('Buen dia')
+                ->line('Estimado (a) ' . $notifiable->name_rep)
+                ->line('Adjunto se encuentra el link donde puede generar su contrato y completar el mismo de forma digital.')
+                ->line('Gracias por elegirnos.')
+                ->action('Contrato Privado de Servicios', route('contrato.nuevo', ['key' => $notifiable->hashID()]));
     }
 
     /**

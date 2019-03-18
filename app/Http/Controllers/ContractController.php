@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Contract;
+use Lcobucci\JWT\Builder;
 use App\Notifications\ContractCopy;
 use App\Notifications\ContractUrl;
 use Spipu\Html2Pdf\Html2Pdf;
 use Illuminate\Http\Request;
+use App\Notifications\GenerateContract;
 
 class ContractController extends Controller
 {
@@ -22,7 +24,8 @@ class ContractController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except(['preview', 'setStatusComplete']);
+        /*$this->middleware('auth')->except(['preview', 'setStatusComplete']);*/
+        $this->middleware('auth', ['except' => ['preview', 'create']]);
     }
 
     /**
@@ -31,27 +34,48 @@ class ContractController extends Controller
      * @return \Illuminate\Http\Response
      */
     
+    public function newCustomer(){
+        return view('new-customer');    
+    }
+
+    public function createCustomer( Request $request){
+        $request->validate([
+            'name_rep' => 'required',
+            'email' => 'required',
+        ]);
+        
+        $invite = Contract::create([
+            'name_rep' => $request->get('name_rep'),
+            'email' => $request->get('email'),
+            'date' => '2019-12-17 00:00:00'
+        ]);
+        $invite->notify(new GenerateContract());
+        return redirect('home');
+    }
+
     public function create(){
         return view('new-contract');
     }
 
-    public function store(Request $request){
-        $validateData = $request->validate([
+    public function store(Request $request, $key){
+        $request->validate([
             'name_rep' => 'required',
             'social_reason' => 'required',
             'rtn' => 'required|unique:contracts',
             'n_identidad'=> 'required',
+            'm_status'=> 'required',
             'contact' => 'required',
             'adress' => 'required',
             'tel' => 'required',
             'email' => 'required|unique:contracts',
             'date' => 'required',
         ]);
-        
-        Contract::create($request->all());
-        $contrato = Contract::where('rtn',$request->input('rtn'))->first();
+
+        $solved = base64_decode($key);
+        $contrato = Contract::find($solved);
+        $contrato->update($request->all());
         $contrato->notify(new ContractUrl());
-        return redirect('home');
+        return redirect()->route('contrato.preview', ['rtn' => $request->input('rtn')]);
     }
 
     public function edit($id){
@@ -64,11 +88,12 @@ class ContractController extends Controller
     public function update(Request $request, $id){
         $contract = Contract::find($id);
 
-        $validateData = $request->validate([
+        $request->validate([
             'name_rep' => 'required',
             'social_reason' => 'required',
             'rtn' => 'sometimes|required|unique:contracts',
             'n_identidad'=> 'required',
+            'm_status'=> 'required',
             'contact' => 'required',
             'adress' => 'required',
             'tel' => 'required',
@@ -103,7 +128,7 @@ class ContractController extends Controller
     }
 
     public function setStatusComplete(Request $request){
-        $validateData = $request->validate([
+        $request->validate([
             'rtn' => 'required',
             'signature'=> 'required',
         ]);
@@ -145,4 +170,5 @@ class ContractController extends Controller
         $html2pdf->writeHTML($html);
         $html2pdf->Output($path, 'F');
     }
+
 }

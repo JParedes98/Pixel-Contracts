@@ -4,44 +4,82 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
+            <div>
+                @if(count($contract)>=1)
                 <table class="table">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th scope="col">Representante</th>
-                        <th scope="col">Razon Social</th>
-                        <th scope="col">N Identidad</th>
-                        <th scope="col">RTN</th>
-                        <th scope="col">Contacto</th>
-                        <th scope="col">Direccion</th>
-                        <th scope="col">Tel</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Estado</th>
-                        <th scope="col">Opciones</th>
-                      </tr>
+                    <thead>
+                        <tr>
+                            <th><i class="far fa-calendar-alt ctm-ico"></i></th>
+                            <th><i class="fas fa-users ctm-ico"></i> REPRESENTANTE</th>
+                            <th><i class="far fa-share-square ctm-ico"></i> CONTACTO</th>
+                            <th><i class="far fa-building"></i> COMERCIO</th>
+                            <th><i class="fas fa-file-contract ctm-ico"></i> ESTADO</th>
+                            <th><i class="fas fa-sliders-h ctm-ico"></i> OPCIONES</th>
+                        </tr>
                     </thead>
                     <tbody>
-                      @foreach ($contract as $item)
-                      <tr>
-                        <th scope="row">{{ $item->name_rep }}</th>
-                          <td>{{ $item->social_reason }}</td>
-                          <td>{{ $item->n_identidad }}</td>
-                          <td>{{ $item->rtn }}</td>
-                          <td>{{ $item->contact }}</td>
-                          <td>{{ $item->adress }}</td>
-                          <td>{{ $item->tel }}</td>
-                          <td>{{ $item->email }}</td>
-                          <td>{{ $item->date }}</td>
-                          <td class="text-center">{{$item->status}}</td>
-                          <td> <a href="{{ route('contrato.pdf',['rtn'=> $item->rtn]) }}" class="btn btn-success" >Pdf</a></td>
-                          <td> <a href="{{ route('contrato.preview',['rtn'=> $item->rtn]) }}" class="btn btn-warning" >Url</a></td>
-                          <td> <a href="{{ route('contrato.editar',['rtn'=> $item->id]) }}" class="btn btn-primary" >Editar</a> </td>
-                          
+                        @foreach ($contract as $item)
+                        <tr>
+                            <td class="date">
+                                <small class="text-muted">{{ $item->date->format('M') }}</small>
+                                <p>{{ $item->date->format('d') }}</p>
+                                <small class="text-muted">{{ $item->date->format('Y') }}</small>
+                            </td>
+                            <td scope="row">
+                                {{ $item->name_rep }}
+                                <br>
+                                <small class="text-muted">{{ $item->n_identidad }}</small>
+                            </td>
+                            <td data-toogle="tooltip" title="{{ $item->adress }}">{{ $item->email }}
+                                <br>
+                                <small class="text-muted">{{$item->tel }}</small>
+                            </td>
+                            <td>
+                                {{$item->social_reason}}
+                                <br>
+                                <small class="text-muted">
+                                    {{$item->rtn}}
+                                </small>
+                            </td>
+                            <td>
+                                @if ($item->status)
+                                <div class="label ctm-label-comp">Afiliado</div>
+                                @else
+                                <div class="label ctm-label-pend">Pendiente</div>
+                                @endif
+                            </td>
+                            <td width="140">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Acciones <i class="fas fa-angle-down" style="font-size:15px;"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <a class="dropdown-item" href="{{ route('contrato.pdf',['rtn'=> $item->rtn]) }}">Contrato
+                                            PDF</a>
+                                        @if ($item->status==0)
+                                        <a class="dropdown-item" href="{{ route('contrato.preview',['rtn'=> $item->rtn]) }}">Url
+                                            de Contrato</a>
+                                        @endif
+                                        <a class="dropdown-item" href="{ route('contrato.editar',['rtn'=> $item->id]) }}">Editar
+                                            Contrato</a>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
-                      @endforeach
+                        @endforeach
                     </tbody>
-                  </table>
+                </table>
+                @else
+                <div class="container text-center">
+                    <h2>Contratos PixelPay</h2>
+                    <h5>Lo sentimos, Actualmente no existe ningun contrato.</h5>
+                    <br>
+                    <a class="btn btn-primary btn-lg" href="{{ route ('nuevo.cliente') }}" role="button">Generar
+                        Contrato</a>
+                </div>
+                <br>
+                @endif
             </div>
         </div>
     </div>

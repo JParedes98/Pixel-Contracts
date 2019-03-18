@@ -770,6 +770,10 @@ if (canvas) {
     signaturePad.maxWidth = 5;
 }
 
+$(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
 $('.clearSign').click(function (e) {
     signaturePad.clear();
 });

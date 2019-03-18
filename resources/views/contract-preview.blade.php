@@ -68,10 +68,10 @@
                         <div class="tab-pane active" role="tabpanel" id="step1">
                             <h3>DATOS GENERALES</h3>
                             <p class="text-justify">
-                                    Nosotros: Por una parte,    Daniel Alberto Bernhard Lutz, mayor de edad, soltero, licenciado en finanzas, hondureño y 
+                                    Nosotros: Por una parte, Daniel Alberto Bernhard Lutz, mayor de edad, soltero, licenciado en finanzas, hondureño y 
                                     de éste domicilio, con número de cédula de identidad 0501-2006-15856, en su condición de Representante Legal de la Sociedad 
                                     PIXEL S.A.; la que de aquí en adelante y para los efectos de este contrato se denominará como EL PROVEEDOR, y por otra parte, 
-                                    <strong>"{{$contrato->name_rep}}"</strong> , mayor de edad, ESTADO CIVIL, con domicilio en la ciudad de San Pedro Sula, departamento de 
+                                    <strong>"{{$contrato->name_rep}}"</strong> , mayor de edad, {{$contrato->m_status}}, con domicilio en la ciudad de San Pedro Sula, departamento de 
                                     Cortés, con número de cédula de Identidad <strong>"{{$contrato->n_identidad}}"</strong>., quién comparece en su condición de Representante Legal de la 
                                     sociedad <strong>"{{$contrato->social_reason}}"</strong>. , con RTN <strong>"{{$contrato->rtn}}"</strong> quien en adelante y para efectos del presente 
                                     contrato se conocerá como COMERCIO AFILIADO manifiestan que han convenido en celebrar como al efecto lo hacen, un CONTRATO 
@@ -174,7 +174,7 @@
                                         <tbody>
                                           <tr>
                                             <th scope="row">Contacto</th>
-                                            <td>{{$contrato->contact}}</td>
+                                            <td>Daniel Alberto Bernhard Lutz</td>
                                           </tr>
                                           <tr>
                                             <th scope="row">Direccion</th>
@@ -182,11 +182,11 @@
                                           </tr>
                                           <tr>
                                             <th scope="row">Telefono</th>
-                                            <td>(504) 9459-7372</td>
+                                            <td>(504) 2504-3200</td>
                                           </tr>
                                           <tr>
                                             <th scope="row">Correo</th>
-                                            <td>daniel@pixel.hn</td>
+                                            <td>info@pixel.hn</td>
                                           </tr>
                                         </tbody>
                                 </table>
@@ -412,14 +412,15 @@
                                     aquí acordadas y que las cláusulas y contenido contractual les representa un beneficio mutuo, y que conocen y asumen las 
                                     consecuencias de toda responsabilidad que las obligaciones de este contrato le generan, por lo que se comprometen a su 
                                     estricto cumplimiento. En fe de lo cual, firman el presente contrato en duplicado, en la ciudad de San Pedro Sula a los 
-                                    (00) días del mes de Mes del año 2019. 
+                                    ({{$contrato->date->format('d')}}) días del mes de {{$contrato->date->format('F')}} del año {{$contrato->date->format('Y')}}. 
                               </p>
                               <br>
                               <br>
                         </div>
                         <div class="tab-pane" role="tabpanel" id="complete">
-                                <h3>CONSOLIDACION DE CONTRATO</h3>
-                                <h6>FIRMA </h6>
+                            <div class="container">
+                                <h4 class="text-center">CONSOLIDACION DE CONTRATO</h4>
+                                <h6 class="text-center">FIRMA </h6>
                                 <canvas width="800" height="500"></canvas>
                                 <p class="signature-border">Firmar Aqui</p>
                                 <input type="hidden" name="signature">
@@ -429,6 +430,7 @@
                                     <li><button type="button" class="clearSign btn btn-danger">Limpiar Firma</button></li>
                                     <li><button type="button" class="submitForm btn btn-danger">Firmar</button></li>
                                 </ul>
+                            </div>
                         </div>
                     </div>
                 </form>

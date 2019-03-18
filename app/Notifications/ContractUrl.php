@@ -41,8 +41,12 @@ class ContractUrl extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('Buen dia!')
-                    ->line('Estimado (a), adjunto esta el link en el cual encontrara su contrato respectivo a PixelPay.')
+                    ->from('contratos@pixel.hn', 'PixelPay')
+                    ->subject('Contrato PixelPay')
+                    ->greeting('Buen dia')
+                    ->line('Estimado (a) '. $notifiable->name_rep)
+                    ->line('Adjunto se encuentra el link de su contrato respectivo a PixelPay.')
+                    ->line( 'Gracias por elegirnos.')
                     ->action('Contrato Privado de Servicios', route('contrato.preview', [
                         'rtn' => $notifiable->rtn
                     ]));

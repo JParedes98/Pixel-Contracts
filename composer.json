@@ -10,6 +10,7 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
+        "lcobucci/jwt": "^3.2",
         "spipu/html2pdf": "^5.2"
     },
     "require-dev": {

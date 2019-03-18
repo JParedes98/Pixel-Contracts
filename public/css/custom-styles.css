@@ -10,8 +10,13 @@
 
 .tablaContrato{
     border: solid 1px;
-    width: 50%;
+    width:50%;
 }
+
+.tablaContrato th{
+    width:200px;
+}
+
 .tablaContrato th{
     padding: 3px;
 }
@@ -158,4 +163,125 @@ span.round-tab:hover {
         position: absolute;
         left: 35%;
     }
+}
+
+.back-deco{
+    position: absolute;
+    width: 50%;
+    height: 90%;
+}
+
+.logo-deco{
+    position: absolute;
+    max-width: 150px;
+    max-height: 110px;
+    margin-left: 20px;
+}
+
+.logo{
+    margin-top:5px;
+    max-width:120px;
+    max-height:80px;
+    padding:10px 10px;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    width: 80%;
+    left: 10%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.social{
+    padding: 10px 10px;
+    color: grey;
+}
+
+.ctm-ico{
+    font-size: 18px;
+}
+
+.btn-custom{
+    display: block;
+    width: 30%;
+    margin: auto;
+}
+
+.btn-pixel{
+    background-color: #312AAD;
+    color: white;
+}
+
+.btn-pixel:hover {
+    color: white;
+    background-color: #4039cc;
+}
+
+.custom-bg{
+    background-color: #554DD5;
+    height: 100%;
+}
+
+.form-ctm{
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.row {
+    display: flex;
+    padding: 20px 35px;
+}
+
+.column {
+    flex: 50%;
+    padding: 15px 15px;
+}
+
+/*.form-ctm input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"] {
+    float: left;
+}*/
+
+.date{
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+}
+
+.date small{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.date p{
+    font-size: 20px;
+}
+
+.ctm-label-comp{
+    background-color: #5EAD6B;
+    color: white;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.ctm-label-pend {
+    background-color: #8348A5;
+    color: white;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.dropdown-item{
+    display: block;
+    padding: 7px 7px;
+    color:rgba(0,0,0,0.6);
+}
+
+.dropdown-item:hover{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.9)
 }

@@ -15,6 +15,7 @@ class Contract extends Model
         'name_rep',
         'social_reason',
         'n_identidad',
+        'm_status',
         'rtn',
         'contact',
         'adress',
@@ -23,8 +24,13 @@ class Contract extends Model
         'date'
     ];
 
+    protected $dates = ['date'];
+
     public function routeNotificationForMail(){
         return $this->email;
     }
 
+    public function hashID(){
+        return base64_encode($this->id);
+    }
 }
