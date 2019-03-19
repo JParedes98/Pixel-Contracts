@@ -75,14 +75,17 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <input type="text" name="date" id="date" class="form-control" value="{{ $contrato->date }}">
+                    <input type="text" name="date" id="date" max="3000-12-31" min="1000-01-01" value="{{ $contrato->date }}" 
+                        class="datepicker-here form-control" data-language="es" data-date-format='mm/dd/yyyy'
+                        data-multiple-dates-separator=", " data-position='top left'>
+
                     @if ($errors->has('date'))
                         <p class="text-danger">{{ $errors->first('date') }}</p>
                     @endif
-                </div>
-                    <button type="submit" class="btn btn-primary btn-block">
-                        EDITAR CONTRATO
-                    </button>
+                </div>   
+                <button type="submit" class="btn btn-primary btn-block">
+                    EDITAR CONTRATO
+                </button>
                 </div>
             </form>
         </div>

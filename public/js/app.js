@@ -770,6 +770,12 @@ if (canvas) {
     signaturePad.maxWidth = 5;
 }
 
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
 $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
 });

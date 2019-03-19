@@ -165,17 +165,35 @@ span.round-tab:hover {
     }
 }
 
+.back-deco-us{
+    display: block;
+	height: 90%;
+	position: relative;
+
+    background-repeat: no-repeat;
+	background-size: 600px 538px;
+    background-attachment: fixed;
+}
+
 .back-deco{
-    position: absolute;
-    width: 50%;
-    height: 90%;
+	display: block;
+	height: 100%;
+
+	position: relative;
+
+	background-repeat: no-repeat;
+	
+	background-size: 600px 538px;
+    background-attachment: fixed;
+    overflow: hidden;
 }
 
 .logo-deco{
     position: absolute;
+    top: 70px;
+    left: 90px;
     max-width: 150px;
     max-height: 110px;
-    margin-left: 20px;
 }
 
 .logo{
@@ -250,15 +268,18 @@ input[type="date"] {
 .date{
     padding: 0;
     margin: 0;
-    line-height: 0;
 }
 
 .date small{
     color: rgba(0, 0, 0, 0.5);
+    margin: 0 !important;
+    line-height: 1em;
 }
 
 .date p{
-    font-size: 20px;
+    font-size: 25px;
+    margin: 0 !important;
+    line-height: 1em;
 }
 
 .ctm-label-comp{

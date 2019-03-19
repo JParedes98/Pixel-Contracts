@@ -19,7 +19,7 @@ Route::get('/contrato/consolidacion/{rtn}', 'ContractController@preview')->name(
 Route::get('contrato/consolidado', 'ContractController@preview');
 Route::get('/contrato/pdf/{rtn}', 'ContractController@pdf')->name('contrato.pdf');
 
-Route::post('/contrato/nuevo/cliente', 'ContractController@createCustomer')->name('nuevo.cliente');
+Route::post('/contrato/nuevo-cliente', 'ContractController@createCustomer')->name('guardar.cliente');
 Route::post('/contrato/actualizar/{id}', 'ContractController@update')->name('contrato.actualizar');
 Route::post('/contratos', 'ContractController@store')->name('contrato.insertar');
 Route::post('/contrato/completado', 'ContractController@setStatusComplete')->name('contrato.consolidacion');

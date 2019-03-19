@@ -14,7 +14,7 @@
                             <th><i class="far fa-share-square ctm-ico"></i> CONTACTO</th>
                             <th><i class="far fa-building"></i> COMERCIO</th>
                             <th><i class="fas fa-file-contract ctm-ico"></i> ESTADO</th>
-                            <th><i class="fas fa-sliders-h ctm-ico"></i> OPCIONES</th>
+                            <th><i class="fas fa-sliders-h ctm-ico"></i> OPCIONES</th>                            
                         </tr>
                     </thead>
                     <tbody>
@@ -48,24 +48,28 @@
                                 <div class="label ctm-label-pend">Pendiente</div>
                                 @endif
                             </td>
+                            
                             <td width="140">
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Acciones <i class="fas fa-angle-down" style="font-size:15px;"></i>
-                                    </button>
+                                    </button>                       
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    @if ($item->status){         
                                         <a class="dropdown-item" href="{{ route('contrato.pdf',['rtn'=> $item->rtn]) }}">Contrato
                                             PDF</a>
                                         @if ($item->status==0)
                                         <a class="dropdown-item" href="{{ route('contrato.preview',['rtn'=> $item->rtn]) }}">Url
                                             de Contrato</a>
                                         @endif
-                                        <a class="dropdown-item" href="{ route('contrato.editar',['rtn'=> $item->id]) }}">Editar
-                                            Contrato</a>
+                                    @endif
+                                        <a class="dropdown-item" href="{{ route('contrato.editar',['rtn'=> $item->id]) }}">Editar
+                                            Contrato
+                                        </a>
                                     </div>
                                 </div>
-                            </td>
+                            </td>                        
                         </tr>
                         @endforeach
                     </tbody>

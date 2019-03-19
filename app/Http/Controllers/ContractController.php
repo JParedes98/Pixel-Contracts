@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Contract;
 use Lcobucci\JWT\Builder;
 use App\Notifications\ContractCopy;
@@ -14,10 +15,7 @@ class ContractController extends Controller
 {
     /**
      * Create a new controller instance.
-     *
      * @return void
-     * 
-     * 
      * Exclude contract preview of auth
      * ->except(['preview'])
      * 
@@ -53,11 +51,15 @@ class ContractController extends Controller
         return redirect('home');
     }
 
-    public function create(){
-        return view('new-contract');
+    public function create($key){
+        if(!$model = Contract::find(base64_decode($key)))
+            return;
+
+        return view('new-contract', ['contract' => $model]);
     }
 
-    public function store(Request $request, $key){
+    public function store(Request $request){
+
         $request->validate([
             'name_rep' => 'required',
             'social_reason' => 'required',
@@ -67,16 +69,28 @@ class ContractController extends Controller
             'contact' => 'required',
             'adress' => 'required',
             'tel' => 'required',
-            'email' => 'required|unique:contracts',
+            'email' => 'required',
             'date' => 'required',
         ]);
+        
+        if(!$contrato = Contract::find($request->input('id')))
+            return 'No funciona';
 
-        $solved = base64_decode($key);
-        $contrato = Contract::find($solved);
-        $contrato->update($request->all());
+        $contrato->name_rep = $request->input('name_rep');
+        $contrato->social_reason = $request->input('social_reason');
+        $contrato->rtn = $request->input('rtn');
+        $contrato->n_identidad = $request->input('n_identidad');
+        $contrato->m_status = $request->input('m_status');
+        $contrato->contact = $request->input('contact');
+        $contrato->adress = $request->input('adress');
+        $contrato->tel = $request->input('tel');
+        $contrato->email = $request->input('email');
+        $contrato->date = new Carbon($request->input('date'));
+
+        $contrato->save();
         $contrato->notify(new ContractUrl());
         return redirect()->route('contrato.preview', ['rtn' => $request->input('rtn')]);
-    }
+}
 
     public function edit($id){
         $contrato = Contract::find($id);
@@ -86,12 +100,10 @@ class ContractController extends Controller
     }
 
     public function update(Request $request, $id){
-        $contract = Contract::find($id);
-
         $request->validate([
             'name_rep' => 'required',
             'social_reason' => 'required',
-            'rtn' => 'sometimes|required|unique:contracts',
+            'rtn' => 'required',
             'n_identidad'=> 'required',
             'm_status'=> 'required',
             'contact' => 'required',
@@ -100,8 +112,23 @@ class ContractController extends Controller
             'email' => 'required',
             'date' => 'required',
         ]);
-        
-        $contract->update($request->all());
+        $contrato = Contract::find($id);
+
+        $contrato->name_rep = $request->input('name_rep');
+        $contrato->social_reason = $request->input('social_reason');
+        $contrato->rtn = $request->input('rtn');
+        $contrato->n_identidad = $request->input('n_identidad');
+        $contrato->m_status = $request->input('m_status');
+        $contrato->contact = $request->input('contact');
+        $contrato->adress = $request->input('adress');
+        $contrato->tel = $request->input('tel');
+        $contrato->email = $request->input('email');
+        $contrato->date = new Carbon($request->input('date'));
+
+        $contrato->save();
+
+
+        // $contract->update($request->all());
         return redirect('home');
     }
 

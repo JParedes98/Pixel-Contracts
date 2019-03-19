@@ -1,11 +1,11 @@
 @extends('layouts.app')
+@section('content')
 <div class="custom-bg">
-    @section('content')
 
     <img class="back-deco" src="{{asset('/img/login-bg.svg')}}" alt="Background image">
     <img class="logo-deco" src="{{asset('/img/powered-by-white.svg')}}" alt="Background image">
 
-    <div class="container">
+    <div class="container vertical-center">
         <div class="col-md-8 col-md-offset-2 form-ctm">
             <div class="card mt-4 text-center">
                 @if ($errors->any())
@@ -14,8 +14,10 @@
                 </div>
                 @endif
 
-            <form action="{{route('contrato.insertar', ['key'=>$contrato->id])}}" method="POST">
+            <form action="{{route('contrato.insertar')}}" method="POST">
                     {{ csrf_field() }}
+                    <input value="{{$contract->id}}" name="id" type="hidden">
+
                     <div class="card-body">
                         <h2>Generador del Contrato</h2>
                         <img src="{{ asset('./img/logo.png') }}" alt="PixelPay" class="logo">                        
@@ -26,7 +28,7 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="name_rep" id="name_rep" class="form-control" placeholder="Nombre de Representante"
-                                        value="{{old('name_rep')}}" autofocus>
+                                        value="{{old('name_rep', $contract->name_rep)}}" autofocus>
                                     @if ($errors->has('name_rep'))
                                     <p class="text-danger">{{ $errors->first('name_rep') }}</p>
                                     @endif
@@ -86,15 +88,16 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="email" id="email" class="form-control" value="{{old('email')}}"
-                                        placeholder="Correo">
-                                    @if ($errors->has('email'))
+                                    <input type="email" name="email" id="email" class="form-control" value="{{old('email', $contract->email)}}"
+                                        placeholder="Correo Electronico">
+                                    @if($errors->has('email'))
                                     <p class="text-danger">{{ $errors->first('email') }}</p>
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <input type="date" name="date" id="date" max="3000-12-31" min="1000-01-01" value="{{old('date')}}"
-                                        class="form-control">
+                                    <input type="text" name="date" id="date" max="3000-12-31" min="1000-01-01" value="{{old('date')}}" 
+                                    class="datepicker-here form-control" data-language="es" data-date-format='mm/dd/yyyy'
+                                    data-multiple-dates-separator=", " data-position='top left'>
 
                                     @if ($errors->has('date'))
                                     <p class="text-danger">{{ $errors->first('date') }}</p>

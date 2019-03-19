@@ -2,10 +2,10 @@
 <div class="custom-bg">
     @section('content')
 
-    <img class="back-deco" src="{{asset('/img/login-bg.svg')}}" alt="Background image">
+    <img class="back-deco-us" src="{{asset('/img/login-bg.svg')}}" alt="Background image">
     <img class="logo-deco" src="{{asset('/img/powered-by-white.svg')}}" alt="Background image">
 
-    <div class="container">
+    <div class="container vertical-center">
         <div class="col-md-8 col-md-offset-2 form-ctm">
             <div class="card mt-4 text-center">
                 @if ($errors->any())
@@ -14,7 +14,9 @@
                 </div>
                 @endif
 
-                <form action="{{route('nuevo.cliente')}}" method="POST">
+                {{-- {{$this->routeName}} --}}
+                
+                <form action="{{route('guardar.cliente')}}" method="POST">
                     {{ csrf_field() }}
                     <div class="card-body">
                         <h2>Enviar Generador</h2>
