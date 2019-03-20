@@ -22,7 +22,7 @@
                         <h2>Enviar Generador</h2>
                         <img src="{{ asset('./img/logo.png') }}" alt="PixelPay" class="logo">
                         <div class="form-group">
-                            <h5>Informacion de Cliente</h5>
+                            <h5>Información de Cliente</h5>
                         </div>
                         <div class="form-group">
                             <input type="text" name="name_rep" id="name_rep" class="form-control" placeholder="Nombre de Representante"
@@ -39,7 +39,7 @@
                             @endif
                         </div>
                         <i class="fas fa-exclamation-circle"></i><label class="text-muted">Favor Rellenar Ambos
-                            campos</label>
+                            Campos</label>
                         <hr>
                         <button type="submit" class="btn btn-pixel btn-block" style="width:80%; margin:auto; margin-bottom:50px;">
                             ENVIAR

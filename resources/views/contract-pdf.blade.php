@@ -71,17 +71,17 @@ p{
         <h3 class="title1">CONTRATO PRIVADO DE SERVICIOS</h3>
         <br>
         <p class="">
-            Nosotros: Por una parte,    Daniel Alberto Bernhard Lutz, mayor de edad, soltero, licenciado en finanzas,
+            Nosotros: Por una parte, Daniel Alberto Bernhard Lutz, mayor de edad, soltero, licenciado en finanzas,
             hondureño y
             de éste domicilio, con número de cédula de identidad 0501-2006-15856, en su condición de Representante
             Legal de la Sociedad
             PIXEL S.A.; la que de aquí en adelante y para los efectos de este contrato se denominará como EL PROVEEDOR,
             y por otra parte,
-            <strong>"{{$contrato->name_rep}}"</strong> , mayor de edad, ESTADO CIVIL, con domicilio en la ciudad de San
+            <strong>"{{$contrato->name_rep}}"</strong>, mayor de edad, ESTADO CIVIL, con domicilio en la ciudad de San
             Pedro Sula, departamento de
             Cortés, con número de cédula de Identidad <strong>"{{$contrato->n_identidad}}"</strong>., quién comparece
             en su condición de Representante Legal de la
-            sociedad <strong>"{{$contrato->social_reason}}"</strong>. , con RTN <strong>"{{$contrato->rtn}}"</strong>
+            sociedad <strong>"{{$contrato->social_reason}}"</strong>, con RTN <strong>"{{$contrato->rtn}}"</strong>
             quien en adelante y para efectos del presente
             contrato se conocerá como COMERCIO AFILIADO manifiestan que han convenido en celebrar como al efecto lo
             hacen, un CONTRATO
@@ -113,7 +113,7 @@ p{
                 <strong>CLIENTE:</strong> usuario final realizando un pago al COMERCIO AFILIADO
             </li>
             <li>
-                <strong>HISTORIAL DE PAGOS: </strong> bitácora del COMERCIO AFILIADO detallando el estatus de cada
+                <strong>HISTORIAL DE PAGOS:</strong> bitácora del COMERCIO AFILIADO detallando el estatus de cada
                 cobro.
             </li>
         </ul>
@@ -133,7 +133,7 @@ p{
             propietarios exclusivo de
             la plataforma de pagos conocida como PIXELPAY, a través de esta, se dedica a proveer un servicio que les
             permite a los usuarios
-            de la Aplicación, cobrar a sus clientes en línea por medio de envió de correo electrónico, mensajes de
+            de la Aplicación, cobrar a sus clientes en línea por medio de envío de correo electrónico, mensajes de
             texto, o a través de
             su tienda virtual, para que el cliente ingrese la información de su tarjeta de crédito o débito para que el
             pago sea procesado.
@@ -143,7 +143,7 @@ p{
         </p>
         <br>
         <p class="">
-            <strong>TERCERA: OBLIGACIONES PIXEL S.A.: </strong> El Proveedor se compromete a prestar los Servicios de
+            <strong>TERCERA: OBLIGACIONES PIXEL S.A.:</strong> El Proveedor se compromete a prestar los Servicios de
             conformidad
             con las siguientes obligaciones y condiciones:
         </p>
@@ -184,7 +184,7 @@ p{
             otras las siguientes obligaciones y condiciones:
 
             <ul class="">
-                <li><strong>PLATAFORMA DE ADMINISTRACION: EL COMERCIO AFILIADO</strong> tiene acceso a la plataforma de
+                <li><strong>PLATAFORMA DE ADMINISTRACIÓN: EL COMERCIO AFILIADO</strong> tiene acceso a la plataforma de
                     administración (Backoffice)
                     para ver reporteria, crear usuarios, delegar permisos de sus usuarios, entre otros.
                 </li>
@@ -211,19 +211,19 @@ p{
             <tbody>
                 <tr>
                     <th scope="row">Contacto</th>
-                    <td>{{$contrato->contact}}</td>
+                    <td>Daniel Alberto Bernhard Lutz</td>
                 </tr>
                 <tr>
                     <th scope="row">Direccion</th>
                     <td>Edificio Tecnocomp, Ave. Circunvalación 5 y 6 Calle “A” N.O.</td>
                 </tr>
                 <tr>
-                    <th scope="row">Telefono</th>
-                    <td>(504) 9459-7372</td>
+                    <th scope="row">Teléfono</th>
+                    <td>(504) 2504-3200</td>
                 </tr>
                 <tr>
                     <th scope="row">Correo</th>
-                    <td>daniel@pixel.hn</td>
+                    <td>info@pixel.hn</td>
                 </tr>
             </tbody>
         </table>
@@ -240,7 +240,7 @@ p{
                     <td>{{$contrato->adress}}</td>
                 </tr>
                 <tr>
-                    <th scope="row">Telefono</th>
+                    <th scope="row">Teléfono</th>
                     <td>{{$contrato->tel}}</td>
                 </tr>
                 <tr>
@@ -272,7 +272,7 @@ p{
             de los siete
             (7) días calendarios de presentada la factura. En caso de incumplimiento de PAGO por parte del comercio a
             partir del Octavo
-            (8) dia de presentada la factura, correrá con un interés por mora del 3% mensual sobre el monto adeudado.
+            (8) día de presentada la factura, correrá con un interés por mora del 3% mensual sobre el monto adeudado.
             En el evento de una falta de pago por parte del comercio por mas de treinta (30) días de presentada la
             factura, EL
             PROVEEDOR se reserva el derecho de suspender el servicio. Una vez sanada la deuda, habrá un cargo de
@@ -290,14 +290,14 @@ p{
         </p>
         <br>
         <p class="">
-            <strong>SEPTIMO: TERMINACION ANTICIPADA DEL CONTRATO: </strong>No obstante el plazo indicado en la cláusula
+            <strong>SEPTIMO: TERMINACIÓN ANTICIPADA DEL CONTRATO: </strong>No obstante el plazo indicado en la cláusula
             anterior,
             ambas partes tendrán el derecho de dar por terminado anticipadamente el plazo del presente contrato en los
             siguientes
             casos y condiciones:
             <ol class="">
                 <li>
-                    Por mutuo acuerdo entre las partes, debidamente acordado con por lo menos treinta dias de
+                    Por mutuo acuerdo entre las partes, debidamente acordado con por lo menos treinta días de
                     antelación a la
                     efectiva cesación del servicio.
                 </li>
@@ -316,7 +316,7 @@ p{
         </p>
         <br>
         <p class="">
-            <strong>OCTAVO: LIBERACION DE RESPONSABILIDAD: </strong>Manifiesta el Comercio Afiliado, que el Proveedor
+            <strong>OCTAVO: LIBERACIÓN DE RESPONSABILIDAD: </strong>Manifiesta el Comercio Afiliado, que el Proveedor
             no será
             legalmente responsable por transacciones mediante la plataforma de pago PIXELPAY, que se hayan efectuado
             con tarjetas
@@ -332,7 +332,7 @@ p{
         </p>
         <br>
         <p class="">
-            <strong>DECIMO: CARÁCTER DE INDEPENDIENTE.</strong> Las partes convienen y dejan expresa constancia que el
+            <strong>DÉCIMO: CARÁCTER DE INDEPENDIENTE.</strong> Las partes convienen y dejan expresa constancia que el
             Contrato no
             generó, genera ni generará nexo laboral entre EL PROVEEDOR y EL COMERCIO AFILIADO, ni entre EL PROVEEDOR y
             los empleados
@@ -358,7 +358,7 @@ p{
         </p>
         <br>
         <p class="">
-            <strong>DECIMO PRIMERO: CESIÓN DEL CONTRATO. </strong>Ambas partes acuerdan que las razones principales que
+            <strong>DÉCIMO PRIMERO: CESIÓN DEL CONTRATO. </strong>Ambas partes acuerdan que las razones principales que
             les mueven a
             celebrar este contrato son la capacidad comercial y entereza de las partes, y éstas se caracterizan por ser
             estrictamente
@@ -370,7 +370,7 @@ p{
         </p>
         <br>
         <p class="">
-            <strong>DECIMO SEGUNDO: USO DE INFORMACION:</strong> El Proveedor establece que ha desarrollado la
+            <strong>DÉCIMO SEGUNDO: USO DE INFORMACIÓN:</strong> El Proveedor establece que ha desarrollado la
             plataforma tecnológica PIXELPAY, la
             cual designa de su propiedad intelectual y a la cual brinda acceso como servicio al COMERCIO AFILIADO; el
             cual no podrá
@@ -380,7 +380,7 @@ p{
         </p>
         <br>
         <p class="">
-            <strong>DECIMO TERCERO: PROPIEDAD INTELECTUAL Y/O PROPIEDAD INDUSTRIAL: EL COMERCIO AFILIADO</strong>
+            <strong>DÉCIMO TERCERO: PROPIEDAD INTELECTUAL Y/O PROPIEDAD INDUSTRIAL: EL COMERCIO AFILIADO</strong>
             reconoce que todo derecho a la
             propiedad intelectual del uso de los productos, la metodología de comercialización de los productos y
             cualquier otra
@@ -400,7 +400,7 @@ p{
         </p>
         <br>
         <p class="">
-            <strong>DECIMO CUARTO: CONFIDENCIALIDAD: </strong>Además de las obligaciones que emanan de la naturaleza de
+            <strong>DÉCIMO CUARTO: CONFIDENCIALIDAD: </strong>Además de las obligaciones que emanan de la naturaleza de
             este contrato ambas partes
             estarán obligadas a:
             <ol class="">
@@ -427,7 +427,7 @@ p{
                     en contravención a lo dispuesto en este Contrato, salvo que sea expresamente autorizado.
                 </li>
                 <li>
-                    e.  Información Confidencial será extendida como: todo tipo de información que las partes
+                    e. Información Confidencial será extendida como: todo tipo de información que las partes
                     transmiten o
                     generan con motivo de la relación comercial entre las partes y este contrato; ya sea que se
                     presente en forma
@@ -444,7 +444,7 @@ p{
                     o cartera de clientes a la que pudiesen acceder con motivo de este contrato.
                 </li>
                 <li>
-                    f.  Cada una de las partes reconoce y acepta que la Información Confidencial que hay recibido por
+                    f. Cada una de las partes reconoce y acepta que la Información Confidencial que hay recibido por
                     cualquier
                     medio o forma y en cualquier momento, así como aquella que en lo futuro reciba conforme al presente
                     contrato,
@@ -467,7 +467,7 @@ p{
                     contrato.
                 </li>
                 <li>
-                    i.  Cualquier violación a la confidencialidad por parte del Comercio Afiliado o de su personal lo
+                    i. Cualquier violación a la confidencialidad por parte del Comercio Afiliado o de su personal lo
                     hará responsable
                     de las indemnizaciones pertinentes por los perjuicios causados, cuya cantidad se valora en la suma
                     de cincuenta
@@ -483,7 +483,7 @@ p{
         </p>
         <br>
         <p class="text-justify">
-            <strong>DECIMO QUINTO: SOLUCIÓN DE CONTROVERSIAS.</strong> Las partes acuerdan que para toda controversia
+            <strong>DÉCIMO QUINTO: SOLUCIÓN DE CONTROVERSIAS.</strong> Las partes acuerdan que para toda controversia
             relacionada o derivada de este
             Contrato, será sometida a la decisión de un Tribunal Arbitral, bajo las reglas y disposiciones del
             Reglamento del Centro de
@@ -510,13 +510,13 @@ p{
         </p>
         <br>
         <p>
-            <strong>DECIMO SEXTO: LEGISLACIÓN APLICABLE:</strong> Para la aplicación e interpretación de este contrato
+            <strong>DÉCIMO SEXTO: LEGISLACIÓN APLICABLE:</strong> Para la aplicación e interpretación de este contrato
             se utilizarán
             las fuentes de derecho de la República de Honduras.
         </p>
         <br>
         <p>
-            <strong>DECIMO SEPTIMO:</strong> CONSENTIMIENTO EXPRESO Y FIRMA: Manifiestan las partes que la redacción de
+            <strong>DÉCIMO SEPTIMO:</strong> CONSENTIMIENTO EXPRESO Y FIRMA: Manifiestan las partes que la redacción de
             este contrato representa
             su voluntad completa y que deroga cualquier entendimiento previo, contractual o no, entre las partes sobre
             las materias

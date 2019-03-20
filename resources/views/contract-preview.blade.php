@@ -279,7 +279,7 @@
                             <h3>CLAUSULAS</h3>
                             
                             <p class="text-justify">
-                                    <strong>DECIMO: CARÁCTER DE INDEPENDIENTE.</strong> Las partes convienen y dejan expresa constancia que el Contrato no 
+                                    <strong>DÉCIMO: CARÁCTER DE INDEPENDIENTE.</strong> Las partes convienen y dejan expresa constancia que el Contrato no 
                                     generó, genera ni generará nexo laboral entre EL PROVEEDOR y EL COMERCIO AFILIADO, ni entre EL PROVEEDOR y los empleados 
                                     y/o personas que contrate EL COMERCIO AFILIADO para la ejecución del presente contrato. Sus relaciones se regirán solamente 
                                     por las normas civiles y mercantiles correspondientes. EL COMERCIO AFILIADO asumirá por su cuenta cualquier reclamo 
@@ -294,7 +294,7 @@
                               </p>
                               <br>
                               <p class="text-justify">
-                                  <strong>DECIMO PRIMERO: CESIÓN DEL CONTRATO. </strong>Ambas partes acuerdan que las razones principales que les mueven a 
+                                  <strong>DÉCIMO PRIMERO: CESIÓN DEL CONTRATO. </strong>Ambas partes acuerdan que las razones principales que les mueven a 
                                   celebrar este contrato son la capacidad comercial y entereza de las partes, y éstas se caracterizan por ser estrictamente 
                                   personales. Por tal razón, EL COMERCIO AFILIADO, no podrá, por cualquier medio directo o indirecto, vender, donar, permutar 
                                   o ceder en cualquier forma sus residuos a terceros. Si EL COMERCIO AFILIADO así lo hiciere, sin tener el consentimiento 
@@ -302,14 +302,14 @@
                               </p>
                               <br>
                               <p class="text-justify">
-                                    <strong>DECIMO SEGUNDO: USO DE INFORMACION:</strong>  El Proveedor establece que ha desarrollado la plataforma tecnológica PIXELPAY, la 
+                                    <strong>DÉCIMO SEGUNDO: USO DE INFORMACION:</strong>  El Proveedor establece que ha desarrollado la plataforma tecnológica PIXELPAY, la 
                                     cual designa de su propiedad intelectual  y a la cual brinda acceso como servicio al COMERCIO AFILIADO; el cual no podrá 
                                     cambiar, subarrendar o duplicar dicha plataforma y software. EL COMERCIO AFILIADO, tendrá acceso a dicha información 
                                     siempre y cuando este contrato se encuentre vigente, la información no podrá ser compartida con terceros. 
                               </p>
                               <br>
                               <p class="text-justify">
-                                    <strong>DECIMO TERCERO: PROPIEDAD INTELECTUAL  Y/O PROPIEDAD INDUSTRIAL: EL COMERCIO AFILIADO</strong> reconoce que todo derecho a la 
+                                    <strong>DÉCIMO TERCERO: PROPIEDAD INTELECTUAL  Y/O PROPIEDAD INDUSTRIAL: EL COMERCIO AFILIADO</strong> reconoce que todo derecho a la 
                                     propiedad intelectual del uso de los productos, la metodología de comercialización de los productos y cualquier otra 
                                     explotación comercial que se pueda hacer a través del producto y que le sea revelada, debe ser propiedad única y 
                                     exclusivamente de <strong>PIXEL S.A.</strong> Ningún derecho o licencia de dicho derecho a la propiedad intelectual le es transmitido 
@@ -321,7 +321,7 @@
                               </p>
                               <br>
                               <p class="text-justify">
-                                  <strong>DECIMO CUARTO: CONFIDENCIALIDAD: </strong>Además de las obligaciones que emanan de la naturaleza de este contrato ambas partes
+                                  <strong>DÉCIMO CUARTO: CONFIDENCIALIDAD: </strong>Además de las obligaciones que emanan de la naturaleza de este contrato ambas partes
                                    estarán obligadas a:
                                    <ol class="text-justify">
                                        <li>
@@ -342,7 +342,7 @@
                                             en contravención a lo dispuesto en este Contrato, salvo que sea expresamente autorizado.
                                        </li>
                                        <li>
-                                            e.  Información Confidencial será extendida como: todo tipo de información que las partes transmiten o 
+                                            e. Información Confidencial será extendida como: todo tipo de información que las partes transmiten o 
                                             generan con motivo de la relación comercial entre las partes y este contrato; ya sea que se presente en forma 
                                             escrita, verbal, visual o por cualquier otro medio y sin importar el soporte material en el cual se contenga e 
                                             incluyendo pero no limitado a información técnica (en forma enunciativa mas no limitativa, lo siguiente: 
@@ -352,7 +352,7 @@
                                             o cartera de clientes a la que pudiesen acceder con motivo de este contrato. 
                                        </li>
                                        <li>
-                                            f.  Cada una de las partes reconoce y acepta que la Información Confidencial que hay recibido por cualquier
+                                            f. Cada una de las partes reconoce y acepta que la Información Confidencial que hay recibido por cualquier
                                              medio o forma y en cualquier momento, así como aquella que en lo futuro reciba conforme al presente contrato, 
                                              es y continuara siendo propiedad exclusiva de la parte propietaria.
                                        </li>
@@ -368,7 +368,7 @@
                                             contrato.
                                        </li>
                                        <li>
-                                            i.  Cualquier violación a la confidencialidad por parte del Comercio Afiliado o de su personal lo hará responsable
+                                            i. Cualquier violación a la confidencialidad por parte del Comercio Afiliado o de su personal lo hará responsable
                                              de las indemnizaciones pertinentes por los perjuicios causados, cuya cantidad se valora en la suma de cincuenta
                                               mil Dólares Americanos ($50,000.00). Manifiesta EL PROVEEDOR, que el COMERCIO AFILIADO, no será legalmente 
                                               responsable por violaciones de confidencialidades de terceros o extraños, como “Hackers” o similares, u obtenidas
@@ -382,7 +382,7 @@
                         <div class="tab-pane" role="tabpanel" id="step5">
                             <h3>CLAUSULAS</h3>
                             <p class="text-justify">
-                                    <strong>DECIMO QUINTO: SOLUCIÓN DE CONTROVERSIAS.</strong>  Las partes acuerdan que para toda controversia relacionada o derivada de este 
+                                    <strong>DÉCIMO QUINTO: SOLUCIÓN DE CONTROVERSIAS.</strong>  Las partes acuerdan que para toda controversia relacionada o derivada de este 
                                     Contrato, será sometida a la decisión de un Tribunal Arbitral, bajo las reglas y disposiciones del Reglamento del Centro de 
                                     Conciliación y Arbitraje de la Cámara de Comercio e Industrias de Cortés, por lo que expresa y voluntariamente renuncian a 
                                     la jurisdicción de los Tribunales de Justicia de la República que les compete, y se someten a la del Centro de Conciliación 
@@ -402,12 +402,12 @@
                               </p>
                               <br>
                               <p class="text-justify">
-                                    <strong>DECIMO SEXTO: LEGISLACIÓN APLICABLE:</strong> Para la aplicación e interpretación de este contrato se utilizarán 
+                                    <strong>DÉCIMO SEXTO: LEGISLACIÓN APLICABLE:</strong> Para la aplicación e interpretación de este contrato se utilizarán 
                                     las fuentes de derecho de la República de Honduras.
                               </p>
                               <br>
                               <p class="text-justify">
-                                    <strong>DECIMO SEPTIMO:</strong> CONSENTIMIENTO EXPRESO Y FIRMA:   Manifiestan las partes que la redacción de este contrato representa
+                                    <strong>DÉCIMO SEPTIMO:</strong> CONSENTIMIENTO EXPRESO Y FIRMA:   Manifiestan las partes que la redacción de este contrato representa
                                     su voluntad completa y que deroga cualquier entendimiento previo, contractual o no, entre las partes sobre las materias 
                                     aquí acordadas y que las cláusulas y contenido contractual les representa un beneficio mutuo, y que conocen y asumen las 
                                     consecuencias de toda responsabilidad que las obligaciones de este contrato le generan, por lo que se comprometen a su 
@@ -419,7 +419,7 @@
                         </div>
                         <div class="tab-pane" role="tabpanel" id="complete">
                             <div class="container">
-                                <h4 class="text-center">CONSOLIDACION DE CONTRATO</h4>
+                                <h4 class="text-center">CONSOLIDACIÓN DE CONTRATO</h4>
                                 <h6 class="text-center">FIRMA </h6>
                                 <canvas width="800" height="500"></canvas>
                                 <p class="signature-border">Firmar Aqui</p>

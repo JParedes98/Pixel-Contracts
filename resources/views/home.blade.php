@@ -21,9 +21,15 @@
                         @foreach ($contract as $item)
                         <tr>
                             <td class="date">
-                                <small class="text-muted">{{ $item->date->format('M') }}</small>
-                                <p>{{ $item->date->format('d') }}</p>
-                                <small class="text-muted">{{ $item->date->format('Y') }}</small>
+                                @if (!$item->date==NULL)
+                                    <small class="text-muted">{{ $item->date->format('M') }}</small>
+                                    <p>{{ $item->date->format('d') }}</p>
+                                    <small class="text-muted">{{ $item->date->format('Y') }}</small>
+                                @else
+                                    <small class="text-muted">Mes</small>
+                                    <p>Día</p>
+                                    <small class="text-muted">Año</small>
+                                @endif
                             </td>
                             <td scope="row">
                                 {{ $item->name_rep }}
@@ -56,7 +62,7 @@
                                         Acciones <i class="fas fa-angle-down" style="font-size:15px;"></i>
                                     </button>                       
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                    @if ($item->status){         
+                                    @if ($item->status)         
                                         <a class="dropdown-item" href="{{ route('contrato.pdf',['rtn'=> $item->rtn]) }}">Contrato
                                             PDF</a>
                                         @if ($item->status==0)

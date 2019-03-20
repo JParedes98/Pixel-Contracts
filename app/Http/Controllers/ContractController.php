@@ -45,7 +45,7 @@ class ContractController extends Controller
         $invite = Contract::create([
             'name_rep' => $request->get('name_rep'),
             'email' => $request->get('email'),
-            'date' => '2019-12-17 00:00:00'
+            'date' => NULL
         ]);
         $invite->notify(new GenerateContract());
         return redirect('home');
@@ -63,7 +63,7 @@ class ContractController extends Controller
         $request->validate([
             'name_rep' => 'required',
             'social_reason' => 'required',
-            'rtn' => 'required|unique:contracts',
+            'rtn' => 'required',
             'n_identidad'=> 'required',
             'm_status'=> 'required',
             'contact' => 'required',
@@ -105,7 +105,6 @@ class ContractController extends Controller
             'social_reason' => 'required',
             'rtn' => 'required',
             'n_identidad'=> 'required',
-            'm_status'=> 'required',
             'contact' => 'required',
             'adress' => 'required',
             'tel' => 'required',
@@ -113,6 +112,7 @@ class ContractController extends Controller
             'date' => 'required',
         ]);
         $contrato = Contract::find($id);
+        
 
         $contrato->name_rep = $request->input('name_rep');
         $contrato->social_reason = $request->input('social_reason');

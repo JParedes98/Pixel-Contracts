@@ -8,19 +8,18 @@
     <div class="container vertical-center">
         <div class="col-md-8 col-md-offset-2 form-ctm">
             <div class="card mt-4 text-center">
-                @if ($errors->any())
-                <div class="alert alert-danger">
-                    <h5>Error, hay un campo incorrecto.</h5>
-                </div>
-                @endif
-
-            <form action="{{route('contrato.insertar')}}" method="POST">
-                    {{ csrf_field() }}
+            <form action="{{route('contrato.insertar')}}" method="POST">                
+                {{ csrf_field() }}
                     <input value="{{$contract->id}}" name="id" type="hidden">
 
                     <div class="card-body">
                         <h2>Generador del Contrato</h2>
                         <img src="{{ asset('./img/logo.png') }}" alt="PixelPay" class="logo">                        
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <h5>Error, hay un campo incorrecto.</h5>
+                            </div>
+                        @endif
                         <div class="row">
                             <div class="column">
                                 <div class="form-group">
@@ -107,10 +106,11 @@
                         </div>
                         <i class="fas fa-exclamation-circle"></i><label class="text-muted">Favor Rellenar todos los
                             campos</label>
-                        <hr>
+                        
                         <button type="submit" class="btn btn-pixel btn-block">
                             GENERAR CONTRATO
                         </button>
+                        <hr>
                     </div>
                 </form>
             </div>

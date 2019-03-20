@@ -1,12 +1,10 @@
 @extends('layouts.app');
-
 @section('content')
-
     <div class="container vertical-center">
         <div class="alert alert-success text-center" role="alert">
             <h4 class="alert-heading h2">Felicidades!</h4>
             <br>
-            <p class="h4">Bienvenido a la nueva era y enorme red de crecimiento comercial, el contrato se ha firmado y completato de forma exitosa.</p>
+            <p class="h4">Bienvenido a la nueva era y enorme red de crecimiento comercial, el contrato se ha firmado y completado de forma exitosa.</p>
             <br>
             <p class="mb-0 h5">Crece Exponencialmente y utiliza PixelPay como tu herramienta de Cobros</p>
             <hr class="my-4">
@@ -19,5 +17,4 @@
             <a target="_blank" href="https://pixelpay.tumblr.com"><i class="fab fa-tumblr social"></i></i></a>
         </div>
     </div>
-
 @endsection

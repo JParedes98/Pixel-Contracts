@@ -1,5 +1,4 @@
 @extends('layouts.app');
-
 @section('content')
     <div class="container vertical-center">
         <div class="alert alert-warning text-center" role="alert">
