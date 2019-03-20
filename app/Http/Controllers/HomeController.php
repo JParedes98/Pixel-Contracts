@@ -23,7 +23,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $contract = Contract::all();
+        $contract = Contract::all()->sortByDesc('created_at');
         return view('home', compact('contract'));
     }
 
