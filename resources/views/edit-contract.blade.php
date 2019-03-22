@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('navbar')
+    @include('layouts.navbar')
+@endsection
+
 @section('content')
 <div class="container">
     <div class="col-md-8 col-md-offset-2">
@@ -26,65 +30,65 @@
                         <h5>Informacion General</h5>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="name_rep" id="name_rep" class="form-control" value="{{ old('name_rep', $contrato->name_rep)}}"
+                        <input type="text" name="legal_representative_name" id="legal_representative_name" class="form-control" value="{{ old('legal_representative_name', $contrato->legal_representative_name)}}"
                             autofocus>
-                        @if ($errors->has('name_rep'))
-                        <p class="text-danger">{{ $errors->first('name_rep') }}</p>
+                        @if ($errors->has('legal_representative_name'))
+                        <p class="text-danger">{{ $errors->first('legal_representative_name') }}</p>
                         @endif
                     </div>
                     <div class="form-group">
-                        <input type="tetxt" name="social_reason" id="social_reason" class="form-control" value="{{ $contrato->social_reason }}">
-                        @if ($errors->has('social_reason'))
-                        <p class="text-danger">{{ $errors->first('social_reason') }}</p>
+                        <input type="tetxt" name="company_social_reason" id="company_social_reason" class="form-control" value="{{ $contrato->company_social_reason }}">
+                        @if ($errors->has('company_social_reason'))
+                        <p class="text-danger">{{ $errors->first('company_social_reason') }}</p>
                         @endif
                     </div>
                     <div class="form-group">
-                        <input type="text" name="rtn" id="rtn" class="form-control" value="{{ old('rtn', $contrato->rtn) }}">
-                        @if ($errors->has('rtn'))
-                        <p class="text-danger">{{ $errors->first('rtn') }}</p>
+                        <input type="text" name="legal_representative_rtn" id="legal_representative_rtn" class="form-control" value="{{ old('legal_representative_rtn', $contrato->legal_representative_rtn) }}">
+                        @if ($errors->has('legal_representative_rtn'))
+                        <p class="text-danger">{{ $errors->first('legal_representative_rtn') }}</p>
                         @endif
                     </div>
                     <div class="form-group">
-                        <input type="text" name="n_identidad" id="n_identidad" class="form-control" value="{{ $contrato->n_identidad }}">
-                        @if ($errors->has('n_identidad'))
-                        <p class="text-danger">{{ $errors->first('n_identidad') }}</p>
+                        <input type="text" name="legal_representative_id_number" id="legal_representative_id_number" class="form-control" value="{{ $contrato->legal_representative_id_number }}">
+                        @if ($errors->has('legal_representative_id_number'))
+                        <p class="text-danger">{{ $errors->first('legal_representative_id_number') }}</p>
                         @endif
                     </div>
                     <div class="form-group">
                         <h5>Informacion de Comercio Afiliado</h5>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="contact" id="contact" class="form-control" value="{{ $contrato->contact }}">
-                        @if ($errors->has('contact'))
-                        <p class="text-danger">{{ $errors->first('contact') }}</p>
+                        <input type="text" name="contact_name" id="contact_name" class="form-control" value="{{ $contrato->contact_name }}">
+                        @if ($errors->has('contact_name'))
+                        <p class="text-danger">{{ $errors->first('contact_name') }}</p>
                         @endif
                     </div>
                     <div class="form-group">
-                        <input type="text" name="adress" id="adress" class="form-control" value="{{ $contrato->adress }}">
-                        @if ($errors->has('adress'))
-                        <p class="text-danger">{{ $errors->first('adress') }}</p>
+                        <input type="text" name="company_adress" id="company_adress" class="form-control" value="{{ $contrato->company_adress }}">
+                        @if ($errors->has('company_adress'))
+                        <p class="text-danger">{{ $errors->first('company_adress') }}</p>
                         @endif
                     </div>
                     <div class="form-group">
-                        <input type="tel" name="tel" id="tel" class="form-control" value="{{ $contrato->tel }}">
-                        @if ($errors->has('tel'))
-                        <p class="text-danger">{{ $errors->first('tel') }}</p>
+                        <input type="tel" name="company_tel" id="company_tel" class="form-control" value="{{ $contrato->company_tel }}">
+                        @if ($errors->has('company_tel'))
+                        <p class="text-danger">{{ $errors->first('company_tel') }}</p>
                         @endif
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" id="email" class="form-control" value="{{old('email', $contrato->email
+                        <input type="email" name="company_email" id="company_email" class="form-control" value="{{old('company_email', $contrato->company_email
                     ) }}">
                         @if ($errors->has('email'))
                         <p class="text-danger">{{ $errors->first('email') }}</p>
                         @endif
                     </div>
                     <div class="form-group">
-                        <input type="text" name="date" id="date" max="3000-12-31" min="1000-01-01" value="{{ $contrato->date }}"
+                        <input type="text" name="contract_date" id="contract_date" max="3000-12-31" min="1000-01-01" value="{{ $contrato->contract_date }}"
                             class="datepicker-here form-control" data-language="es" data-date-format='mm/dd/yyyy'
                             data-multiple-dates-separator=", " data-position='top left'>
 
-                        @if ($errors->has('date'))
-                        <p class="text-danger">{{ $errors->first('date') }}</p>
+                        @if ($errors->has('contract_date'))
+                        <p class="text-danger">{{ $errors->first('contract_date') }}</p>
                         @endif
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">

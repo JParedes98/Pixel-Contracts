@@ -77,11 +77,11 @@ p{
             Legal de la Sociedad
             PIXEL S.A. C.V.; la que de aquí en adelante y para los efectos de este contrato se denominará como EL PROVEEDOR,
             y por otra parte,
-            <strong>"{{$contrato->name_rep}}"</strong>, mayor de edad, ESTADO CIVIL, con domicilio en la ciudad de San
+            <strong>"{{$contrato->legal_representative_name}}"</strong>, mayor de edad, {{$contrato->legal_representative_marital_status}}, con domicilio en la ciudad de San
             Pedro Sula, departamento de
-            Cortés, con número de cédula de Identidad <strong>"{{$contrato->n_identidad}}"</strong>., quién comparece
+            Cortés, con número de cédula de Identidad <strong>"{{$contrato->legal_representative_id_number}}"</strong>., quién comparece
             en su condición de Representante Legal de la
-            sociedad <strong>"{{$contrato->social_reason}}"</strong>, con RTN <strong>"{{$contrato->rtn}}"</strong>
+            sociedad <strong>"{{$contrato->legal_representative_social_reason}}"</strong>, con RTN <strong>"{{$contrato->legal_representative_rtn}}"</strong>
             quien en adelante y para efectos del presente
             contrato se conocerá como COMERCIO AFILIADO manifiestan que han convenido en celebrar como al efecto lo
             hacen, un CONTRATO
@@ -233,19 +233,19 @@ p{
             <tbody>
                 <tr>
                     <th scope="row">Contacto</th>
-                    <td>{{$contrato->contact}}</td>
+                    <td>{{$contrato->contact_name}}</td>
                 </tr>
                 <tr>
                     <th scope="row">Direccion</th>
-                    <td>{{$contrato->adress}}</td>
+                    <td>{{$contrato->company_adress}}</td>
                 </tr>
                 <tr>
                     <th scope="row">Teléfono</th>
-                    <td>{{$contrato->tel}}</td>
+                    <td>{{$contrato->company_tel}}</td>
                 </tr>
                 <tr>
                     <th scope="row">Correo</th>
-                    <td>{{$contrato->email}}</td>
+                    <td>{{$contrato->company_email}}</td>
                 </tr>
             </tbody>
         </table>
@@ -526,7 +526,7 @@ p{
             comprometen a su
             estricto cumplimiento. En fe de lo cual, firman el presente contrato en duplicado, en la ciudad de San
             Pedro Sula a los
-            ({{$contrato->date->format('d')}}) días del mes de {{$contrato->date->format('F')}} del año {{$contrato->date->format('Y')}}.
+            ({{$contrato->contract_date->format('d')}}) días del mes de {{$contrato->contract_date->format('F')}} del año {{$contrato->contract_date->format('Y')}}.
         </p>
         <br>
 

@@ -1,4 +1,9 @@
 @extends('layouts.app')
+
+@section('navbar')
+    @include('layouts.navbar')
+@endsection
+
 @section('content')
     <div class="custom-bg">
 
@@ -25,21 +30,20 @@
                             <h5>Información de Cliente</h5>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="name_rep" id="name_rep" class="form-control" placeholder="Nombre de Representante"
-                                value="{{old('name_rep')}}" style="width:80%; margin:auto;" autofocus>
-                            @if ($errors->has('name_rep'))
-                            <p class="text-danger">{{ $errors->first('name_rep') }}</p>
+                            <input type="text" name="legal_representative_name" id="legal_representative_name" class="form-control" placeholder="Nombre de Representante"
+                                value="{{old('legal_representative_name')}}" style="width:80%; margin:auto;" autofocus>
+                            @if ($errors->has('legal_representative_name'))
+                            <p class="text-danger">{{ $errors->first('legal_representative_name') }}</p>
                             @endif
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" id="email" class="form-control" value="{{old('email')}}"
+                            <input type="email" name="company_email" id="company_email" class="form-control" value="{{old('company_email')}}"
                                 placeholder="Correo" style="width:80%; margin:auto;">
-                            @if ($errors->has('email'))
-                            <p class="text-danger">{{ $errors->first('email') }}</p>
+                            @if ($errors->has('company_email'))
+                                <p class="text-danger">{{ $errors->first('company_email') }}</p>
                             @endif
                         </div>
-                        <i class="fas fa-exclamation-circle"></i><label class="text-muted">Favor Rellenar Ambos
-                            Campos</label>
+                        <i class="fas fa-exclamation-circle"></i><label class="text-muted">Favor Rellenar Ambos Campos</label>
                         <hr>
                         <button type="submit" class="btn btn-pixel btn-block" style="width:80%; margin:auto; margin-bottom:50px;">
                             ENVIAR

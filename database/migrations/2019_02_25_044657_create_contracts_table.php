@@ -16,19 +16,18 @@ class CreateContractsTable extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->string('name_rep', 60)->nullable();
-            $table->string('social_reason', 60)->nullable();
-            $table->string('rtn',24)->unique()->nullable();
-            $table->string('n_identidad',24)->nullable ();
-            $table->string('m_status',24)->nullable ();
-            $table->string('contact', 30)->nullable();
-            $table->string('adress', 80)->nullable();
-            $table->string('tel', 20)->nullable();
-            $table->string('email', 40);
-            $table->date('date', 30)->nullable();
-            $table->boolean('status')->default(false);
-            $table->text('signature')->nullable();
+            $table->string( 'legal_representative_name', 60)->nullable();
+            $table->string( 'legal_representative_rtn',24)->unique()->nullable();
+            $table->string( 'legal_representative_id_number',24)->nullable ();
+            $table->string( 'legal_representative_marital_status',24)->nullable ();
+            $table->string( 'contact_name', 30)->nullable();
+            $table->string( 'company_social_reason', 60)->nullable();
+            $table->string( 'company_adress', 80)->nullable();
+            $table->string( 'company_tel', 20)->nullable();
+            $table->string( 'company_email', 40);
+            $table->date(' contract_date', 30)->nullable();
+            $table->boolean('contract_status')->default(false);
+            $table->text('contract_signature')->nullable();
             $table->timestamps();
         });
     }

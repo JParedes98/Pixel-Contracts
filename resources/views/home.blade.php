@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('navbar')
+    @include('layouts.navbar')
+@endsection
+
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -21,10 +25,10 @@
                         @foreach ($contract as $item)
                         <tr>
                             <td class="date">
-                                @if (!$item->date==NULL)
-                                    <small class="text-muted">{{ $item->date->format('M') }}</small>
-                                    <p>{{ $item->date->format('d') }}</p>
-                                    <small class="text-muted">{{ $item->date->format('Y') }}</small>
+                                @if (!$item->contract_date == NULL)
+                                    <small class="text-muted">{{ $item->contract_date->format('M') }}</small>
+                                    <p>{{ $item->contract_date->format('d') }}</p>
+                                    <small class="text-muted">{{ $item->contract_date->format('Y') }}</small>
                                 @else
                                     <small class="text-muted">Mes</small>
                                     <p>Día</p>
@@ -32,23 +36,23 @@
                                 @endif
                             </td>
                             <td scope="row">
-                                {{ $item->name_rep }}
+                                {{ $item->legal_representative_name }}
                                 <br>
-                                <small class="text-muted">{{ $item->n_identidad }}</small>
+                                <small class="text-muted">{{ $item->legal_representative_id_number }}</small>
                             </td>
-                            <td data-toogle="tooltip" title="{{ $item->adress }}">{{ $item->email }}
+                            <td data-toogle="tooltip" title="{{ $item->company_adress }}">{{ $item->company_email }}
                                 <br>
-                                <small class="text-muted">{{$item->tel }}</small>
+                                <small class="text-muted">{{$item->company_tel }}</small>
                             </td>
                             <td>
-                                {{$item->social_reason}}
+                                {{$item->company_social_reason}}
                                 <br>
                                 <small class="text-muted">
-                                    {{$item->rtn}}
+                                    {{$item->legal_representative_rtn}}
                                 </small>
                             </td>
                             <td>
-                                @if ($item->status)
+                                @if ($item->contract_status)
                                 <div class="label ctm-label-comp">Afiliado</div>
                                 @else
                                 <div class="label ctm-label-pend">Pendiente</div>
@@ -62,15 +66,15 @@
                                         Acciones <i class="fas fa-angle-down" style="font-size:15px;"></i>
                                     </button>                       
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                    @if ($item->status)         
-                                        <a class="dropdown-item" href="{{ route('contrato.pdf',['rtn'=> $item->rtn]) }}">Contrato
+                                    @if ($item->contract_status)         
+                                        <a class="dropdown-item" href="{{ route('contrato.pdf',['rtn'=> $item->legal_representative_rtn]) }}">Contrato
                                             PDF</a>
                                         @if ($item->status==0)
-                                        <a class="dropdown-item" href="{{ route('contrato.preview',['rtn'=> $item->rtn]) }}">Url
+                                        <a class="dropdown-item" href="{{ route('contrato.preview',['rtn'=> $item->legal_representative_rtn]) }}">Url
                                             de Contrato</a>
                                         @endif
                                     @endif
-                                        <a class="dropdown-item" href="{{ route('contrato.editar',['rtn'=> $item->id]) }}">Editar
+                                        <a class="dropdown-item" href="{{ route('editContract',['rtn'=> $item->id]) }}">Editar
                                             Contrato
                                         </a>
                                     </div>
@@ -85,7 +89,7 @@
                     <h2>Contratos PixelPay</h2>
                     <h5>Lo sentimos, Actualmente no existe ningun contrato.</h5>
                     <br>
-                    <a class="btn btn-primary btn-lg" href="{{ route ('nuevo.cliente') }}" role="button">Generar
+                    <a class="btn btn-primary btn-lg" href="{{ route ('new-customer') }}" role="button">Generar
                         Contrato</a>
                 </div>
                 <br>

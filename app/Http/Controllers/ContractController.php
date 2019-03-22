@@ -13,16 +13,20 @@ use App\Notifications\GenerateContract;
 
 class ContractController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     * @return void
-     * Exclude contract preview of auth
-     * ->except(['preview'])
-     * 
-     */
+
+    public $contractRules = [
+        'legal_representative_name' => 'required',
+        'company_social_reason' => 'required',
+        'legal_representative_rtn' => 'required',
+        'legal_representative_id_number'=> 'required',
+        'contact_name' => 'required',
+        'company_adress' => 'required',
+        'company_tel' => 'required',
+        'company_email' => 'required'
+    ];
+
     public function __construct()
     {
-        /*$this->middleware('auth')->except(['preview', 'setStatusComplete']);*/
         $this->middleware('auth', ['except' => [
             'create',
             'store',
@@ -31,95 +35,76 @@ class ContractController extends Controller
         ]]);
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index(){
+        $contract = Contract::all()->sortByDesc('created_at');
+        return view('home', compact('contract'));
+    }
     
-    public function newCustomer(){
-        return view('new-customer');    
-    }
 
-    public function createCustomer( Request $request){
-        $request->validate([
-            'name_rep' => 'required',
-            'email' => 'required',
-        ]);
-        
-        $invite = Contract::create([
-            'name_rep' => $request->get('name_rep'),
-            'email' => $request->get('email'),
-            'date' => NULL
-        ]);
-        $invite->notify(new GenerateContract());
-        return redirect('home');
-    }
-
+    /*NO SE PARA QUE PUTAS ES*/
     public function create($key){
         if(!$model = Contract::find(base64_decode($key)))
             return 'No encuentra Contrato';
 
         return view('new-contract', ['contract' => $model]);
     }
-
-    public function store(Request $request){
+    
+    public function createCustomer(Request $request){
         $request->validate([
-            'name_rep' => 'required',
-            'social_reason' => 'required',
-            'rtn' => 'required',
-            'n_identidad'=> 'required',
-            'm_status'=> 'required',
-            'contact' => 'required',
-            'adress' => 'required',
-            'tel' => 'required',
-            'email' => 'required',
+            'legal_representative_name' => 'required',
+            'company_email' => 'required',
         ]);
         
+        $invite = Contract::create([
+            'legal_representative_name' => $request->get( 'legal_representative_name'),
+            'company_email' => $request->get( 'company_email'),
+            'contract_date' => NULL
+        ]);
+
+        $invite->notify(new GenerateContract());
+        return redirect('index');
+    }
+
+
+    public function store(Request $request){
+        $request->validate($this->contractRules);
+        
         if(!$contrato = Contract::find($request->input('id')))
+            // DEBE SER VISTA DE ERROR
             return view('preview-denied');
 
         if($contrato->status ){
             return view('preview-denied');
         }
 
-        $contrato->name_rep = $request->input('name_rep');
-        $contrato->social_reason = $request->input('social_reason');
-        $contrato->rtn = $request->input('rtn');
-        $contrato->n_identidad = $request->input('n_identidad');
-        $contrato->m_status = $request->input('m_status');
-        $contrato->contact = $request->input('contact');
-        $contrato->adress = $request->input('adress');
-        $contrato->tel = $request->input('tel');
-        $contrato->email = $request->input('email');
+        $contrato->name_rep = $request->input( 'legal_representative_name');
+        $contrato->social_reason = $request->input('COMPANY_social_reason');
+        $contrato->rtn = $request->input( 'legal_representative_rtn');
+        $contrato->n_identidad = $request->input( 'legal_representative_id_number');
+        $contrato->m_status = $request->input( 'legal_representative_marital_status');
+        $contrato->contact = $request->input('contact_name');
+        $contrato->adress = $request->input('company_adress');
+        $contrato->tel = $request->input('company_tel');
+        $contrato->email = $request->input('company_email');
 
-        $temp_date = Carbon::now();
-        $contrato->date = $temp_date;
+        $contrato->date = Carbon::now();
 
         $contrato->save();
         $contrato->notify(new ContractUrl());
         return redirect()->route('contrato.preview', ['id' => $contrato->id]);
 }
 
-    public function edit($id){
+    public function editContract($id){
         $contrato = Contract::find($id);
+
         return view('edit-contract', [
            'contrato' => $contrato, 
         ]);
     }
 
     public function update(Request $request, $id){
-        $request->validate([
-            'name_rep' => 'required',
-            'social_reason' => 'required',
-            'rtn' => 'required',
-            'n_identidad'=> 'required',
-            'contact' => 'required',
-            'adress' => 'required',
-            'tel' => 'required',
-            'email' => 'required',
-            'date' => 'required',
-        ]);
+        $request->validate($this->contractRules);
+        
         $contrato = Contract::find($id);
         
 
@@ -160,7 +145,7 @@ class ContractController extends Controller
         $html2pdf->pdf->SetTitle('CONTRATO PIXELPAY');
         $html2pdf->writeHTML($html);
         
-        return $html2pdf->output('Contrato PixelPay.pdf');
+        return $html2pdf->output('Contrato_PixelPay.pdf');
     }
 
     public function setStatusComplete(Request $request){
@@ -176,6 +161,7 @@ class ContractController extends Controller
         if(!file_exists($path)){
             mkdir($path, 0777);    
         }
+
         $output_file = public_path('signatures/'.$contrato->id.'.png');
         $ifp = fopen( $output_file, 'cb' );
 
@@ -206,5 +192,4 @@ class ContractController extends Controller
         $html2pdf->writeHTML($html);
         $html2pdf->Output($path, 'F');
     }
-
 }

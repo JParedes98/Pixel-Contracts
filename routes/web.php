@@ -1,21 +1,16 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::view('/', 'welcome');
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-Auth::routes();
+Route::get('/', 'ContractController@index')->name('index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::view('/contrato/nuevo/cliente', 'new-customer')->name('new-customer');
+Route::get('/contrato/nuevo/{key}', 'ContractController@create')->name('create');
 
-Route::get('/contrato/nuevo/cliente', 'ContractController@newCustomer')->name('nuevo.cliente');
-Route::get('/contrato/nuevo/{key}', 'ContractController@create')->name('contrato.nuevo');
-
-Route::get('/contrato/editar/{id}', 'ContractController@edit')->name('contrato.editar');
+Route::get('/contrato/editar/{id}', 'ContractController@editContract')->name('editContract');
 Route::get('/contrato/consolidacion/{id}', 'ContractController@previewCompleted')->name('contrato.preview');
-Route::get('contrato/consolidado', 'ContractController@previewCompleted');
+Route::get('/contrato/consolidado', 'ContractController@previewCompleted');
 Route::get('/contrato/pdf/{rtn}', 'ContractController@pdf')->name('contrato.pdf');
 
 Route::post('/contrato/nuevo-cliente', 'ContractController@createCustomer')->name('guardar.cliente');

@@ -25,37 +25,37 @@
                                     <h5>Información de Representante Legal</h5>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="name_rep" id="name_rep" class="form-control" placeholder="Nombre del Representante Legal"
-                                        value="{{old('name_rep', $contract->name_rep)}}" autofocus>
-                                    @if ($errors->has('name_rep'))
-                                    <p class="text-danger">{{ $errors->first('name_rep') }}</p>
+                                    <input type="text" name="legal_representative_name" id="legal_representative_name" class="form-control" placeholder="Nombre del Representante Legal"
+                                        value="{{old('legal_representative_name', $contract->name_rep)}}" autofocus>
+                                    @if ($errors->has('legal_representative_name'))
+                                    <p class="text-danger">{{ $errors->first('legal_representative_name') }}</p>
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="social_reason" id="social_reason" class="form-control"
-                                        value="{{old('social_reason')}}" placeholder="Razon Social">
-                                    @if ($errors->has('social_reason'))
-                                    <p class="text-danger">{{ $errors->first('social_reason') }}</p>
+                                    <input type="text" name="company_social_reason" id="company_social_reason" class="form-control"
+                                        value="{{old('company_social_reason')}}" placeholder="Razon Social">
+                                    @if ($errors->has('company_social_reason'))
+                                    <p class="text-danger">{{ $errors->first('company_social_reason') }}</p>
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="rtn" id="rtn" class="form-control" value="{{old('rtn')}}"
+                                    <input type="text" name="legal_representative_rtn" id="legal_representative_rtn" class="form-control" value="{{old('legal_representative_rtn')}}"
                                         placeholder="Número de RTN">
-                                    @if ($errors->has('rtn'))
-                                    <p class="text-danger">{{ $errors->first('rtn') }}</p>
+                                    @if ($errors->has('legal_representative_rtn'))
+                                    <p class="text-danger">{{ $errors->first('legal_representative_rtn') }}</p>
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="n_identidad" id="n_identidad" class="form-control" value="{{old('n_identidad')}}"
+                                    <input type="text" name="legal_representative_id_number" id="legal_representative_id_number" class="form-control" value="{{old('legal_representative_id_number')}}"
                                         placeholder="Número de Identidad">
-                                    @if ($errors->has('n_identidad'))
-                                    <p class="text-danger">{{ $errors->first('n_identidad') }}</p>
+                                    @if ($errors->has('legal_representative_id_number'))
+                                    <p class="text-danger">{{ $errors->first('legal_representative_id_number') }}</p>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <select name="m_status" id="m_status" class="form-control">
-                                        <option {{old('m_status') == 'Soltero' ? 'selected' : '' }}>Soltero</option>
-                                        <option {{old('m_status') == 'Casado' ? 'selected' : '' }}>Casado</option>
+                                        <option {{old('legal_representative_marital_status') == 'Soltero' ? 'selected' : '' }}>Soltero</option>
+                                        <option {{old('legal_representative_marital_status') == 'Casado' ? 'selected' : '' }}>Casado</option>
                                     </select>
                                 </div>
                             </div>
@@ -64,31 +64,31 @@
                                     <h5>Información del Contacto</h5>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="contact" id="contact" class="form-control" value="{{old('contact')}}"
+                                    <input type="text" name="contact_name" id="contact_name" class="form-control" value="{{old('contact_name')}}"
                                         placeholder="Nombre del Contacto">
-                                    @if ($errors->has('contact'))
-                                    <p class="text-danger">{{ $errors->first('contact') }}</p>
+                                    @if ($errors->has('contact_name'))
+                                    <p class="text-danger">{{ $errors->first('contact_name') }}</p>
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="adress" id="adress" class="form-control" value="{{old('adress')}}"
+                                    <input type="text" name="company_adress" id="company_adress" class="form-control" value="{{old('company_adress')}}"
                                         placeholder="Dirección del Comercio">
-                                    @if ($errors->has('adress'))
-                                    <p class="text-danger">{{ $errors->first('adress') }}</p>
+                                    @if ($errors->has('company_adress'))
+                                    <p class="text-danger">{{ $errors->first('company_adress') }}</p>
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <input type="tel" name="tel" id="tel" class="form-control" value="{{old('tel')}}"
+                                    <input type="tel" name="company_tel" id="company_tel" class="form-control" value="{{old('company_tel')}}"
                                         placeholder="Teléfono del Comercio">
-                                    @if ($errors->has('tel'))
-                                    <p class="text-danger">{{ $errors->first('tel') }}</p>
+                                    @if ($errors->has('company_tel'))
+                                    <p class="text-danger">{{ $errors->first('company_tel') }}</p>
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="email" id="email" class="form-control" value="{{old('email', $contract->email)}}"
+                                    <input type="email" name="company_email" id="company_email" class="form-control" value="{{old('company_email', $contract->company_email)}}"
                                         placeholder="Correo Electrónico">
-                                    @if($errors->has('email'))
-                                    <p class="text-danger">{{ $errors->first('email') }}</p>
+                                    @if($errors->has('company_email'))
+                                    <p class="text-danger">{{ $errors->first('company_email') }}</p>
                                     @endif
                                 </div>
                             </div>
