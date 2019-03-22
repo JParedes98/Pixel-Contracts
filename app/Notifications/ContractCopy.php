@@ -42,7 +42,7 @@ class ContractCopy extends Notification
     {
         return (new MailMessage)
                     ->from('contratos@pixel.hn', 'PixelPay')
-                    ->subject('Copia Contrato PixelPay')
+                    ->subject('Copia Contrato PixelPay-'.$notifiable->social_reason)
                     ->greeting('Felicidades! '. $notifiable->name_rep)
                     ->line('Ahora eres parte de una enorme red de Crecimiento E-comerce, Adjunto encontraras una copia del contrato respectivo a PixelPay')
                     ->attach(public_path('contracts/contrato-'.$notifiable->id.'.pdf'));

@@ -42,12 +42,12 @@ class ContractUrl extends Notification
     {
         return (new MailMessage)
                     ->from('contratos@pixel.hn', 'PixelPay')
-                    ->subject('Contrato PixelPay')
+                    ->subject( 'Contrato PixelPay-' . $notifiable->social_reason)
                     ->greeting( 'Estimado (a) ' . $notifiable->name_rep)
                     ->line('Su contrato se ha generado de forma exitosa, adjunto se encuentra el link de su contrato respectivo de PixelPay.')
                     ->line('Gracias.')
                     ->action('Contrato Privado de Servicios', route('contrato.preview', [
-                        'rtn' => $notifiable->rtn
+                        'id' => $notifiable->id
                     ]));
     }
 

@@ -75,7 +75,7 @@ p{
             hondureño y
             de éste domicilio, con número de cédula de identidad 0501-2006-15856, en su condición de Representante
             Legal de la Sociedad
-            PIXEL S.A.; la que de aquí en adelante y para los efectos de este contrato se denominará como EL PROVEEDOR,
+            PIXEL S.A. C.V.; la que de aquí en adelante y para los efectos de este contrato se denominará como EL PROVEEDOR,
             y por otra parte,
             <strong>"{{$contrato->name_rep}}"</strong>, mayor de edad, ESTADO CIVIL, con domicilio en la ciudad de San
             Pedro Sula, departamento de
@@ -526,7 +526,7 @@ p{
             comprometen a su
             estricto cumplimiento. En fe de lo cual, firman el presente contrato en duplicado, en la ciudad de San
             Pedro Sula a los
-            (00) días del mes de Mes del año 2019.
+            ({{$contrato->date->format('d')}}) días del mes de {{$contrato->date->format('F')}} del año {{$contrato->date->format('Y')}}.
         </p>
         <br>
 

@@ -57,7 +57,7 @@
     
                 <form role="form" action="{{route('contrato.consolidacion')}}" method="POST">
                     {{ csrf_field() }}
-                    
+                    <input type="hidden" name="id" value="{{$contrato->id}}">
                     <div class="tab-content"><br>
                         <h3 class="text-center">CONTRATO PRIVADO DE SERVICIOS</h3>
                     
@@ -70,7 +70,7 @@
                             <p class="text-justify">
                                     Nosotros: Por una parte, Daniel Alberto Bernhard Lutz, mayor de edad, soltero, licenciado en finanzas, hondureño y 
                                     de éste domicilio, con número de cédula de identidad 0501-2006-15856, en su condición de Representante Legal de la Sociedad 
-                                    PIXEL S.A.; la que de aquí en adelante y para los efectos de este contrato se denominará como EL PROVEEDOR, y por otra parte, 
+                                    PIXEL S.A. C.V.; la que de aquí en adelante y para los efectos de este contrato se denominará como EL PROVEEDOR, y por otra parte, 
                                     <strong>"{{$contrato->name_rep}}"</strong> , mayor de edad, {{$contrato->m_status}}, con domicilio en la ciudad de San Pedro Sula, departamento de 
                                     Cortés, con número de cédula de Identidad <strong>"{{$contrato->n_identidad}}"</strong>., quién comparece en su condición de Representante Legal de la 
                                     sociedad <strong>"{{$contrato->social_reason}}"</strong>. , con RTN <strong>"{{$contrato->rtn}}"</strong> quien en adelante y para efectos del presente 
@@ -117,6 +117,10 @@
                                 La plataforma le genera un recibo al CLIENTE y el registro del depósito al <strong>COMERCIO AFILIADO </strong>que está 
                                 comercializando un bien o servicio.
                             <br>
+
+                            <ul class="list-inline pull-right">
+                                <li><button type="button" class="btn btn-primary next-step">Siguiente</button></li>
+                            </ul>
                         </div>
                         <div class="tab-pane" role="tabpanel" id="step2">
                             <h3>CLAUSULAS</h3>
@@ -219,6 +223,10 @@
                                     tres (3) días de su fecha de despacho por correo, lo que ocurra antes. Estos nombres y domicilios podrán modificarse 
                                     por escrito de acuerdo con las disposiciones Precedentes.
                               </p>
+                            <ul class="list-inline pull-right">
+                                <li><button type="button" class="btn btn-default prev-step">Anterior</button></li>
+                                <li><button type="button" class="btn btn-primary next-step">Siguiente</button></li>
+                            </ul>
                         </div>
                         <div class="tab-pane" role="tabpanel" id="step3">
                             <h3>CLAUSULAS</h3>
@@ -274,10 +282,13 @@
                                     expreso, con el acuse de recibido correspondiente a los siguientes domicilios:
                                 </p>
                                 <br>
+                            <ul class="list-inline pull-right">
+                                <li><button type="button" class="btn btn-default prev-step">Anterior</button></li>
+                                <li><button type="button" class="btn btn-primary next-step">Siguiente</button></li>
+                            </ul>
                         </div>
                         <div class="tab-pane" role="tabpanel" id="step4">
-                            <h3>CLAUSULAS</h3>
-                            
+                            <h3>CLAUSULAS</h3> 
                             <p class="text-justify">
                                     <strong>DÉCIMO: CARÁCTER DE INDEPENDIENTE.</strong> Las partes convienen y dejan expresa constancia que el Contrato no 
                                     generó, genera ni generará nexo laboral entre EL PROVEEDOR y EL COMERCIO AFILIADO, ni entre EL PROVEEDOR y los empleados 
@@ -378,6 +389,10 @@
                                    </ol>
                               </p>
                               <br>
+                            <ul class="list-inline pull-right">
+                                <li><button type="button" class="btn btn-default prev-step">Anterior</button></li>
+                                <li><button type="button" class="btn btn-primary next-step">Siguiente</button></li>
+                            </ul>
                         </div>
                         <div class="tab-pane" role="tabpanel" id="step5">
                             <h3>CLAUSULAS</h3>
@@ -416,6 +431,10 @@
                               </p>
                               <br>
                               <br>
+                            <ul class="list-inline pull-right">
+                                <li><button type="button" class="btn btn-default prev-step">Anterior</button></li>
+                                <li><button type="button" class="btn btn-primary next-step">Siguiente</button></li>
+                            </ul>
                         </div>
                         <div class="tab-pane" role="tabpanel" id="complete">
                             <div class="container">
@@ -426,10 +445,11 @@
                                 <input type="hidden" name="signature">
                                 <input type="hidden" name="rtn" value="{{ $contrato->rtn }}">
                                 <br>
-                                <ul class="list-inline pull-right">
-                                    <li><button type="button" class="clearSign btn btn-danger">Limpiar Firma</button></li>
-                                    <li><button type="button" class="submitForm btn btn-danger">Firmar</button></li>
-                                </ul>
+                                <div class="tab-pane list-inline pull-right" role="tabpanel" id="complete">
+                                    <li><button type="button" class="btn btn-default prev-step">Anterior</button></li>
+                                    <button type="button" class="clearSign btn btn-success">Limpiar Firma</button>
+                                    <button type="button" class="submitForm btn btn-primary">Firmar</button>
+                                </div>
                             </div>
                         </div>
                     </div>

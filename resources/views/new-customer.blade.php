@@ -1,6 +1,6 @@
 @extends('layouts.app')
-<div class="custom-bg">
-    @section('content')
+@section('content')
+    <div class="custom-bg">
 
     <img class="back-deco-us" src="{{asset('/img/login-bg.svg')}}" alt="Background image">
     <img class="logo-deco" src="{{asset('/img/powered-by-white.svg')}}" alt="Background image">

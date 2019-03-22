@@ -23,7 +23,12 @@ class ContractController extends Controller
     public function __construct()
     {
         /*$this->middleware('auth')->except(['preview', 'setStatusComplete']);*/
-        $this->middleware('auth', ['except' => ['preview', 'create']]);
+        $this->middleware('auth', ['except' => [
+            'create',
+            'store',
+            'previewCompleted',
+            'setStatusComplete'           
+        ]]);
     }
 
     /**
@@ -53,13 +58,12 @@ class ContractController extends Controller
 
     public function create($key){
         if(!$model = Contract::find(base64_decode($key)))
-            return;
+            return 'No encuentra Contrato';
 
         return view('new-contract', ['contract' => $model]);
     }
 
     public function store(Request $request){
-
         $request->validate([
             'name_rep' => 'required',
             'social_reason' => 'required',
@@ -70,11 +74,14 @@ class ContractController extends Controller
             'adress' => 'required',
             'tel' => 'required',
             'email' => 'required',
-            'date' => 'required',
         ]);
         
         if(!$contrato = Contract::find($request->input('id')))
-            return 'No funciona';
+            return view('preview-denied');
+
+        if($contrato->status ){
+            return view('preview-denied');
+        }
 
         $contrato->name_rep = $request->input('name_rep');
         $contrato->social_reason = $request->input('social_reason');
@@ -85,11 +92,13 @@ class ContractController extends Controller
         $contrato->adress = $request->input('adress');
         $contrato->tel = $request->input('tel');
         $contrato->email = $request->input('email');
-        $contrato->date = new Carbon($request->input('date'));
+
+        $temp_date = Carbon::now();
+        $contrato->date = $temp_date;
 
         $contrato->save();
         $contrato->notify(new ContractUrl());
-        return redirect()->route('contrato.preview', ['rtn' => $request->input('rtn')]);
+        return redirect()->route('contrato.preview', ['id' => $contrato->id]);
 }
 
     public function edit($id){
@@ -132,12 +141,12 @@ class ContractController extends Controller
         return redirect('home');
     }
 
-    public function preview($rtn){
-        $contrato = Contract::where('rtn',$rtn)->first();
+    public function previewCompleted($id){
+        $contrato = Contract::find($id);
 
-        if($contrato->status)
+        if($contrato->status){
             return view('preview-denied');
-
+        }
         return view('contract-preview', [
            'contrato' => $contrato, 
         ]);
@@ -180,7 +189,7 @@ class ContractController extends Controller
         $this->generatePDF($contrato);
         $contrato->notify(new ContractCopy());
 
-        return view('completed-contract');
+        return view('completed-contract', $contrato);
     }
 
     private function generatePDF($contrato){
