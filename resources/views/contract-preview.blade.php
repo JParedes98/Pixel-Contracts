@@ -55,17 +55,17 @@
                     </ul>
                 </div>
     
-                <form role="form" action="{{route('contrato.consolidacion')}}" method="POST">
+                <form role="form" action="{{route('contract-consolidated')}}" method="POST" >
                     {{ csrf_field() }}
                     <input type="hidden" name="id" value="{{$contrato->id}}">
                     <div class="tab-content"><br>
                         <h3 class="text-center">CONTRATO PRIVADO DE SERVICIOS</h3>
                     
-                        @if ($errors->has('signature'))
-                            <p class="text-danger text-center h4">{{ $errors->first('signature') }}</p>
+                        @if ($errors->has('contract_signature'))
+                            <p class="text-danger text-center h4">{{ $errors->first('contract_signature') }}</p>
                         @endif
 
-                        <div class="tab-pane active" role="tabpanel" id="step1">
+                        <div class="tab-pane active" role="tabpanel" id="step1" style="margin:0; padding:0;">
                             <h3>DATOS GENERALES</h3>
                             <p class="text-justify">
                                     Nosotros: Por una parte, Daniel Alberto Bernhard Lutz, mayor de edad, soltero, licenciado en finanzas, hondureño y 
@@ -73,7 +73,7 @@
                                     PIXEL S.A. C.V.; la que de aquí en adelante y para los efectos de este contrato se denominará como EL PROVEEDOR, y por otra parte, 
                                     <strong>"{{$contrato->legal_representative_name}}"</strong> , mayor de edad, {{$contrato->legal_representative_marital_status}}, con domicilio en la ciudad de San Pedro Sula, departamento de 
                                     Cortés, con número de cédula de Identidad <strong>"{{$contrato->legal_representative_id_number}}"</strong>., quién comparece en su condición de Representante Legal de la 
-                                    sociedad <strong>"{{$contrato->legal_representative_social_reason}}"</strong>. , con RTN <strong>"{{$contrato->legal_representative_rtn}}"</strong> quien en adelante y para efectos del presente 
+                                    sociedad <strong>"{{$contrato->company_social_reason}}"</strong>. , con RTN <strong>"{{$contrato->legal_representative_rtn}}"</strong> quien en adelante y para efectos del presente 
                                     contrato se conocerá como COMERCIO AFILIADO manifiestan que han convenido en celebrar como al efecto lo hacen, un CONTRATO 
                                     PRIVADO  DE PRESTACIÓN DE SERVICIOS DE LA PLATAFORMA DE PAGO PIXELPAY, bajo las siguientes clausulas y condiciones:
                             </p>
@@ -122,7 +122,7 @@
                                 <li><button type="button" class="btn btn-primary next-step">Siguiente</button></li>
                             </ul>
                         </div>
-                        <div class="tab-pane" role="tabpanel" id="step2">
+                        <div class="tab-pane" role="tabpanel" id="step2" style="margin:0; padding:0;">
                             <h3>CLAUSULAS</h3>
 
                             <p class="text-justify">
@@ -228,7 +228,7 @@
                                 <li><button type="button" class="btn btn-primary next-step">Siguiente</button></li>
                             </ul>
                         </div>
-                        <div class="tab-pane" role="tabpanel" id="step3">
+                        <div class="tab-pane" role="tabpanel" id="step3" style="margin:0; padding:0;">
                             <h3>CLAUSULAS</h3>
 
                             <p class="text-justify">
@@ -287,7 +287,7 @@
                                 <li><button type="button" class="btn btn-primary next-step">Siguiente</button></li>
                             </ul>
                         </div>
-                        <div class="tab-pane" role="tabpanel" id="step4">
+                        <div class="tab-pane" role="tabpanel" id="step4" style="margin:0; padding:0;">
                             <h3>CLAUSULAS</h3> 
                             <p class="text-justify">
                                     <strong>DÉCIMO: CARÁCTER DE INDEPENDIENTE.</strong> Las partes convienen y dejan expresa constancia que el Contrato no 
@@ -394,7 +394,7 @@
                                 <li><button type="button" class="btn btn-primary next-step">Siguiente</button></li>
                             </ul>
                         </div>
-                        <div class="tab-pane" role="tabpanel" id="step5">
+                        <div class="tab-pane" role="tabpanel" id="step5" style="margin:0; padding:0;">
                             <h3>CLAUSULAS</h3>
                             <p class="text-justify">
                                     <strong>DÉCIMO QUINTO: SOLUCIÓN DE CONTROVERSIAS.</strong>  Las partes acuerdan que para toda controversia relacionada o derivada de este 
@@ -427,24 +427,22 @@
                                     aquí acordadas y que las cláusulas y contenido contractual les representa un beneficio mutuo, y que conocen y asumen las 
                                     consecuencias de toda responsabilidad que las obligaciones de este contrato le generan, por lo que se comprometen a su 
                                     estricto cumplimiento. En fe de lo cual, firman el presente contrato en duplicado, en la ciudad de San Pedro Sula a los 
-                                    ({{$contrato->contract_date->format('d')}}) días del mes de {{$contrato->contract_date->format('F')}} del año {{$contrato->contract_date->format('Y')}}. 
+                                    ({{$contrato->contract_date->format('d')}}) días del mes de {{$contrato->contract_date->format('F')}} del año {{$contrato->contract_date->format('Y')}}.
                               </p>
-                              <br>
                               <br>
                             <ul class="list-inline pull-right">
                                 <li><button type="button" class="btn btn-default prev-step">Anterior</button></li>
                                 <li><button type="button" class="btn btn-primary next-step">Siguiente</button></li>
                             </ul>
                         </div>
-                        <div class="tab-pane" role="tabpanel" id="complete">
+                        <div class="tab-pane" role="tabpanel" id="complete" style="margin:0; padding:0;">
                             <div class="container">
                                 <h4 class="text-center">CONSOLIDACIÓN DE CONTRATO</h4>
                                 <h6 class="text-center">FIRMA </h6>
                                 <canvas width="800" height="500"></canvas>
                                 <p class="signature-border">Firmar Aqui</p>
-                                <input type="hidden" name="signature">
-                                <input type="hidden" name="rtn" value="{{ $contrato->legal_representative_rtn }}">
-                                <br>
+                                <input type="hidden" name="contract_signature">
+                                <input type="hidden" name="legal_representative_rtn" value="{{ $contrato->legal_representative_rtn }}">
                                 <div class="tab-pane list-inline pull-right" role="tabpanel" id="complete">
                                     <li><button type="button" class="btn btn-default prev-step">Anterior</button></li>
                                     <button type="button" class="clearSign btn btn-success">Limpiar Firma</button>

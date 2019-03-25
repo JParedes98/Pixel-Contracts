@@ -3,12 +3,12 @@
 <div class="custom-bg">
 
     <img class="back-deco" src="{{asset('/img/login-bg.svg')}}" alt="Background image">
-    <img class="logo-deco-noti" src="{{asset('/img/powered-by-white.svg')}}" alt="Background image">
+    {{-- <img class="logo-deco-noti" src="{{asset('/img/powered-by-white.svg')}}" alt="Background image"> --}}
 
     <div class="container vertical-center">
         <div class="col-md-8 col-md-offset-2 form-ctm">
             <div class="card mt-4 text-center">
-            <form action="{{route('contrato.insertar')}}" method="POST">                
+            <form action="{{route('store-contract')}}" method="POST">                
                 {{ csrf_field() }}
                     <input value="{{$contract->id}}" name="id" type="hidden">
 
@@ -53,7 +53,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <select name="m_status" id="m_status" class="form-control">
+                                    <select name="legal_representative_marital_status" id="legal_representative_marital_status" class="form-control">
                                         <option {{old('legal_representative_marital_status') == 'Soltero' ? 'selected' : '' }}>Soltero</option>
                                         <option {{old('legal_representative_marital_status') == 'Casado' ? 'selected' : '' }}>Casado</option>
                                     </select>
@@ -61,7 +61,7 @@
                             </div>
                             <div class="column">
                                 <div class="form-group">
-                                    <h5>Información del Contacto</h5>
+                                    <h5>Contacto</h5>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="contact_name" id="contact_name" class="form-control" value="{{old('contact_name')}}"
@@ -93,8 +93,8 @@
                                 </div>
                             </div>
                         </div>
-                        <i class="fas fa-exclamation-circle"></i><label class="text-muted">Favor Rellenar todos los
-                            Campos</label>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <label style="margin-left:5px;" class="text-muted">Favor Rellenar Todos los Campos</label>
                         
                         <button type="submit" class="btn btn-pixel btn-block">
                             VER CONTRATO

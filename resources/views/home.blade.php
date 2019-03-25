@@ -14,11 +14,11 @@
                     <thead>
                         <tr>
                             <th><i class="far fa-calendar-alt ctm-ico"></i></th>
-                            <th><i class="fas fa-users ctm-ico"></i> REPRESENTANTE</th>
-                            <th><i class="far fa-share-square ctm-ico"></i> CONTACTO</th>
-                            <th><i class="far fa-building"></i> COMERCIO</th>
-                            <th><i class="fas fa-file-contract ctm-ico"></i> ESTADO</th>
-                            <th><i class="fas fa-sliders-h ctm-ico"></i> OPCIONES</th>                            
+                            <th>REPRESENTANTE</th>
+                            <th>CONTACTO</th>
+                            <th>COMERCIO</th>
+                            <th>ESTADO</th>
+                            <th>OPCIONES</th>                            
                         </tr>
                     </thead>
                     <tbody>
@@ -30,9 +30,10 @@
                                     <p>{{ $item->contract_date->format('d') }}</p>
                                     <small class="text-muted">{{ $item->contract_date->format('Y') }}</small>
                                 @else
-                                    <small class="text-muted">Mes</small>
+                                    <span>- -</span>
+                                    {{-- <small class="text-muted">Mes</small>
                                     <p>Día</p>
-                                    <small class="text-muted">Año</small>
+                                    <small class="text-muted">Año</small> --}}
                                 @endif
                             </td>
                             <td scope="row">
@@ -67,14 +68,10 @@
                                     </button>                       
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                     @if ($item->contract_status)         
-                                        <a class="dropdown-item" href="{{ route('contrato.pdf',['rtn'=> $item->legal_representative_rtn]) }}">Contrato
+                                        <a class="dropdown-item" href="{{ route('contrato.pdf',['legal_representative_rtn'=> $item->legal_representative_rtn]) }}">Contrato
                                             PDF</a>
-                                        @if ($item->status==0)
-                                        <a class="dropdown-item" href="{{ route('contrato.preview',['rtn'=> $item->legal_representative_rtn]) }}">Url
-                                            de Contrato</a>
-                                        @endif
                                     @endif
-                                        <a class="dropdown-item" href="{{ route('editContract',['rtn'=> $item->id]) }}">Editar
+                                        <a class="dropdown-item" href="{{ route('edit-contract',['id'=> $item->id]) }}">Editar
                                             Contrato
                                         </a>
                                     </div>

@@ -25,7 +25,7 @@ class CreateContractsTable extends Migration
             $table->string( 'company_adress', 80)->nullable();
             $table->string( 'company_tel', 20)->nullable();
             $table->string( 'company_email', 40);
-            $table->date(' contract_date', 30)->nullable();
+            $table->date('contract_date', 30)->nullable();
             $table->boolean('contract_status')->default(false);
             $table->text('contract_signature')->nullable();
             $table->timestamps();

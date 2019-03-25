@@ -12,19 +12,19 @@ class Contract extends Model
 
     protected $table = 'contracts';
     protected $fillable =[
-        'name_rep',
-        'social_reason',
-        'n_identidad',
-        'm_status',
-        'rtn',
-        'contact',
-        'adress',
-        'tel',
-        'email',
-        'date'
+        'legal_representative_name',
+        'company_social_reason',
+        'legal_representative_id_number',
+        'legal_representative_marital_status',
+        'legal_representative_rtn',
+        'contact_name',
+        'company_adress',
+        'company_tel',
+        'company_email',
+        'contract_date',
     ];
 
-    protected $dates = ['date'];
+    protected $dates = ['contract_date'];
 
     public function routeNotificationForMail(){
         return $this->email;

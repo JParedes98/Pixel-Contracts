@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Contract;
-use Lcobucci\JWT\Builder;
 use App\Notifications\ContractCopy;
 use App\Notifications\ContractUrl;
 use Spipu\Html2Pdf\Html2Pdf;
@@ -39,12 +38,11 @@ class ContractController extends Controller
         $contract = Contract::all()->sortByDesc('created_at');
         return view('home', compact('contract'));
     }
-    
 
-    /*NO SE PARA QUE PUTAS ES*/
-    public function create($key){
-        if(!$model = Contract::find(base64_decode($key)))
-            return 'No encuentra Contrato';
+    public function newContract($key){
+        if(!$model = Contract::find(base64_decode($key))){
+            return view('error-view');
+        }
 
         return view('new-contract', ['contract' => $model]);
     }
@@ -54,48 +52,50 @@ class ContractController extends Controller
             'legal_representative_name' => 'required',
             'company_email' => 'required',
         ]);
-        
+
         $invite = Contract::create([
-            'legal_representative_name' => $request->get( 'legal_representative_name'),
-            'company_email' => $request->get( 'company_email'),
+            'legal_representative_name' => $request->get('legal_representative_name'),
+            'company_email' => $request->get('company_email'),
             'contract_date' => NULL
         ]);
 
         $invite->notify(new GenerateContract());
-        return redirect('index');
+        return redirect(route('index'));
     }
-
 
     public function store(Request $request){
         $request->validate($this->contractRules);
         
-        if(!$contrato = Contract::find($request->input('id')))
-            // DEBE SER VISTA DE ERROR
-            return view('preview-denied');
+        if(!$contrato = Contract::find($request->input('id'))){
+            return view('error-view');
+        }
 
-        if($contrato->status ){
+        if($contrato->contract_status){
             return view('preview-denied');
         }
 
-        $contrato->name_rep = $request->input( 'legal_representative_name');
-        $contrato->social_reason = $request->input('COMPANY_social_reason');
-        $contrato->rtn = $request->input( 'legal_representative_rtn');
-        $contrato->n_identidad = $request->input( 'legal_representative_id_number');
-        $contrato->m_status = $request->input( 'legal_representative_marital_status');
-        $contrato->contact = $request->input('contact_name');
-        $contrato->adress = $request->input('company_adress');
-        $contrato->tel = $request->input('company_tel');
-        $contrato->email = $request->input('company_email');
-
-        $contrato->date = Carbon::now();
+        $contrato->legal_representative_name = $request->input( 'legal_representative_name');
+        $contrato->company_social_reason = $request->input('company_social_reason');
+        $contrato->legal_representative_rtn = $request->input( 'legal_representative_rtn');
+        $contrato->legal_representative_id_number = $request->input( 'legal_representative_id_number');
+        $contrato->legal_representative_marital_status = $request->input( 'legal_representative_marital_status');
+        $contrato->contact_name = $request->input('contact_name');
+        $contrato->company_adress = $request->input('company_adress');
+        $contrato->company_tel = $request->input('company_tel');
+        $contrato->company_email = $request->input('company_email');
+        $contrato->contract_date = Carbon::now();
 
         $contrato->save();
         $contrato->notify(new ContractUrl());
-        return redirect()->route('contrato.preview', ['id' => $contrato->id]);
+        return redirect()->route('contract-preview', ['id' => $contrato->id]);
 }
 
     public function editContract($id){
         $contrato = Contract::find($id);
+
+        if(!$contrato == NULL){
+             return view('error-view');
+        }
 
         return view('edit-contract', [
            'contrato' => $contrato, 
@@ -106,30 +106,33 @@ class ContractController extends Controller
         $request->validate($this->contractRules);
         
         $contrato = Contract::find($id);
-        
 
-        $contrato->name_rep = $request->input('name_rep');
-        $contrato->social_reason = $request->input('social_reason');
-        $contrato->rtn = $request->input('rtn');
-        $contrato->n_identidad = $request->input('n_identidad');
-        $contrato->m_status = $request->input('m_status');
-        $contrato->contact = $request->input('contact');
-        $contrato->adress = $request->input('adress');
-        $contrato->tel = $request->input('tel');
-        $contrato->email = $request->input('email');
-        $contrato->date = new Carbon($request->input('date'));
+        if(!$contrato == null){
+             return view('error-view');
+        }
+
+        $contrato->legal_representative_name = $request->input('legal_representative_name');
+        $contrato->company_social_reason = $request->input('company_social_reason');
+        $contrato->legal_representative_rtn = $request->input('legal_representative_rtn');
+        $contrato->legal_representative_id_number = $request->input('legal_representative_id_number');
+        $contrato->legal_representative_marital_status = $request->input('legal_representative_marital_status');
+        $contrato->contact_name = $request->input('contact_name');
+        $contrato->company_adress = $request->input('company_adress');
+        $contrato->company_tel = $request->input('company_tel');
+        $contrato->company_email = $request->input('company_email');
+        $contrato->contract_date = new Carbon($request->input('contract_date'));
 
         $contrato->save();
 
 
         // $contract->update($request->all());
-        return redirect('home');
+        return redirect()->route('index');
     }
 
     public function previewCompleted($id){
         $contrato = Contract::find($id);
 
-        if($contrato->status){
+        if($contrato->contract_status){
             return view('preview-denied');
         }
         return view('contract-preview', [
@@ -137,8 +140,8 @@ class ContractController extends Controller
         ]);
     }
 
-    public function pdf($rtn){
-        $contrato = Contract::where('rtn',$rtn)->first();
+    public function pdf($legal_representative_rtn){
+        $contrato = Contract::where( 'legal_representative_rtn', $legal_representative_rtn)->first();
 
         $html = view('contract-pdf', ['contrato' => $contrato]);
         $html2pdf = new Html2Pdf('P', 'A4', 'es', 'true', 'UTF-8');
@@ -150,12 +153,13 @@ class ContractController extends Controller
 
     public function setStatusComplete(Request $request){
         $request->validate([
-            'rtn' => 'required',
-            'signature'=> 'required',
+            'legal_representative_rtn' => 'required',
+            'contract_signature'=> 'required',
         ]);
         
-        $contrato = Contract::where('rtn',$request->input('rtn'))->first();
-        $contrato->signature=$request->input('signature');
+        $contrato = Contract::find($request->input('id'));
+
+        $contrato->contract_signature=$request->input('contract_signature');
 
         $path = public_path('signatures');
         if(!file_exists($path)){
@@ -165,11 +169,11 @@ class ContractController extends Controller
         $output_file = public_path('signatures/'.$contrato->id.'.png');
         $ifp = fopen( $output_file, 'cb' );
 
-        $data = explode(',', $request->input('signature'));
+        $data = explode(',', $request->input('contract_signature'));
         fwrite($ifp, base64_decode($data[1]));
         fclose($ifp);
                     
-        $contrato->status=1; 
+        $contrato->contract_status=1; 
         $contrato->save();
 
         $this->generatePDF($contrato);

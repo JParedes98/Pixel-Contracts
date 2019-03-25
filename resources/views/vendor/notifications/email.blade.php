@@ -45,7 +45,7 @@
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-Exitos,<br>{{ config('app.name') }}
+<img src="{{asset('/img/logo.png')}}" alt="PixelPay">
 @endif
 
 {{-- Subcopy --}}

@@ -28,23 +28,40 @@
                 <!-- Authentication Links -->
                 @guest
                 <li><a href="{{ route('login') }}">Iniciar Sesión</a></li>
-                <li><a href="{{ route('register') }}">Registrarse</a></li>
+                {{-- <li><a href="{{ route('register') }}">Registrarse</a></li> --}}
                 @else
-                <li class="dropdown">
+                <li>
+                    <a href="{{ route('new-customer') }}">Nuevo Contrato</a>
+                </li>
+                <li>
+                    <a href="{{ route('index') }}">Todos los Contratos</a>
+                </li>
+                <li>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            <i class="fas fa-power-off" style="font-size:15px;"></i>
+                            Cerrar Sesión
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                        style="display: none;">
+                            {{ csrf_field() }}
+                    </form>
+                </li>
+                {{-- <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
                         aria-haspopup="true" v-pre>
                         Contratos PixelPay<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="{{ route('new-customer') }}">Nuevo Cliente</a>
+                            <a href="{{ route('new-customer') }}">Nuevo Contrato</a>
                         </li>
                         <li>
                             <a href="{{ route('index') }}">Todos los Contratos</a>
                         </li>
                     </ul>
-                </li>
-                <li class="dropdown">
+                </li> --}}
+                {{-- <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
                         aria-haspopup="true" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
@@ -62,7 +79,7 @@
                             </form>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 @endguest
             </ul>
         </div>

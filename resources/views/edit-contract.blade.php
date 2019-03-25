@@ -18,7 +18,7 @@
                 </div>
             @endif
 
-            <form action="{{route('contrato.actualizar', ['id'=>$contrato->id]) }}" method="POST">
+            <form action="{{route('update-contract', ['id'=>$contrato->id]) }}" method="POST">
                 {{ csrf_field() }}
                 <div class="card-body">
                     <div class="form-group">

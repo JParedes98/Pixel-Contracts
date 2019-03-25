@@ -33,7 +33,7 @@ $('.submitForm').click(function(e){
     if(signaturePad.isEmpty()){
         alert('Favor Firma en el respectivo campo.');
     }else{
-        $('[name="signature"]').val(signaturePad.toDataURL());
+        $('[name="contract_signature"]').val(signaturePad.toDataURL());
         $('form').submit();
     }
 });
