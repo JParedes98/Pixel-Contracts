@@ -33,7 +33,6 @@ class CreateContractsTable extends Migration
                     1 = COMPLETED
                     2 = EMPTY
                 */
-            $table->text('contract_signature')->nullable();
             $table->timestamps();
         });
     }

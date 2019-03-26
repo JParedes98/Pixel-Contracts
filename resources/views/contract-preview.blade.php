@@ -427,7 +427,7 @@
                                     aquí acordadas y que las cláusulas y contenido contractual les representa un beneficio mutuo, y que conocen y asumen las 
                                     consecuencias de toda responsabilidad que las obligaciones de este contrato le generan, por lo que se comprometen a su 
                                     estricto cumplimiento. En fe de lo cual, firman el presente contrato en duplicado, en la ciudad de San Pedro Sula a los 
-                                    ({{$contrato->contract_date->format('d')}}) días del mes de {{$contrato->contract_date->format('F')}} del año {{$contrato->contract_date->format('Y')}}.
+                                    ({{$contrato->contract_date->format('d')}}) días del mes de {{$contrato->contract_date->formatLocalized('%F')}} del año {{$contrato->contract_date->format('Y')}}.
                               </p>
                               <br>
                             <ul class="list-inline pull-right">

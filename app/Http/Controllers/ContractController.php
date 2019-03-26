@@ -165,8 +165,6 @@ class ContractController extends Controller
         
         $contrato = Contract::find($request->input('id'));
 
-        $contrato->contract_signature=$request->input('contract_signature');
-
         $path = public_path('signatures');
         if(!file_exists($path)){
             mkdir($path, 0777);    
