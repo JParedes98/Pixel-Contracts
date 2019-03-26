@@ -41,15 +41,14 @@ class ContractUrl extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->from('contratos@pixel.hn', 'PixelPay')
-                    ->subject( 'Contrato PixelPay-' . $notifiable->company_social_reason)
-                    ->greeting( 'Estimado (a) ' . $notifiable->legal_representative_name)
-                    ->line('Su contrato se ha generado de forma exitosa, adjunto se encuentra el link de su contrato respectivo de PixelPay.')
-                    ->line('Gracias.')
-                    ->action('Contrato Privado de Servicios', route('contract-preview', [
-                        'id' => $notifiable->id
-                    ]));
-    }
+            ->from('contratos@pixel.hn', 'PixelPay')
+            ->subject('Contrato PixelPay-' . $notifiable->company_social_reason)
+            ->greeting('Confirmacion de contrato')
+            ->line('Estimad@ ' . $notifiable->legal_representative_name)
+            ->line('Hemos recibido y aceptado tu contrato con PixelPay, favor firmar el mismo de forma digital desde el siguiente link.')
+            ->line('Gracias por elegirnos.')
+            ->action('Contrato Privado de Servicios', route('new-contract', ['key' => $notifiable->hashID()]));
+        }
 
     /**
      * Get the array representation of the notification.

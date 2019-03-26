@@ -1,5 +1,31 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@charset "UTF-8";
 
+@media (max-width: 585px) {
+  .wizard {
+    width: 90%;
+    height: auto !important;
+  }
+
+  .wizard .nav-tabs > li a {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+  }
+
+  .wizard li.active:after {
+    content: " ";
+    position: absolute;
+    left: 35%;
+  }
+
+  span.round-tab {
+    font-size: 16px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+  }
+}
+
 /*!
  * Bootstrap v3.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 Twitter, Inc.
@@ -8351,5 +8377,357 @@ canvas {
   margin: -120px auto 150px;
   color: #AAA;
   text-align: center;
+}
+
+#content .block-title {
+  margin: 35px 0px 10px;
+}
+
+#content .block-subtitle {
+  margin: 6px 0px 25px;
+}
+
+.tablaContrato {
+  border: solid 1px;
+  width: 50%;
+}
+
+.tablaContrato th {
+  width: 200px;
+  padding: 3px;
+}
+
+.wizard {
+  margin: 20px auto;
+  background: #fff;
+}
+
+.wizard .nav-tabs {
+  position: relative;
+  margin: 40px auto;
+  margin-bottom: 0;
+  border-bottom-color: #e0e0e0;
+}
+
+.wizard div.wizard-inner {
+  position: relative;
+}
+
+.wizard .nav-tabs > li.active > a,
+.wizard .wizard .nav-tabs > li.active > a:hover,
+.wizard .wizard .nav-tabs > li.active > a:focus {
+  color: #555555;
+  cursor: default;
+  border: 0;
+  border-bottom-color: transparent;
+}
+
+.wizard li.active span.round-tab {
+  background: #fff;
+  border: 2px solid #5bc0de;
+}
+
+.wizard li.active span.round-tab i {
+  color: #5bc0de;
+}
+
+.wizard li:after {
+  content: " ";
+  position: absolute;
+  left: 46%;
+  opacity: 0;
+  margin: 0 auto;
+  bottom: 0px;
+  border: 5px solid transparent;
+  border-bottom-color: #5bc0de;
+  -webkit-transition: 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
+}
+
+.wizard li.active:after {
+  content: " ";
+  position: absolute;
+  left: 46%;
+  opacity: 1;
+  margin: 0 auto;
+  bottom: 0px;
+  border: 10px solid transparent;
+  border-bottom-color: #5bc0de;
+}
+
+.wizard span.round-tab:hover {
+  color: #333;
+  border: 2px solid #333;
+}
+
+.wizard .nav-tabs > li {
+  width: 16%;
+}
+
+.wizard .nav-tabs > li a {
+  width: 70px;
+  height: 70px;
+  margin: 20px auto;
+  border-radius: 100%;
+  padding: 0;
+}
+
+.wizard .nav-tabs > li a:hover {
+  background: transparent;
+}
+
+.wizard .tab-pane {
+  position: relative;
+}
+
+.wizard h3 {
+  margin-top: 0;
+}
+
+.connecting-line {
+  height: 2px;
+  background: #e0e0e0;
+  position: absolute;
+  width: 90%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 50%;
+  z-index: 1;
+}
+
+span.round-tab {
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  display: inline-block;
+  border-radius: 100px;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  text-align: center;
+  font-size: 25px;
+}
+
+span.round-tab i {
+  color: #555555;
+}
+
+.back-deco-us {
+  display: block;
+  position: relative;
+  max-height: 1080px;
+  background-repeat: no-repeat;
+  background-size: 600px 538px;
+  background-attachment: fixed;
+}
+
+.back-deco {
+  display: block;
+  position: relative;
+  max-height: 720px;
+  background-repeat: no-repeat;
+  background-size: 600px 538px;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.logo-deco {
+  position: absolute;
+  top: 100px;
+  left: 70px;
+  max-width: 150px;
+  max-height: 110px;
+}
+
+.logo-deco-noti {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  max-width: 150px;
+  max-height: 110px;
+}
+
+.logo {
+  margin-top: 5px;
+  max-width: 120px;
+  max-height: 80px;
+  padding: 10px 10px;
+}
+
+.emoji {
+  font-size: 50px;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  width: 80%;
+  left: 10%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.social {
+  padding: 10px 10px;
+  color: grey;
+}
+
+.ctm-ico {
+  font-size: 18px;
+}
+
+.btn-custom {
+  display: block;
+  width: 30%;
+  margin: auto;
+}
+
+.btn-pixel {
+  background-color: #312AAD;
+  color: white;
+}
+
+.btn-pixel:hover {
+  color: white;
+  background-color: #4039cc;
+}
+
+.custom-bg {
+  background-color: #554DD5;
+}
+
+.form-ctm {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.form-new {
+  max-width: 420px;
+}
+
+.form-ctm-noti {
+  background-color: #fff;
+  border-radius: 10px;
+  margin: auto;
+  max-width: 480px;
+  padding: 20px 32px;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px 35px;
+}
+
+.column {
+  -webkit-box-flex: 50%;
+      -ms-flex: 50%;
+          flex: 50%;
+  padding: 15px 15px;
+}
+
+.date {
+  padding: 0;
+  margin: 0;
+}
+
+.date small {
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0 !important;
+  line-height: 1em;
+}
+
+.date p {
+  font-size: 18px;
+  margin: 0 !important;
+  margin-left: 4px;
+  line-height: 1em;
+}
+
+.ctm-label-comp {
+  background-color: #5EAD6B;
+  color: white;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.ctm-label-pend {
+  background-color: #8348A5;
+  color: white;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.ctm-label-vacio {
+  background-color: #ceca42;
+  color: white;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.center {
+  padding: 0px 30px;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 7px 7px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.dropdown-item:hover {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.line-h {
+  line-height: 0px;
+}
+
+.text-vert-center {
+  vertical-align: middle;
+}
+
+.fullwidth {
+  width: 100%;
+  min-height: 100%;
+}
+
+.not-fullwidth,
+.fullwidth.not-overflow {
+  height: 100%;
+  overflow: hidden;
+}
+
+.middle {
+  display: table;
+}
+
+.middle-wrap {
+  display: table-cell;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.h4-al {
+  font-size: 18px;
+  max-width: 380px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 12px;
+}
+
+.disableSelection {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 

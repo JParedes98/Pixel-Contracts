@@ -44,6 +44,10 @@ class ContractController extends Controller
             return view('error-view');
         }
 
+        if ($model->contract_status==1) {
+            return view('preview-denied');
+        }
+
         return view('new-contract', ['contract' => $model]);
     }
     
@@ -56,6 +60,7 @@ class ContractController extends Controller
         $invite = Contract::create([
             'legal_representative_name' => $request->get('legal_representative_name'),
             'company_email' => $request->get('company_email'),
+            'contract_status'=> 2,
             'contract_date' => NULL
         ]);
 
@@ -70,7 +75,7 @@ class ContractController extends Controller
             return view('error-view');
         }
 
-        if($contrato->contract_status){
+        if($contrato->contract_status==1){
             return view('preview-denied');
         }
 
@@ -83,6 +88,7 @@ class ContractController extends Controller
         $contrato->company_adress = $request->input('company_adress');
         $contrato->company_tel = $request->input('company_tel');
         $contrato->company_email = $request->input('company_email');
+        $contrato->contract_status= 0;
         $contrato->contract_date = Carbon::now();
 
         $contrato->save();

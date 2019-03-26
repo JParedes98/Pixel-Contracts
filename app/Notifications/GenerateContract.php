@@ -41,13 +41,13 @@ class GenerateContract extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                ->from('contratos@pixel.hn', 'PixelPay')
-                ->subject( 'Contrato PixelPay-' . $notifiable->company_social_reason)
-                ->greeting('Bienvenid@!')
-                ->line('Estimad@ ' . $notifiable->legal_representative_name)
-                ->line('Adjunto se encuentra el contrato respectivo, favor rellenar el mismo de forma digital.')
-                ->line('Gracias por elegirnos.')
-                ->action('Contrato Privado de Servicios', route('new-contract', ['key' => $notifiable->hashID()]));
+            ->from('contratos@pixel.hn', 'PixelPay')
+            ->subject('Contrato PixelPay-' . $notifiable->company_social_reason)
+            ->greeting('Estimado (a) ' . $notifiable->legal_representative_name)
+            ->line('Adjunto encontraras tu contrato, favor llenar el mismo con la respectiva información legal requerida.')
+            ->action('Contrato Privado de Servicios', route('contract-preview', [
+                'id' => $notifiable->id
+            ]));
     }
 
     /**

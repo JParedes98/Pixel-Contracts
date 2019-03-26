@@ -55,7 +55,7 @@
                     </ul>
                 </div>
     
-                <form role="form" action="{{route('contract-consolidated')}}" method="POST" >
+                <form role="form" action="{{route('contract-consolidated')}}" method="POST" class="disableSelection" >
                     {{ csrf_field() }}
                     <input type="hidden" name="id" value="{{$contrato->id}}">
                     <div class="tab-content"><br>
@@ -443,10 +443,10 @@
                                 <p class="signature-border">Firmar Aqui</p>
                                 <input type="hidden" name="contract_signature">
                                 <input type="hidden" name="legal_representative_rtn" value="{{ $contrato->legal_representative_rtn }}">
-                                <div class="tab-pane list-inline pull-right" role="tabpanel" id="complete">
-                                    <li><button type="button" class="btn btn-default prev-step">Anterior</button></li>
-                                    <button type="button" class="clearSign btn btn-success">Limpiar Firma</button>
-                                    <button type="button" class="submitForm btn btn-primary">Firmar</button>
+                                <div class="tab-pane" style="text-align:center;" role="tabpanel" id="complete">
+                                    <button type="button" style="width:120px;" class="btn btn-default prev-step">Anterior</button>
+                                    <button type="button" style="width:120px;" class="clearSign btn btn-success">Limpiar Firma</button>
+                                    <button type="button" style="width:120px;" class="submitForm btn btn-primary">Firmar</button>
                                 </div>
                             </div>
                         </div>

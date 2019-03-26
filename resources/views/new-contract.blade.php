@@ -2,7 +2,7 @@
 @section('content')
 <div class="custom-bg">
 
-    <img class="back-deco" src="{{asset('/img/login-bg.svg')}}" alt="Background image">
+    {{-- <img class="back-deco-us" src="{{asset('/img/login-bg.svg')}}" alt="Background image"> --}}
     {{-- <img class="logo-deco-noti" src="{{asset('/img/powered-by-white.svg')}}" alt="Background image"> --}}
 
     <div class="container vertical-center">
@@ -12,7 +12,7 @@
                 {{ csrf_field() }}
                     <input value="{{$contract->id}}" name="id" type="hidden">
 
-                    <div class="card-body">
+                    <div class="card-body" style="max-width:640px; margin:auto;">
                         <h2>Información Legal del Contrato</h2>                        
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -96,7 +96,7 @@
                         <i class="fas fa-exclamation-circle"></i>
                         <label style="margin-left:5px;" class="text-muted">Favor Rellenar Todos los Campos</label>
                         
-                        <button type="submit" class="btn btn-pixel btn-block">
+                        <button type="submit" class="btn btn-pixel btn-block" style="width:91%; margin:auto;">
                             VER CONTRATO
                         </button>
                         <hr>

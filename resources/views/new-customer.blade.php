@@ -10,8 +10,8 @@
     <img class="back-deco-us" src="{{asset('/img/login-bg.svg')}}" alt="Background image">
 
     <div class="container vertical-center">
-        <div class="col-md-8 col-md-offset-2 form-ctm">
-            <div class="card mt-4 text-center">
+        <div class="col-md-4 col-md-offset-4 form-ctm">
+            <div class="card text-center">
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <h5>Error, hay un campo incorrecto.</h5>
@@ -42,8 +42,8 @@
                             @endif
                         </div>
                         <i class="fas fa-exclamation-circle"></i><label style="margin-left:5px;" class="text-muted">Favor Rellenar Ambos Campos</label>
-                        <hr>
-                        <button type="submit" class="btn btn-pixel btn-block" style="width:80%; margin:auto; margin-bottom:50px;">
+                        
+                        <button type="submit" class="btn btn-pixel btn-block" style="width:80%; margin:auto; margin-bottom:50px; margin-top:30px;">
                             ENVIAR
                         </button>
                     </div>
