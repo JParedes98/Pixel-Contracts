@@ -45,7 +45,7 @@
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-<img src="{{asset('/img/logo.png')}}" alt="PixelPay">
+<img src="{{asset('/img/logo.png')}}" alt="PixelPay" width="100" height="20">
 @endif
 
 {{-- Subcopy --}}

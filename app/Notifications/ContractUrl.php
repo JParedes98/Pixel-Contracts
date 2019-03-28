@@ -47,7 +47,7 @@ class ContractUrl extends Notification
             ->line('Estimad@ ' . $notifiable->legal_representative_name)
             ->line('Hemos recibido y aceptado tu contrato con PixelPay, favor firmar el mismo de forma digital desde el siguiente link.')
             ->line('Gracias por elegirnos.')
-            ->action('Contrato Privado de Servicios', route('new-contract', ['key' => $notifiable->hashID()]));
+            ->action('Contrato Privado de Servicios', route('new-contract', ['key' => $notifiable->id]));
         }
 
     /**
