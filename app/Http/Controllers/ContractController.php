@@ -27,8 +27,8 @@ class ContractController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => [
-            'create',
             'store',
+            'newContract',
             'previewCompleted',
             'setStatusComplete'           
         ]]);
@@ -94,7 +94,7 @@ class ContractController extends Controller
         $contrato->save();
         $contrato->notify(new ContractUrl());
         return redirect()->route('contract-preview', ['id' => $contrato->id]);
-}
+    }
 
     public function editContract($id){
         $contrato = Contract::find($id);
