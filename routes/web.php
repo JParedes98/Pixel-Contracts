@@ -20,9 +20,10 @@ Route::post('/contrato/actualizar/{id}', 'ContractController@update')->name('upd
 Route::get('test', function(){
     try {
         $model = App\Contract::orderBy('id', 'desc')->first();
-        $model->notify(new App\Notifications\GenerateContract());
+        // $model->notify(new App\Notifications\GenerateContract());
 
-        return $model;
+        // return $model;
+        return [$model->getContractMonthLocalized()];
     } catch (\Exception $ex) {
         return $ex->getLine() . '|' . $ex->getMessage();
     }

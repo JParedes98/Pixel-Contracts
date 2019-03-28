@@ -189,7 +189,7 @@ class ContractController extends Controller
     private function generatePDF($contrato){
         $path = public_path('contracts');
         if(!file_exists($path)){
-            mkdir($path, 0777);    
+            mkdir($path, 0777);
         }
 
         $path = public_path('contracts/contrato-' . $contrato->id . '.pdf');
