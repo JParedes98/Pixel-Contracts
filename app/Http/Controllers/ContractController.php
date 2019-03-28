@@ -92,7 +92,7 @@ class ContractController extends Controller
         $contrato->contract_date = Carbon::now();
 
         $contrato->save();
-        $contrato->notify(new ContractUrl());
+        // $contrato->notify(new ContractUrl());
         return redirect()->route('contract-preview', ['id' => $contrato->id]);
 }
 
