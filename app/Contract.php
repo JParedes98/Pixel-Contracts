@@ -27,7 +27,7 @@ class Contract extends Model
     protected $dates = ['contract_date'];
 
     public function routeNotificationForMail(){
-        return $this->email;
+        return $this->company_email;
     }
 
     public function hashID(){

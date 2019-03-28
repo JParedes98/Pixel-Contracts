@@ -64,7 +64,7 @@ class ContractController extends Controller
             'contract_date' => NULL
         ]);
 
-        $invite->notify(new GenerateContract());
+        $invite->notify(new GenerateContract(), $invite->id);
         return redirect(route('index'));
     }
 
