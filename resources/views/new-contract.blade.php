@@ -25,8 +25,8 @@
                                     <h5>Información de Representante Legal</h5>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="legal_representative_name" id="legal_representative_name" class="form-control" placeholder="Nombre del Representante Legal"
-                                        value="{{old('legal_representative_name', $contract->name_rep)}}" autofocus>
+                                    <input type="text" name="legal_representative_name" id="legal_representative_name" class="form-control" placeholder="Nombre Completo"
+                                     autofocus>
                                     @if ($errors->has('legal_representative_name'))
                                     <p class="text-danger">{{ $errors->first('legal_representative_name') }}</p>
                                     @endif
@@ -39,17 +39,17 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="legal_representative_rtn" id="legal_representative_rtn" class="form-control" value="{{old('legal_representative_rtn')}}"
-                                        placeholder="Número de RTN">
-                                    @if ($errors->has('legal_representative_rtn'))
-                                    <p class="text-danger">{{ $errors->first('legal_representative_rtn') }}</p>
-                                    @endif
-                                </div>
-                                <div class="form-group">
                                     <input type="text" name="legal_representative_id_number" id="legal_representative_id_number" class="form-control" value="{{old('legal_representative_id_number')}}"
                                         placeholder="Número de Identidad">
                                     @if ($errors->has('legal_representative_id_number'))
                                     <p class="text-danger">{{ $errors->first('legal_representative_id_number') }}</p>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="legal_representative_home" id="legal_representative_home" class="form-control" value="{{old('legal_representative_home')}}"
+                                        placeholder="Domicilio (Ciudad, Depto.)">
+                                    @if ($errors->has('legal_representative_home'))
+                                    <p class="text-danger">{{ $errors->first('legal_representative_home') }}</p>
                                     @endif
                                 </div>
                                 <div class="form-group">
@@ -85,10 +85,17 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="company_email" id="company_email" class="form-control" value="{{old('company_email', $contract->company_email)}}"
+                                    <input type="email" name="company_email" id="company_email" class="form-control"
                                         placeholder="Correo Electrónico">
                                     @if($errors->has('company_email'))
                                     <p class="text-danger">{{ $errors->first('company_email') }}</p>
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="legal_representative_rtn" id="legal_representative_rtn" class="form-control" value="{{old('legal_representative_rtn')}}"
+                                        placeholder="Número de RTN">
+                                    @if ($errors->has('legal_representative_rtn'))
+                                    <p class="text-danger">{{ $errors->first('legal_representative_rtn') }}</p>
                                     @endif
                                 </div>
                             </div>

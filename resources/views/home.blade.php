@@ -67,11 +67,10 @@
                             <div class="label ctm-label-vacio">VACIO</div>
                             @endif
 
-                            {{-- @if ($item->contract_status)
-                                        <div class="label ctm-label-comp">Afiliado</div>
-                                    @else
-                                        <div class="label ctm-label-pend">Pendiente</div>
-                                    @endif --}}
+                            @if ($item->contract_status==3)
+                            <div class="label ctm-label-vacio">EDITADO</div>
+                            @endif
+
                         </div>
                     </td>
 

@@ -71,11 +71,11 @@
                                     Nosotros: Por una parte, Daniel Alberto Bernhard Lutz, mayor de edad, soltero, licenciado en finanzas, hondureño y 
                                     de éste domicilio, con número de cédula de identidad 0501-2006-15856, en su condición de Representante Legal de la Sociedad 
                                     PIXEL S.A. C.V.; la que de aquí en adelante y para los efectos de este contrato se denominará como EL PROVEEDOR, y por otra parte, 
-                                    <strong>"{{$contrato->legal_representative_name}}"</strong> , mayor de edad, {{$contrato->legal_representative_marital_status}}, con domicilio en la ciudad de San Pedro Sula, departamento de 
-                                    Cortés, con número de cédula de Identidad <strong>"{{$contrato->legal_representative_id_number}}"</strong>., quién comparece en su condición de Representante Legal de la 
-                                    sociedad <strong>"{{$contrato->company_social_reason}}"</strong>. , con RTN <strong>"{{$contrato->legal_representative_rtn}}"</strong> quien en adelante y para efectos del presente 
-                                    contrato se conocerá como COMERCIO AFILIADO manifiestan que han convenido en celebrar como al efecto lo hacen, un CONTRATO 
-                                    PRIVADO  DE PRESTACIÓN DE SERVICIOS DE LA PLATAFORMA DE PAGO PIXELPAY, bajo las siguientes clausulas y condiciones:
+                                    <strong>"{{$contrato->legal_representative_name}}"</strong> , mayor de edad, {{$contrato->legal_representative_marital_status}}, con domicilio en la ciudad de {{$contrato->legal_representative_home}},
+                                    con número de cédula de Identidad <strong>"{{$contrato->legal_representative_id_number}}"</strong>., quién comparece en su condición de Representante Legal de la 
+                                    sociedad <strong>"{{$contrato->company_social_reason}}"</strong>, con RTN <strong>"{{$contrato->legal_representative_rtn}}"</strong> quien en adelante y para efectos del presente 
+                                    contrato se conocerá como <strong>COMERCIO AFILIADO manifiestan que han convenido en celebrar como al efecto lo hacen, un CONTRATO 
+                                    PRIVADO  DE PRESTACIÓN DE SERVICIOS DE LA PLATAFORMA DE PAGO PIXELPAY</strong>, bajo las siguientes clausulas y condiciones:
                             </p>
                             <br>
                             

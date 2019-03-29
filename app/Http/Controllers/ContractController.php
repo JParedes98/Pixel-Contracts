@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Contract;
 use App\Notifications\ContractCopy;
 use App\Notifications\ContractUrl;
+use App\Notification\ContractEdit;
 use Spipu\Html2Pdf\Html2Pdf;
 use Illuminate\Http\Request;
 use App\Notifications\GenerateContract;
@@ -83,7 +84,8 @@ class ContractController extends Controller
         $contrato->company_social_reason = $request->input('company_social_reason');
         $contrato->legal_representative_rtn = $request->input( 'legal_representative_rtn');
         $contrato->legal_representative_id_number = $request->input( 'legal_representative_id_number');
-        $contrato->legal_representative_marital_status = $request->input( 'legal_representative_marital_status');
+        $contrato->legal_representative_home = $request->input( 'legal_representative_home');
+        $contrato->legal_representative_marital_status = $request->input('legal_representative_marital_status');
         $contrato->contact_name = $request->input('contact_name');
         $contrato->company_adress = $request->input('company_adress');
         $contrato->company_tel = $request->input('company_tel');
@@ -92,16 +94,11 @@ class ContractController extends Controller
         $contrato->contract_date = Carbon::now();
 
         $contrato->save();
-        // $contrato->notify(new ContractUrl());
         return redirect()->route('contract-preview', ['id' => $contrato->id]);
     }
 
     public function editContract($id){
         $contrato = Contract::find($id);
-
-        if(!$contrato == NULL){
-             return view('error-view');
-        }
 
         return view('edit-contract', [
            'contrato' => $contrato, 
@@ -113,34 +110,33 @@ class ContractController extends Controller
         
         $contrato = Contract::find($id);
 
-        if(!$contrato == null){
-             return view('error-view');
-        }
-
         $contrato->legal_representative_name = $request->input('legal_representative_name');
         $contrato->company_social_reason = $request->input('company_social_reason');
         $contrato->legal_representative_rtn = $request->input('legal_representative_rtn');
         $contrato->legal_representative_id_number = $request->input('legal_representative_id_number');
+        $contrato->legal_representative_home = $request->input('legal_representative_home');
         $contrato->legal_representative_marital_status = $request->input('legal_representative_marital_status');
         $contrato->contact_name = $request->input('contact_name');
         $contrato->company_adress = $request->input('company_adress');
         $contrato->company_tel = $request->input('company_tel');
         $contrato->company_email = $request->input('company_email');
         $contrato->contract_date = new Carbon($request->input('contract_date'));
+        $contrato->contract_status=3;
 
         $contrato->save();
+        $this->deletePDF($contrato);
+        $contrato->notify(new ContractUrl());
 
-
-        // $contract->update($request->all());
         return redirect()->route('index');
     }
 
     public function previewCompleted($id){
         $contrato = Contract::find($id);
 
-        if($contrato->contract_status){
+        if($contrato->contract_status==1){
             return view('preview-denied');
         }
+
         return view('contract-preview', [
            'contrato' => $contrato, 
         ]);
@@ -199,5 +195,18 @@ class ContractController extends Controller
         $html2pdf->pdf->SetTitle('CONTRATO PIXELPAY');
         $html2pdf->writeHTML($html);
         $html2pdf->Output($path, 'F');
+    }
+
+    private function deletePDF($contrato){
+    
+        $path = public_path('contracts');
+        if(!file_exists($path)){
+             mkdir($path, 0777);
+        }
+
+        $path = public_path('/contracts/contrato-' . $contrato->id . '.pdf');
+        if(file_exists($path)){
+            unlink($path);
+        }
     }
 }

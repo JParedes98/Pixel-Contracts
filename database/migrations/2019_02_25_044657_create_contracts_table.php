@@ -19,6 +19,7 @@ class CreateContractsTable extends Migration
             $table->string( 'legal_representative_name', 60)->nullable();
             $table->string( 'legal_representative_rtn',24)->nullable();
             $table->string( 'legal_representative_id_number',24)->nullable ();
+            $table->string( 'legal_representative_home', 30)->nullable();
             $table->string( 'legal_representative_marital_status',24)->nullable ();
             $table->string( 'contact_name', 30)->nullable();
             $table->string( 'company_social_reason', 60)->nullable();
@@ -32,6 +33,7 @@ class CreateContractsTable extends Migration
                     0 = PENDING
                     1 = COMPLETED
                     2 = EMPTY
+                    3 = Editado
                 */
             $table->timestamps();
         });

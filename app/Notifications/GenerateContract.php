@@ -42,7 +42,7 @@ class GenerateContract extends Notification
     {
         return (new MailMessage)
             ->from('contratos@pixel.hn', 'PixelPay')
-            ->subject('Contrato PixelPay-' . $notifiable->company_social_reason)
+            ->subject('Contrato PixelPay' . (empty($notifiable->company_social_reason) ? '' : '-'.$notifiable->company_social_reason))
             ->greeting('Estimado (a) ' . $notifiable->legal_representative_name)
             ->line('Adjunto encontraras tu contrato, favor llenar el mismo con la respectiva información legal requerida.')
             ->action('Contrato Privado de Servicios', route('new-contract', [

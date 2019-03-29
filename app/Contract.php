@@ -15,6 +15,7 @@ class Contract extends Model
         'legal_representative_name',
         'company_social_reason',
         'legal_representative_id_number',
+        'legal_representative_home',
         'legal_representative_marital_status',
         'legal_representative_rtn',
         'contact_name',
