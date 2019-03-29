@@ -526,7 +526,7 @@ p{
             comprometen a su
             estricto cumplimiento. En fe de lo cual, firman el presente contrato en duplicado, en la ciudad de San
             Pedro Sula a los
-            ({{$contrato->contract_date->format('d')}}) días del mes de {{$contrato->contract_date->format('F')}} del año {{$contrato->contract_date->format('Y')}}.
+            ({{$contrato->contract_date->format('d')}}) días del mes de {{$contrato->getContractMonthLocalized()}} del año {{$contrato->contract_date->format('Y')}}.
         </p>
         <br>
 

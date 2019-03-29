@@ -27,8 +27,8 @@ class ContractController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => [
-            'create',
             'store',
+            'newContract',
             'previewCompleted',
             'setStatusComplete'           
         ]]);
@@ -94,7 +94,7 @@ class ContractController extends Controller
         $contrato->save();
         // $contrato->notify(new ContractUrl());
         return redirect()->route('contract-preview', ['id' => $contrato->id]);
-}
+    }
 
     public function editContract($id){
         $contrato = Contract::find($id);
@@ -189,7 +189,7 @@ class ContractController extends Controller
     private function generatePDF($contrato){
         $path = public_path('contracts');
         if(!file_exists($path)){
-            mkdir($path, 0777);    
+            mkdir($path, 0777);
         }
 
         $path = public_path('contracts/contrato-' . $contrato->id . '.pdf');

@@ -33,4 +33,13 @@ class Contract extends Model
     public function hashID(){
         return base64_encode($this->id);
     }
+
+    public function getContractMonthLocalized(){
+        if(!$this->contract_date)
+            return;
+
+        setlocale(LC_ALL, 'es_ES');
+        $month = $this->contract_date->formatLocalized('%B');
+        return ucfirst($month);
+    }
 }
