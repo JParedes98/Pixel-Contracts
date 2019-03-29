@@ -94,7 +94,7 @@ class ContractController extends Controller
         $contrato->contract_date = Carbon::now();
 
         $contrato->save();
-        return redirect()->route('contract-preview', ['id' => $contrato->id]);
+        return redirect()->route('contract-preview', ['key' => base64_encode($contrato->id)]);
     }
 
     public function editContract($id){
@@ -131,7 +131,7 @@ class ContractController extends Controller
     }
 
     public function previewCompleted($id){
-        $contrato = Contract::find($id);
+        $contrato = Contract::find(base64_decode($id));
 
         if($contrato->contract_status==1){
             return view('preview-denied');

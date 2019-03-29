@@ -22,7 +22,7 @@
                         <div class="row">
                             <div class="column">
                                 <div class="form-group">
-                                    <h5>Información de Representante Legal</h5>
+                                    <h5>Representante Legal</h5>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="legal_representative_name" id="legal_representative_name" class="form-control" placeholder="Nombre Completo"
@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="legal_representative_home" id="legal_representative_home" class="form-control" value="{{old('legal_representative_home')}}"
-                                        placeholder="Domicilio (Ciudad, Depto.)">
+                                        placeholder="Ej. Ciudad, Depto.">
                                     @if ($errors->has('legal_representative_home'))
                                     <p class="text-danger">{{ $errors->first('legal_representative_home') }}</p>
                                     @endif
@@ -78,6 +78,13 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
+                                    <input type="text" name="legal_representative_rtn" id="legal_representative_rtn" class="form-control" value="{{old('legal_representative_rtn')}}"
+                                        placeholder="Número de RTN">
+                                    @if ($errors->has('legal_representative_rtn'))
+                                    <p class="text-danger">{{ $errors->first('legal_representative_rtn') }}</p>
+                                    @endif
+                                </div>
+                                <div class="form-group">
                                     <input type="tel" name="company_tel" id="company_tel" class="form-control" value="{{old('company_tel')}}"
                                         placeholder="Teléfono del Comercio">
                                     @if ($errors->has('company_tel'))
@@ -89,13 +96,6 @@
                                         placeholder="Correo Electrónico">
                                     @if($errors->has('company_email'))
                                     <p class="text-danger">{{ $errors->first('company_email') }}</p>
-                                    @endif
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" name="legal_representative_rtn" id="legal_representative_rtn" class="form-control" value="{{old('legal_representative_rtn')}}"
-                                        placeholder="Número de RTN">
-                                    @if ($errors->has('legal_representative_rtn'))
-                                    <p class="text-danger">{{ $errors->first('legal_representative_rtn') }}</p>
                                     @endif
                                 </div>
                             </div>

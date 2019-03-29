@@ -47,8 +47,8 @@ class ContractUrl extends Notification
             ->line('Estimad@ ' . $notifiable->legal_representative_name)
             ->line( 'El contrato fue editado, Adjunto encontraras el mismo con sus respectivas modificaciones.')
             ->line('Gracias por elegirnos.')
-            ->action('Contrato Privado de Servicios', route( 'contract-preview', ['key' => $notifiable->id]))
-    ;}
+            ->action('Contrato Privado de Servicios', route( 'contract-preview', ['key' => base64_encode($notifiable->id)]));
+    }
 
     /**
      * Get the array representation of the notification.

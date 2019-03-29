@@ -6,7 +6,7 @@ Auth::routes();
 Route::get('/', 'ContractController@index')->name('index');
 Route::view('/contrato/nuevo/cliente', 'new-customer')->name('new-customer');
 Route::get('/contrato/nuevo/{key}', 'ContractController@newContract')->name('new-contract');
-Route::get('/contrato/consolidacion/{id}', 'ContractController@previewCompleted')->name('contract-preview');
+Route::get('/contrato/consolidacion/{key}', 'ContractController@previewCompleted')->name('contract-preview');
 Route::get('/contrato/consolidado', 'ContractController@previewCompleted');
 Route::get('/contrato/pdf/{rtn}', 'ContractController@pdf')->name('contrato.pdf');
 Route::get('/contrato/editar/{id}', 'ContractController@editContract')->name('edit-contract');
