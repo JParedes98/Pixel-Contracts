@@ -25,7 +25,7 @@ class CreateContractsTable extends Migration
             $table->string( 'company_social_reason', 60)->nullable();
             $table->string( 'company_adress', 80)->nullable();
             $table->string( 'company_tel', 20)->nullable();
-            $table->string( 'company_email', 40);
+            $table->string( 'company_email', 40)->nullable();
             $table->date('contract_date', 30)->nullable();
             $table->integer('contract_status')->default(2);
                 /*
@@ -34,6 +34,7 @@ class CreateContractsTable extends Migration
                     1 = COMPLETED
                     2 = EMPTY
                     3 = Editado
+                    4 = Subido
                 */
             $table->timestamps();
         });

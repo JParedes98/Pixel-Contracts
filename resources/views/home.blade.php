@@ -32,14 +32,22 @@
                         @endif
                     </td>
                     <td scope="row" style="vertical-align:middle;">
-                        {{ $item->legal_representative_name }}
+                        @if ($item->legal_representative_name)
+                            {{ $item->legal_representative_name }}
+                        @else
+                            <span>PENDIENTE</span>
+                        @endif
                         <br>
                         <small class="text-muted">{{ $item->legal_representative_id_number }}</small>
                     </td>
                     <td style="vertical-align:middle;" data-toogle="tooltip" title="{{ $item->company_adress }}">
-                        {{ $item->company_email }}
-                        <br>
-                        <small class="text-muted">{{$item->company_tel }}</small>
+                        @if ($item->company_email == NULL && $item->company_tel == NULL)
+                            <span>PENDIENTE</span>                    
+                        @else
+                            {{ $item->company_email }}
+                            <br>
+                            <small class="text-muted">{{$item->company_tel }}</small>
+                        @endif
                     </td>
                     <td style="vertical-align:middle;">
                         @if ($item->company_social_reason!=NULL)
@@ -71,6 +79,9 @@
                             <div class="label ctm-label-vacio">EDITADO</div>
                             @endif
 
+                            @if ($item->contract_status==4)
+                            <div class="label ctm-label-vacio">ADJUNTO</div>
+                            @endif
                         </div>
                     </td>
 
@@ -82,13 +93,17 @@
                                 Acciones <i class="fas fa-angle-down" style="font-size:15px;"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                @if ($item->contract_status)
-                                <a class="dropdown-item"
-                                    href="{{ route('contrato.pdf',['legal_representative_rtn'=> $item->legal_representative_rtn]) }}">Contrato
-                                    PDF</a>
+                                @if ($item->contract_status == 1 || $item->contract_status == 4)
+                                    {{-- <a class="dropdown-item"
+                                    href="{{ route('contrato.pdf',['legal_representative_rtn'=> $item->legal_representative_rtn]) }}">Ver Contrato
+                                    PDF</a> --}}
+                                    <a class="dropdown-item" href="{{url($item->contract_file_pdf)}}">
+                                        Ver Contrato PDF
+                                    </a>
                                 @endif
-                                <a class="dropdown-item" href="{{ route('edit-contract',['id'=> $item->id]) }}">Editar
-                                    Contrato
+
+                                <a class="dropdown-item" href="">
+                                    Editar Contrato
                                 </a>
                             </div>
                         </div>

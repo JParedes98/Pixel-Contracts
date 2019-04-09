@@ -30,7 +30,14 @@ $('.clearSign').click(function(e){
 });
 
 $('.submitForm').click(function(e){
-    if(signaturePad.isEmpty()){
+
+    var agree = document.getElementById('agreeAttachments');
+
+    if(agree == false){
+        alert('Favor revisar Anexos de Contrato');
+    }
+
+    if(signaturePad.isEmpty() && agree != 1){
         alert('Favor Firma en el respectivo campo.');
     }else{
         $('[name="contract_signature"]').val(signaturePad.toDataURL());

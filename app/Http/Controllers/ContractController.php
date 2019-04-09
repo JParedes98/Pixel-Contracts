@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Contract;
+use Response;
 use App\Notifications\ContractCopy;
 use App\Notifications\ContractUrl;
 use App\Notification\ContractEdit;
@@ -65,6 +66,21 @@ class ContractController extends Controller
             'contract_date' => NULL
         ]);
 
+        $path = public_path('contract_attachments');
+        if(!file_exists($path)){
+            mkdir($path, 0777);
+        }
+
+        $file = NULL;
+        if ($request->hasFile('contract_attachments')) {
+            $file = $request->file('contract_attachments');
+            $file_name = 'Anexo-PixelPay-' . $invite->id . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path() . '/contract_attachments/', $file_name);
+        }
+
+        $invite->contract_attachments = '/contract_attachments/'. $file_name;
+        $invite->save();
+        
         $invite->notify(new GenerateContract(), $invite->id);
         return redirect(route('index'));
     }
@@ -95,6 +111,40 @@ class ContractController extends Controller
 
         $contrato->save();
         return redirect()->route('contract-preview', ['key' => base64_encode($contrato->id)]);
+    }
+
+    public function uploadContract(Request $request){
+        
+        $invite = Contract::create([
+            'legal_representative_name' => $request->get('legal_representative_name'),
+            'legal_representative_rtn' => $request->get('legal_representative_rtn'),
+            'legal_representative_id_number' => $request->get('legal_representative_id_number'),
+            'legal_representative_home' => $request->get('legal_representative_home'),
+            'legal_representative_marital_status' => $request->get('legal_representative_marital_status'),
+            'contact_name' => $request->get('contact_name'),
+            'company_social_reason' => $request->get('company_social_reason'),
+            'company_adress' => $request->get('company_adress'),
+            'company_tel' => $request->get('company_tel'),
+            'company_email' => $request->get('company_email'),
+            'contract_status' => 4,
+            'contract_date' => Carbon::now(),
+        ]);
+        
+        $path = public_path('contracts');
+        if(!file_exists($path)){
+            mkdir($path, 0777);
+        }
+
+        $file = NULL;
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $file_name = 'contrato-' . $invite->id . '-uploaded.'. $file->getClientOriginalExtension();
+            $file->move(public_path() . '/contracts/', $file_name);
+        }
+            
+        $invite->contract_file_pdf = '/contracts/'. $file_name;
+        $invite->save();
+        return redirect(route('index'));
     }
 
     public function editContract($id){
@@ -142,16 +192,16 @@ class ContractController extends Controller
         ]);
     }
 
-    public function pdf($legal_representative_rtn){
-        $contrato = Contract::where( 'legal_representative_rtn', $legal_representative_rtn)->first();
+    // public function pdf($legal_representative_rtn){
+    //     $contrato = Contract::where( 'legal_representative_rtn', $legal_representative_rtn)->first();
 
-        $html = view('contract-pdf', ['contrato' => $contrato]);
-        $html2pdf = new Html2Pdf('P', 'A4', 'es', 'true', 'UTF-8');
-        $html2pdf->pdf->SetTitle('CONTRATO PIXELPAY');
-        $html2pdf->writeHTML($html);
+    //     $html = view('contract-pdf', ['contrato' => $contrato]);
+    //     $html2pdf = new Html2Pdf('P', 'A4', 'es', 'true', 'UTF-8');
+    //     $html2pdf->pdf->SetTitle('CONTRATO PIXELPAY');
+    //     $html2pdf->writeHTML($html);
         
-        return $html2pdf->output('Contrato_PixelPay.pdf');
-    }
+    //     return $html2pdf->output('Contrato_PixelPay.pdf');
+    // }
 
     public function setStatusComplete(Request $request){
         $request->validate([
@@ -174,6 +224,7 @@ class ContractController extends Controller
         fclose($ifp);
                     
         $contrato->contract_status=1; 
+        $contrato->contract_file_pdf = '/contracts/' . 'contrato-' . $contrato->id . '.pdf';
         $contrato->save();
 
         $this->generatePDF($contrato);

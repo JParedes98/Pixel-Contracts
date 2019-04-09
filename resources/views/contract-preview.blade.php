@@ -430,10 +430,29 @@
                                     ({{$contrato->contract_date->format('d')}}) días del mes de {{$contrato->contract_date->formatLocalized('%F')}} del año {{$contrato->contract_date->format('Y')}}.
                               </p>
                               <br>
+
+
+                            @if ($contrato->contract_attachments)
+                                <div class="attachments_container">
+                                    <h3 class="text-warning">Anexos Contrato PixelPay-{{$contrato->company_social_reason}} </h3>
+                                    <p>Los anexos relacionados al contrato se encuentran adjuntos en un archivo PDF, favor revisar los mismos en el siguiente link.</p>
+                                    <a class="btn btn-primary" href="{{url($contrato->contract_attachments)}}" target="_blank" id="btn-anexos">ANEXOS DE CONTRATO</a>
+                                    <div class="switch_container">
+                                        <label class="switch">
+                                            <input type="checkbox" id="agreeAttachments" name="agreeAttachments">
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <strong>Estoy de acuerdo que he leido los anexos del contrato</strong>
+                                    </div>
+                                </div>
+                            @endif
+
                             <ul class="list-inline pull-right">
                                 <li><button type="button" class="btn btn-default prev-step">Anterior</button></li>
                                 <li><button type="button" class="btn btn-primary next-step">Siguiente</button></li>
+                                
                             </ul>
+
                         </div>
                         <div class="tab-pane" role="tabpanel" id="complete" style="margin:0; padding:0;">
                             <div class="container">

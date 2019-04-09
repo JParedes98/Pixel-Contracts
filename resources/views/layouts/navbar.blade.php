@@ -34,6 +34,9 @@
                     <a href="{{ route('new-customer') }}">Nuevo Contrato</a>
                 </li>
                 <li>
+                    <a href="{{route('attach-contract')}}">Subir Contrato</a>
+                </li>
+                <li>
                     <a href="{{ route('index') }}">Todos los Contratos</a>
                 </li>
                 <li>
