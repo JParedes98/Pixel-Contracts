@@ -128,6 +128,8 @@
                         <div class="form-group file_container">
                             <input type="file" name="file" id="file" class="file">            
                             <label for="file" class="btn-2">Examinar</label>
+                            <br>
+                            <strong id="contract-return"></strong>
                             
                             @if ($errors->has('file'))
                                 <p class="text-danger">{{ $errors->first('file') }}</p>

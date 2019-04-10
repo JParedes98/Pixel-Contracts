@@ -44,8 +44,10 @@
                             <input type="file" name="contract_attachments" id="contract_attachments" class="file" 
                             value="{{old('contract_attachments')}}">
                             <label for="contract_attachments" class="btn-2">Examinar</label>
+                            <br>
+                            <strong id="file-return"></strong>
                             @if ($errors->has('contract_attachments'))
-                                <p class="text-danger">{{ $errors->first('contract_attachments') }}</p>
+                                <label class="text-danger">{{ $errors->first('contract_attachments') }}</label>
                             @endif
                         </div>
             

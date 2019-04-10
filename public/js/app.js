@@ -776,6 +776,16 @@ if (canvas) {
 //     }
 // });
 
+$('#contract_attachments').change(function (e) {
+    var fileName = e.target.files[0].name;
+    document.getElementById('file-return').innerText = fileName;
+});
+
+$('#file').change(function (e) {
+    var fileName = e.target.files[0].name;
+    document.getElementById('contract-return').innerText = fileName;
+});
+
 $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
 });
