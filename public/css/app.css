@@ -8387,6 +8387,63 @@ canvas {
   margin: 6px 0px 25px;
 }
 
+.file_container [type="file"] {
+  height: 0;
+  overflow: hidden;
+  width: 0;
+}
+
+.file_container [type="file"] + label {
+  background: #f15d22;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: inherit;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 1rem 50px;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  vertical-align: middle;
+}
+
+.file_container [type="file"] + label:hover {
+  background-color: #d3460d;
+}
+
+.file_container [type="file"] + label.btn-2 {
+  background-color: #302DAB;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.file_container [type="file"] + label.btn-2::before {
+  color: #fff;
+  content: "\F382";
+  font-family: "Font Awesome 5 free";
+  font-size: 100%;
+  height: 100%;
+  right: 130%;
+  line-height: 3.3;
+  position: absolute;
+  top: 0px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.file_container [type="file"] + label.btn-2:hover {
+  background-color: #322d5f;
+}
+
+.file_container [type="file"] + label.btn-2:hover::before {
+  right: 75%;
+}
+
 .tablaContrato {
   border: solid 1px;
   width: 50%;

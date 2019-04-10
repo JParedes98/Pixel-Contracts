@@ -15,11 +15,11 @@ if(canvas){
     signaturePad.maxWidth = 5;
 }
 
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
+// $.ajaxSetup({
+//     headers: {
+//         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//     }
+// });
 
 $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
@@ -29,18 +29,33 @@ $('.clearSign').click(function(e){
     signaturePad.clear();
 });
 
-$('.submitForm').click(function(e){
-
-    var agree = document.getElementById('agreeAttachments');
-
-    if(agree == false){
-        alert('Favor revisar Anexos de Contrato');
+function checkAttachments() {
+    if (document.getElementById('agree').checked) {
+        return true;
+    } else {
+        return false;
     }
+}
 
-    if(signaturePad.isEmpty() && agree != 1){
-        alert('Favor Firma en el respectivo campo.');
+$('.submitForm').click(function(e){
+    
+    if(checkAttachments()==true){
+        if (signaturePad.isEmpty()) {
+            Snackbar.show({
+                text: 'Favor Firmar Contrato en su respectivo Campo',
+                pos: 'top-center',
+                actionText: 'Ok!',
+            });
+        } else {
+            $('[name="contract_signature"]').val(signaturePad.toDataURL());
+            $('form').submit();
+        }
     }else{
-        $('[name="contract_signature"]').val(signaturePad.toDataURL());
-        $('form').submit();
+        $('.wizard .nav-tabs li.active').prev().find('a[data-toggle="tab"]').click();
+        Snackbar.show({
+            text: 'Favor Revisar Anexos de Contrato',
+            pos: 'bottom-right',
+            actionText: 'Ok!',
+        });
     }
 });

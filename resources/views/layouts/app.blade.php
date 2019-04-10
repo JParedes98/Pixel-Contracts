@@ -22,6 +22,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom-styles.css') }}" rel="stylesheet">
     <link href="{{asset('/css/datepicker.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('/css/snackbar.min.css')}}" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -36,7 +37,8 @@
     <script src="{{ asset('js/signature_pad.min.js') }}"></script>
     <script src="{{asset('/js/datepicker.min.js')}}"></script>
     <script src="{{asset('/js/i18n/datepicker.es.js')}}"></script>
-    <script src="{{ asset('js/tabs.js') }}"></script>
+    <script src="{{ asset('/js/tabs.js') }}"></script>
+    <script src="{{asset('/js/snackbar.min.js')}}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 
     @if (env('APP_ENV') == 'local')

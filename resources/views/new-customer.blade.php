@@ -17,8 +17,6 @@
                     <h5>Error, hay un campo incorrecto.</h5>
                 </div>
                 @endif
-
-                {{-- {{$this->routeName}} --}}
                 
                 <form action="{{route('create-customer')}}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
@@ -41,20 +39,21 @@
                                 <p class="text-danger">{{ $errors->first('company_email') }}</p>
                             @endif
                         </div>
-                        <div class="form-group">
-                            <input type="file" name="contract_attachments" id="contract_attachments" class="form-control" 
-                             value="{{old('contract_attachments')}}"
-                                style="width:80%; margin:auto;">
+            
+                        <div class="file_container">
+                            <input type="file" name="contract_attachments" id="contract_attachments" class="file" 
+                            value="{{old('contract_attachments')}}">
+                            <label for="contract_attachments" class="btn-2">Examinar</label>
                             @if ($errors->has('contract_attachments'))
                                 <p class="text-danger">{{ $errors->first('contract_attachments') }}</p>
                             @endif
                         </div>
-                        
+            
+                        <br>
                         <i class="fas fa-exclamation-circle"></i><label style="margin-left:5px;" class="text-muted">Favor Rellenar Ambos Campos</label>
                         
-                        <button type="submit" class="btn btn-pixel btn-block" style="width:80%; margin:auto; margin-bottom:50px; margin-top:30px;">
-                            ENVIAR
-                        </button>
+                        <input type="submit" value="ENVIAR" class="btn btn-pixel btn-block" style="width:80%; margin:auto; margin-bottom:50px; margin-top:30px;">
+                        
                     </div>
                 </form>
             </div>

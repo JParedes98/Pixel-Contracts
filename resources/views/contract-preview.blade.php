@@ -431,7 +431,6 @@
                               </p>
                               <br>
 
-
                             @if ($contrato->contract_attachments)
                                 <div class="attachments_container">
                                     <h3 class="text-warning">Anexos Contrato PixelPay-{{$contrato->company_social_reason}} </h3>
@@ -439,7 +438,7 @@
                                     <a class="btn btn-primary" href="{{url($contrato->contract_attachments)}}" target="_blank" id="btn-anexos">ANEXOS DE CONTRATO</a>
                                     <div class="switch_container">
                                         <label class="switch">
-                                            <input type="checkbox" id="agreeAttachments" name="agreeAttachments">
+                                            <input type="checkbox" id="agree" name="agree">
                                             <span class="slider round"></span>
                                         </label>
                                         <strong>Estoy de acuerdo que he leido los anexos del contrato</strong>

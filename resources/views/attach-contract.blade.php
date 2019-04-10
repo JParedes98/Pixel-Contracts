@@ -125,12 +125,14 @@
                             </div>
                         </div>
 
-                        <input type="file" name="file" id="file" class="file">
-                        @if ($errors->has('file'))
-                        <p class="text-danger">{{ $errors->first('file') }}</p>
-                        @endif
-
-                        <br>
+                        <div class="form-group file_container">
+                            <input type="file" name="file" id="file" class="file">            
+                            <label for="file" class="btn-2">Examinar</label>
+                            
+                            @if ($errors->has('file'))
+                                <p class="text-danger">{{ $errors->first('file') }}</p>
+                            @endif
+                        </div>
 
                         <button type="submit" class="btn btn-pixel btn-block" style="width:91%; margin:auto;">
                             SUBIR CONTRATO
