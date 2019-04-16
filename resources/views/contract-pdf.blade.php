@@ -535,7 +535,7 @@ p{
                 <tr>
                     <td class="col-5">
                         <div class="signature">
-                            <img src="{{ public_path('signatures/'.$contrato->id.'.png') }}" alt="Firma" width="300" height="188"/>
+                            <img src="{{ storage_path('/signatures/'.$contrato->id.'.png') }}" alt="Firma" width="300" height="188"/>
                             <p>
                             <hr>
                             <span>Comercio Afiliado</span>
@@ -544,7 +544,7 @@ p{
                     </td>
                     <td class="col-5">
                         <div class="signature">
-                            <img src="{{ public_path('signatures/firma-pixel.png') }}" alt="Firma" width="300" height="188"/>
+                            <img src="{{ storage_path('/signatures/firma-pixel.png') }}" alt="Firma" width="300" height="188"/>
                             <p>
                             <hr>
                             <span>Daniel Alberto Bernhard Lutz</span><br>

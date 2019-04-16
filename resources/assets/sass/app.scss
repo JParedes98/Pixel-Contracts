@@ -8,6 +8,10 @@
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
+.navbar-static-top{
+    margin-bottom: 0px;
+}
+
 canvas{
     margin:0 auto;
     width: 800px;
@@ -38,11 +42,16 @@ canvas{
     }
 }
 
+//INPUT FILE
 .file_container{
     [type="file"] {
         height: 0;
         overflow: hidden;
         width: 0;
+    }
+
+    .col-md-6{
+        margin-bottom: 30px;
     }
 
     [type="file"]+label {
@@ -95,17 +104,24 @@ canvas{
     }
 }
 
-.tablaContrato {
-    border: solid 1px;
-    width: 50%;
+//ESTILOS CUADRO CONTACTO CONTRATO
+table{
 
-    th {
-        width: 200px;
-        padding: 3px;
+    margin-top: 50px;
+
+    .tablaContrato {
+        border: solid 1px;
+        width: 50%;
+
+        th {
+            width: 200px;
+            padding: 3px;
+        }
     }
 }
 
 
+//TABS CONTRATO
 .wizard {
     margin: 20px auto;
     background: #fff;
@@ -191,7 +207,6 @@ canvas{
             margin-top: 0;
         }
 }
-
 .connecting-line {
     height: 2px;
     background: #e0e0e0;
@@ -223,6 +238,8 @@ span.round-tab {
     }
 }
 
+
+//CUSTOM STYLES
 .back-deco-us {
     display: block;
     position: relative;
@@ -277,6 +294,44 @@ span.round-tab {
     left: 10%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+
+    form{
+        display: block;
+        margin: auto;
+        max-width: 720px;
+
+        input, select{
+            width: 80%;
+            display: block;
+            margin: auto;
+        }
+
+        // [type="submit"]{
+        //     margin-top: 115px;
+        //     width: 85%;
+        // }
+
+        @media (max-width: 640px) {
+            .form-group {
+                margin-bottom: 5px;
+            }
+        }
+
+        i{
+            margin-left: 8px;
+            font-size: 13px;
+        }
+
+        .btn-pixel:hover {
+            color: white;
+            background-color: #4039cc;
+        }
+    }
+}
+
+.btn-pixel {
+    background-color: #312AAD;
+    color: white;
 }
 
 .social {
@@ -292,16 +347,6 @@ span.round-tab {
     display: block;
     width: 30%;
     margin: auto;
-}
-
-.btn-pixel {
-    background-color: #312AAD;
-    color: white;
-}
-
-.btn-pixel:hover {
-    color: white;
-    background-color: #4039cc;
 }
 
 .custom-bg {
@@ -326,19 +371,14 @@ span.round-tab {
     padding: 20px 32px;
 }
 
-.row {
-    display: flex;
-    padding: 20px 35px;
-}
-
-.column {
-    flex: 50%;
-    padding: 15px 15px;
-}
-
 .date {
     padding: 0;
     margin: 0;
+
+    span{
+        margin-left: 2px;
+        font-size: 12px;
+    }
 
     small {
         color: rgba(0, 0, 0, 0.5);
@@ -346,32 +386,41 @@ span.round-tab {
         line-height: 1em;
     }
     p {
-        font-size: 18px;
-        margin: 0 !important;
-        margin-left: 4px;
+        font-size: 20px;
+        margin: 0 3px !important;
         line-height: 1em;
     }
 }
 
-.ctm-label-comp {
-    background-color: #5EAD6B;
-    color: white;
-    border-radius: 20px;
-    font-size: 13px;
-}
+.ctm-label {
 
-.ctm-label-pend {
-    background-color: #8348A5;
-    color: white;
-    border-radius: 20px;
-    font-size: 12px;
-}
+    .label-pend{
+        background-color:#8348A5;
+        color: white;
+        border-radius: 20px;
+        font-size: 12px;
+    }
 
-.ctm-label-vacio {
-    background-color: #ceca42;
-    color: white;
-    border-radius: 20px;
-    font-size: 12px;
+    .label-comp{
+        background-color: #736BBA;
+        color: white;
+        border-radius: 20px;
+        font-size: 12px;
+    }
+
+    .label-vacio{
+        background-color:#9BB1BD;
+        color: white;
+        border-radius: 20px;
+        font-size: 12px;
+    }
+
+    .label-editado{
+        background-color:#4B81B3;
+        color: white;
+        border-radius: 20px;
+        font-size: 12px;
+    }
 }
 
 .center {

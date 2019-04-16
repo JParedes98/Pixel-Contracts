@@ -126,20 +126,26 @@
                         </div>
 
                         <div class="form-group file_container">
-                            <input type="file" name="file" id="file" class="file">            
-                            <label for="file" class="btn-2">Examinar</label>
-                            <br>
-                            <strong id="contract-return"></strong>
+                            <div class="col-md-6">
+                                <input type="file" name="file" id="file" class="file">            
+                                <label for="file" class="btn-2">Contrato</label>
+                                <br>
+                                <strong id="contract-return"></strong>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="file" name="file_attach" id="file_attach" class="file">            
+                                <label for="file_attach" class="btn-2">Anexo</label>
+                                <br>
+                                <strong id="contract-attach"></strong>
+                            </div>
                             
                             @if ($errors->has('file'))
                                 <p class="text-danger">{{ $errors->first('file') }}</p>
                             @endif
                         </div>
-
-                        <button type="submit" class="btn btn-pixel btn-block" style="width:91%; margin:auto;">
-                            SUBIR CONTRATO
-                        </button>
-                        <hr>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-pixel btn-block" value="SUBIR CONTRATO">
+                        </div>
                     </div>
                 </form>
             </div>

@@ -8359,6 +8359,10 @@ button.close {
   }
 }
 
+.navbar-static-top {
+  margin-bottom: 0px;
+}
+
 canvas {
   margin: 0 auto;
   width: 800px;
@@ -8391,6 +8395,10 @@ canvas {
   height: 0;
   overflow: hidden;
   width: 0;
+}
+
+.file_container .col-md-6 {
+  margin-bottom: 30px;
 }
 
 .file_container [type="file"] + label {
@@ -8444,12 +8452,16 @@ canvas {
   right: 75%;
 }
 
-.tablaContrato {
+table {
+  margin-top: 50px;
+}
+
+table .tablaContrato {
   border: solid 1px;
   width: 50%;
 }
 
-.tablaContrato th {
+table .tablaContrato th {
   width: 200px;
   padding: 3px;
 }
@@ -8628,6 +8640,40 @@ span.round-tab i {
           transform: translateY(-50%);
 }
 
+.vertical-center form {
+  display: block;
+  margin: auto;
+  max-width: 720px;
+}
+
+.vertical-center form input,
+.vertical-center form select {
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+
+@media (max-width: 640px) {
+  .vertical-center form .form-group {
+    margin-bottom: 5px;
+  }
+}
+
+.vertical-center form i {
+  margin-left: 8px;
+  font-size: 13px;
+}
+
+.vertical-center form .btn-pixel:hover {
+  color: white;
+  background-color: #4039cc;
+}
+
+.btn-pixel {
+  background-color: #312AAD;
+  color: white;
+}
+
 .social {
   padding: 10px 10px;
   color: grey;
@@ -8641,16 +8687,6 @@ span.round-tab i {
   display: block;
   width: 30%;
   margin: auto;
-}
-
-.btn-pixel {
-  background-color: #312AAD;
-  color: white;
-}
-
-.btn-pixel:hover {
-  color: white;
-  background-color: #4039cc;
 }
 
 .custom-bg {
@@ -8674,23 +8710,14 @@ span.round-tab i {
   padding: 20px 32px;
 }
 
-.row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 20px 35px;
-}
-
-.column {
-  -webkit-box-flex: 50%;
-      -ms-flex: 50%;
-          flex: 50%;
-  padding: 15px 15px;
-}
-
 .date {
   padding: 0;
   margin: 0;
+}
+
+.date span {
+  margin-left: 2px;
+  font-size: 12px;
 }
 
 .date small {
@@ -8700,28 +8727,34 @@ span.round-tab i {
 }
 
 .date p {
-  font-size: 18px;
-  margin: 0 !important;
-  margin-left: 4px;
+  font-size: 20px;
+  margin: 0 3px !important;
   line-height: 1em;
 }
 
-.ctm-label-comp {
-  background-color: #5EAD6B;
-  color: white;
-  border-radius: 20px;
-  font-size: 13px;
-}
-
-.ctm-label-pend {
+.ctm-label .label-pend {
   background-color: #8348A5;
   color: white;
   border-radius: 20px;
   font-size: 12px;
 }
 
-.ctm-label-vacio {
-  background-color: #ceca42;
+.ctm-label .label-comp {
+  background-color: #736BBA;
+  color: white;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.ctm-label .label-vacio {
+  background-color: #9BB1BD;
+  color: white;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.ctm-label .label-editado {
+  background-color: #4B81B3;
   color: white;
   border-radius: 20px;
   font-size: 12px;

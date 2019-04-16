@@ -45,10 +45,10 @@ class ContractCopy extends Notification
             ->subject('Copia Contrato PixelPay-'.$notifiable->company_social_reason)
             ->greeting('Felicidades! '. $notifiable->legal_representative_name)
             ->line('Ahora eres parte de una enorme red de Crecimiento E-comerce, Adjunto encontraras una copia del contrato respectivo a PixelPay')
-            ->attach(public_path('contracts/contrato-'.$notifiable->id.'.pdf'));
+            ->attach(storage_path('contracts/contrato-'.$notifiable->id.'.pdf'));
 
         if($notifiable->contract_attachments != NULL){
-            $mailMessage->attach( public_path( 'contract_attachments/Anexo-PixelPay-' . $notifiable->id . '.pdf'));
+            $mailMessage->attach( storage_path( 'contract_attachments/Anexo-Contrato-' . $notifiable->id . '.pdf'));
         }
 
         return $mailMessage;

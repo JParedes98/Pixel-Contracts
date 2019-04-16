@@ -753,7 +753,6 @@ module.exports = __webpack_require__(35);
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -776,6 +775,15 @@ if (canvas) {
 //     }
 // });
 
+//Alert Closing
+$(".alert").fadeTo(2500, 500).slideUp(500, function () {
+    $("#success-alert").slideUp(500);
+});
+
+$(".text-danger").fadeTo(2500, 500).slideUp(500, function () {
+    $("#success-alert").slideUp(500);
+});
+
 $('#contract_attachments').change(function (e) {
     var fileName = e.target.files[0].name;
     document.getElementById('file-return').innerText = fileName;
@@ -784,6 +792,11 @@ $('#contract_attachments').change(function (e) {
 $('#file').change(function (e) {
     var fileName = e.target.files[0].name;
     document.getElementById('contract-return').innerText = fileName;
+});
+
+$('#file_attach').change(function (e) {
+    var fileName2 = e.target.files[0].name;
+    document.getElementById('contract-attach').innerText = fileName2;
 });
 
 $(document).ready(function () {
@@ -795,6 +808,7 @@ $('.clearSign').click(function (e) {
 });
 
 function checkAttachments() {
+
     if (document.getElementById('agree').checked) {
         return true;
     } else {
@@ -804,7 +818,30 @@ function checkAttachments() {
 
 $('.submitForm').click(function (e) {
 
-    if (checkAttachments() == true) {
+    var checkbox_Attachments = document.getElementById('agree');
+
+    if (document.body.contains(checkbox_Attachments)) {
+
+        if (checkAttachments() == true) {
+            if (signaturePad.isEmpty()) {
+                Snackbar.show({
+                    text: 'Favor Firmar Contrato en su respectivo Campo',
+                    pos: 'top-center',
+                    actionText: 'Ok!'
+                });
+            } else {
+                $('[name="contract_signature"]').val(signaturePad.toDataURL());
+                $('form').submit();
+            }
+        } else {
+            $('.wizard .nav-tabs li.active').prev().find('a[data-toggle="tab"]').click();
+            Snackbar.show({
+                text: 'Favor Revisar Anexos de Contrato',
+                pos: 'bottom-right',
+                actionText: 'Ok!'
+            });
+        }
+    } else {
         if (signaturePad.isEmpty()) {
             Snackbar.show({
                 text: 'Favor Firmar Contrato en su respectivo Campo',
@@ -815,13 +852,6 @@ $('.submitForm').click(function (e) {
             $('[name="contract_signature"]').val(signaturePad.toDataURL());
             $('form').submit();
         }
-    } else {
-        $('.wizard .nav-tabs li.active').prev().find('a[data-toggle="tab"]').click();
-        Snackbar.show({
-            text: 'Favor Revisar Anexos de Contrato',
-            pos: 'bottom-right',
-            actionText: 'Ok!'
-        });
     }
 });
 

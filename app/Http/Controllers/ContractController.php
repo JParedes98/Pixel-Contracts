@@ -36,6 +36,27 @@ class ContractController extends Controller
         ]]);
     }
 
+    public function getContract($id){
+        if($contrato = Contract::find($id)) {
+            if ($contrato->contract_status == 4 || $contrato->contract_status == 3) {
+                return response()->file(storage_path('contracts/contrato-' . $contrato->id . '-uploaded.pdf'));
+            }else {
+                return response()->file(storage_path('contracts/contrato-' . $contrato->id . '.pdf'));
+            }
+        }
+    }
+
+    public function getContractAttachments($id)
+    {
+        if ($contrato = Contract::find($id)) {
+            if ($contrato->contract_status == 4 || $contrato->contract_status == 3) {
+                return response()->file(storage_path('contract_attachments/Anexo-Contrato-' . $contrato->id . '-uploaded.pdf'));
+            }else {
+                return response()->file(storage_path('contract_attachments/Anexo-Contrato-' . $contrato->id . '.pdf'));
+            }
+        }
+    }
+
     public function index(){
         $contract = Contract::all()->sortByDesc('created_at');
         return view('home', compact('contract'));
@@ -66,7 +87,7 @@ class ContractController extends Controller
             'contract_date' => NULL
         ]);
 
-        $path = public_path('contract_attachments');
+        $path = storage_path('contract_attachments');
         if(!file_exists($path)){
             mkdir($path, 0777);
         }
@@ -74,12 +95,12 @@ class ContractController extends Controller
         $file = NULL;
         if ($request->hasFile('contract_attachments')) {
             $file = $request->file('contract_attachments');
-            $file_name = 'Anexo-PixelPay-' . $invite->id . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path() . '/contract_attachments/', $file_name);
+            $file_name = 'Anexo-Contrato-' . $invite->id . '.' . $file->getClientOriginalExtension();
+            $file->move(storage_path() . '/contract_attachments/', $file_name);
+            
+            $invite->contract_attachments = '/contract_attachments/' . $file_name;
+            $invite->save();
         }
-
-        $invite->contract_attachments = '/contract_attachments/'. $file_name;
-        $invite->save();
         
         $invite->notify(new GenerateContract(), $invite->id);
         return redirect(route('index'));
@@ -130,20 +151,32 @@ class ContractController extends Controller
             'contract_date' => Carbon::now(),
         ]);
         
-        $path = public_path('contracts');
+        $path = storage_path('contracts');
         if(!file_exists($path)){
             mkdir($path, 0777);
         }
-
         $file = NULL;
         if ($request->hasFile('file')) {
             $file = $request->file('file');
             $file_name = 'contrato-' . $invite->id . '-uploaded.'. $file->getClientOriginalExtension();
-            $file->move(public_path() . '/contracts/', $file_name);
+            $file->move(storage_path() . '/contracts/', $file_name);
+        }
+
+        $path2 = storage_path('contract_attachments');
+        if (!file_exists($path2)) {
+            mkdir($path2, 0777);
+        }
+        $file2 = NULL;
+        if ($request->hasFile( 'file_attach')) {
+            $file2 = $request->file( 'file_attach');
+            $file_name2 = 'Anexo-Contrato-' . $invite->id . '-uploaded.' . $file2->getClientOriginalExtension();
+            $file2->move(storage_path() . '/contract_attachments/', $file_name2);
+
+            $invite->contract_file_pdf = '/contracts/' . $file_name;
+            $invite->contract_attachments = '/contract_attachments/' . $file_name2;
+            $invite->save();
         }
             
-        $invite->contract_file_pdf = '/contracts/'. $file_name;
-        $invite->save();
         return redirect(route('index'));
     }
 
@@ -155,10 +188,12 @@ class ContractController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id){
-        $request->validate($this->contractRules);
-        
+    public function update(Request $request, $id){        
         $contrato = Contract::find($id);
+
+        if($contrato->contract_status != 4){
+            $request->validate($this->contractRules);
+        }
 
         $contrato->legal_representative_name = $request->input('legal_representative_name');
         $contrato->company_social_reason = $request->input('company_social_reason');
@@ -192,17 +227,6 @@ class ContractController extends Controller
         ]);
     }
 
-    // public function pdf($legal_representative_rtn){
-    //     $contrato = Contract::where( 'legal_representative_rtn', $legal_representative_rtn)->first();
-
-    //     $html = view('contract-pdf', ['contrato' => $contrato]);
-    //     $html2pdf = new Html2Pdf('P', 'A4', 'es', 'true', 'UTF-8');
-    //     $html2pdf->pdf->SetTitle('CONTRATO PIXELPAY');
-    //     $html2pdf->writeHTML($html);
-        
-    //     return $html2pdf->output('Contrato_PixelPay.pdf');
-    // }
-
     public function setStatusComplete(Request $request){
         $request->validate([
             'legal_representative_rtn' => 'required',
@@ -211,12 +235,12 @@ class ContractController extends Controller
         
         $contrato = Contract::find($request->input('id'));
 
-        $path = public_path('signatures');
+        $path = storage_path('signatures');
         if(!file_exists($path)){
             mkdir($path, 0777);    
         }
 
-        $output_file = public_path('signatures/'.$contrato->id.'.png');
+        $output_file = storage_path('signatures/'.$contrato->id.'.png');
         $ifp = fopen( $output_file, 'cb' );
 
         $data = explode(',', $request->input('contract_signature'));
@@ -234,12 +258,12 @@ class ContractController extends Controller
     }
 
     private function generatePDF($contrato){
-        $path = public_path('contracts');
+        $path = storage_path('contracts');
         if(!file_exists($path)){
             mkdir($path, 0777);
         }
 
-        $path = public_path('contracts/contrato-' . $contrato->id . '.pdf');
+        $path = storage_path('contracts/contrato-' . $contrato->id . '.pdf');
 
         $html = view('contract-pdf', ['contrato' => $contrato]);
         $html2pdf = new Html2Pdf('P', 'A4', 'es', 'true', 'UTF-8');
@@ -250,12 +274,12 @@ class ContractController extends Controller
 
     private function deletePDF($contrato){
     
-        $path = public_path('contracts');
+        $path = storage_path('contracts');
         if(!file_exists($path)){
              mkdir($path, 0777);
         }
 
-        $path = public_path('/contracts/contrato-' . $contrato->id . '.pdf');
+        $path = storage_path('/contracts/contrato-' . $contrato->id . '.pdf');
         if(file_exists($path)){
             unlink($path);
         }

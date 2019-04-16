@@ -13,9 +13,6 @@
                 <div class="alert alert-danger mt-1">
                     <h5>Error, hay un campo incorrecto.</h5>
                 </div>
-                <div class="div">
-                    {{$errors}}
-                </div>
             @endif
 
             <form action="{{route('update-contract', ['id'=>$contrato->id]) }}" method="POST">
