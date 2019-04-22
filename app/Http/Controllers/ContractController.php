@@ -42,7 +42,7 @@ class ContractController extends Controller
                 return response()->file(storage_path('contracts/contrato-' . $contrato->id . '-uploaded.pdf'));
             }else {
                 return response()->file(storage_path('contracts/contrato-' . $contrato->id . '.pdf'));
-            }
+            }          
         }
     }
 
@@ -191,6 +191,8 @@ class ContractController extends Controller
     public function update(Request $request, $id){        
         $contrato = Contract::find($id);
 
+        $status_prev = $contrato->contract_status;
+
         if($contrato->contract_status != 4){
             $request->validate($this->contractRules);
         }
@@ -206,11 +208,15 @@ class ContractController extends Controller
         $contrato->company_tel = $request->input('company_tel');
         $contrato->company_email = $request->input('company_email');
         $contrato->contract_date = new Carbon($request->input('contract_date'));
-        $contrato->contract_status=3;
+        if ($status_prev != 4) {
+            $contrato->contract_status = 3;
+        }
 
         $contrato->save();
         $this->deletePDF($contrato);
-        $contrato->notify(new ContractUrl());
+        if($status_prev != 4){
+            $contrato->notify(new ContractUrl());
+        }
 
         return redirect()->route('index');
     }
