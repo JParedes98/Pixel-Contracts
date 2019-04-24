@@ -8,12 +8,12 @@
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
-.navbar-static-top{
+.navbar-static-top {
     margin-bottom: 0px;
 }
 
-canvas{
-    margin:0 auto;
+canvas {
+    margin: 0 auto;
     width: 800px;
     height: 500px;
     display: block;
@@ -21,36 +21,36 @@ canvas{
     border-radius: 6px;
 }
 
-.signature-border{
+.signature-border {
     display: block;
     width: 100%;
     max-width: 600px;
     border-top: 2px dashed #AAA;
-    padding: 10px; 
+    padding: 10px;
     margin: -120px auto 150px;
     color: #AAA;
     text-align: center;
 }
 
-#content{
-    .block-title{
+#content {
+    .block-title {
         margin: 35px 0px 10px;
     }
 
-    .block-subtitle{
+    .block-subtitle {
         margin: 6px 0px 25px;
     }
 }
 
 //INPUT FILE
-.file_container{
+.file_container {
     [type="file"] {
         height: 0;
         overflow: hidden;
         width: 0;
     }
 
-    .col-md-6{
+    .col-md-6 {
         margin-bottom: 30px;
     }
 
@@ -105,7 +105,7 @@ canvas{
 }
 
 //ESTILOS CUADRO CONTACTO CONTRATO
-table{
+table {
 
     margin-top: 50px;
 
@@ -126,87 +126,89 @@ table{
     margin: 20px auto;
     background: #fff;
 
-        .nav-tabs {
-            position: relative;
-            margin: 40px auto;
-            margin-bottom: 0;
-            border-bottom-color: #e0e0e0;
-        }
+    .nav-tabs {
+        position: relative;
+        margin: 40px auto;
+        margin-bottom: 0;
+        border-bottom-color: #e0e0e0;
+    }
 
-        div.wizard-inner {
-            position: relative;
-        }
+    div.wizard-inner {
+        position: relative;
+    }
 
-        .nav-tabs>li.active>a,
-        .wizard .nav-tabs>li.active>a:hover,
-        .wizard .nav-tabs>li.active>a:focus {
-            color: #555555;
-            cursor: default;
-            border: 0;
-            border-bottom-color: transparent;
-        }
+    .nav-tabs>li.active>a,
+    .wizard .nav-tabs>li.active>a:hover,
+    .wizard .nav-tabs>li.active>a:focus {
+        color: #555555;
+        cursor: default;
+        border: 0;
+        border-bottom-color: transparent;
+    }
 
-        li.active span.round-tab {
-            background: #fff;
-            border: 2px solid #5bc0de;
+    li.active span.round-tab {
+        background: #fff;
+        border: 2px solid #5bc0de;
 
-        }
+    }
 
-        li.active span.round-tab i {
-            color: #5bc0de;
-        }
+    li.active span.round-tab i {
+        color: #5bc0de;
+    }
 
-        li:after {
-            content: " ";
-            position: absolute;
-            left: 46%;
-            opacity: 0;
-            margin: 0 auto;
-            bottom: 0px;
-            border: 5px solid transparent;
-            border-bottom-color: #5bc0de;
-            transition: 0.1s ease-in-out;
-        }
+    li:after {
+        content: " ";
+        position: absolute;
+        left: 46%;
+        opacity: 0;
+        margin: 0 auto;
+        bottom: 0px;
+        border: 5px solid transparent;
+        border-bottom-color: #5bc0de;
+        transition: 0.1s ease-in-out;
+    }
 
-        li.active:after {
-            content: " ";
-            position: absolute;
-            left: 46%;
-            opacity: 1;
-            margin: 0 auto;
-            bottom: 0px;
-            border: 10px solid transparent;
-            border-bottom-color: #5bc0de;
-        }
+    li.active:after {
+        content: " ";
+        position: absolute;
+        left: 46%;
+        opacity: 1;
+        margin: 0 auto;
+        bottom: 0px;
+        border: 10px solid transparent;
+        border-bottom-color: #5bc0de;
+    }
 
-        span.round-tab:hover {
-            color: #333;
-            border: 2px solid #333;
-        }
+    span.round-tab:hover {
+        color: #333;
+        border: 2px solid #333;
+    }
 
-        .nav-tabs>li {
-            width: 16%;
-        }
+    .nav-tabs>li {
+        width: 16%;
+    }
 
-        .nav-tabs>li a {
-            width: 70px;
-            height: 70px;
-            margin: 20px auto;
-            border-radius: 100%;
-            padding: 0;
-        }
-        .nav-tabs>li a:hover {
-            background: transparent;
-        }
+    .nav-tabs>li a {
+        width: 70px;
+        height: 70px;
+        margin: 20px auto;
+        border-radius: 100%;
+        padding: 0;
+    }
 
-        .tab-pane {
-            position: relative;
-        }
+    .nav-tabs>li a:hover {
+        background: transparent;
+    }
 
-        h3 {
-            margin-top: 0;
-        }
+    .tab-pane {
+        position: relative;
+    }
+
+    h3 {
+        margin-top: 0;
+    }
 }
+
 .connecting-line {
     height: 2px;
     background: #e0e0e0;
@@ -295,12 +297,13 @@ span.round-tab {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 
-    form{
+    form {
         display: block;
         margin: auto;
         max-width: 720px;
 
-        input, select{
+        input,
+        select {
             width: 80%;
             display: block;
             margin: auto;
@@ -317,7 +320,7 @@ span.round-tab {
             }
         }
 
-        i{
+        i {
             margin-left: 8px;
             font-size: 13px;
         }
@@ -358,6 +361,10 @@ span.round-tab {
     border-radius: 10px;
 }
 
+.mr-t{
+    margin-top: 220px;
+}
+
 .form-new {
     max-width: 420px;
 }
@@ -375,7 +382,7 @@ span.round-tab {
     padding: 0;
     margin: 0;
 
-    span{
+    span {
         margin-left: 2px;
         font-size: 12px;
     }
@@ -385,6 +392,7 @@ span.round-tab {
         margin: 0 !important;
         line-height: 1em;
     }
+
     p {
         font-size: 20px;
         margin: 0 3px !important;
@@ -394,29 +402,29 @@ span.round-tab {
 
 .ctm-label {
 
-    .label-pend{
-        background-color:#8348A5;
+    .label-pend {
+        background-color: #8348A5;
         color: white;
         border-radius: 20px;
         font-size: 12px;
     }
 
-    .label-comp{
+    .label-comp {
         background-color: #736BBA;
         color: white;
         border-radius: 20px;
         font-size: 12px;
     }
 
-    .label-vacio{
-        background-color:#9BB1BD;
+    .label-vacio {
+        background-color: #9BB1BD;
         color: white;
         border-radius: 20px;
         font-size: 12px;
     }
 
-    .label-editado{
-        background-color:#4B81B3;
+    .label-editado {
+        background-color: #4B81B3;
         color: white;
         border-radius: 20px;
         font-size: 12px;
@@ -487,27 +495,29 @@ span.round-tab {
 
 .attachments_container {
     background-color: #dddddd;
-    padding:15px 15px;
-    margin-bottom:15px;
+    padding: 15px 15px;
+    margin-bottom: 15px;
     border-radius: 6px;
 
-    h3, p{
+    h3,
+    p {
         display: flex;
         justify-content: center;
     }
 
-    a{
+    a {
         display: block;
         margin: auto;
         max-width: 180px;
     }
 
-    .switch_container{
+    .switch_container {
         display: flex;
         justify-content: center;
         padding: 10px 15px;
         margin-top: 13px;
     }
+
     .switch {
         position: relative;
         display: inline-block;
@@ -535,38 +545,38 @@ span.round-tab {
     }
 
     .slider:before {
-  position: absolute;
-  content: "";
-  height: 16px;
-  width: 16px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
 
-input:checked + .slider {
-  background-color: #2196F3;
-}
+    input:checked+.slider {
+        background-color: #2196F3;
+    }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
+    input:focus+.slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
+    input:checked+.slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
 
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
 
-.slider.round:before {
-  border-radius: 50%;
-}
+    .slider.round:before {
+        border-radius: 50%;
+    }
 
 }

@@ -10,7 +10,7 @@
     <img class="back-deco-us" src="{{asset('/img/login-bg.svg')}}" alt="Background image">
 
     <div class="container vertical-center">
-        <div class="col-md-4 col-md-offset-4 form-ctm">
+        <div class="col-md-4 col-md-offset-4 mr-t form-ctm">
             <div class="card text-center">
                 @if ($errors->any())
                 <div class="alert alert-danger">
