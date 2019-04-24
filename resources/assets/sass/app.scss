@@ -8,6 +8,10 @@
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
+.navbar-static-top{
+    margin-bottom: 0px;
+}
+
 canvas{
     margin:0 auto;
     width: 800px;
@@ -38,17 +42,86 @@ canvas{
     }
 }
 
-.tablaContrato {
-    border: solid 1px;
-    width: 50%;
+//INPUT FILE
+.file_container{
+    [type="file"] {
+        height: 0;
+        overflow: hidden;
+        width: 0;
+    }
 
-    th {
-        width: 200px;
-        padding: 3px;
+    .col-md-6{
+        margin-bottom: 30px;
+    }
+
+    [type="file"]+label {
+        background: #f15d22;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: 'Poppins', sans-serif;
+        font-size: inherit;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        outline: none;
+        padding: 1rem 50px;
+        position: relative;
+        transition: all 0.3s;
+        vertical-align: middle;
+
+        &:hover {
+            background-color: darken(#f15d22, 10%);
+        }
+
+        &.btn-2 {
+            background-color: #302DAB;
+            border-radius: 50px;
+            overflow: hidden;
+
+            &::before {
+                color: #fff;
+                content: "\f382";
+                font-family: "Font Awesome 5 free";
+                font-size: 100%;
+                height: 100%;
+                right: 130%;
+                line-height: 3.3;
+                position: absolute;
+                top: 0px;
+                transition: all 0.3s;
+            }
+
+            &:hover {
+                background-color: darken(#736BBA, 30%);
+
+                &::before {
+                    right: 75%;
+                }
+            }
+        }
+    }
+}
+
+//ESTILOS CUADRO CONTACTO CONTRATO
+table{
+
+    margin-top: 50px;
+
+    .tablaContrato {
+        border: solid 1px;
+        width: 50%;
+
+        th {
+            width: 200px;
+            padding: 3px;
+        }
     }
 }
 
 
+//TABS CONTRATO
 .wizard {
     margin: 20px auto;
     background: #fff;
@@ -134,7 +207,6 @@ canvas{
             margin-top: 0;
         }
 }
-
 .connecting-line {
     height: 2px;
     background: #e0e0e0;
@@ -166,6 +238,8 @@ span.round-tab {
     }
 }
 
+
+//CUSTOM STYLES
 .back-deco-us {
     display: block;
     position: relative;
@@ -220,6 +294,44 @@ span.round-tab {
     left: 10%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+
+    form{
+        display: block;
+        margin: auto;
+        max-width: 720px;
+
+        input, select{
+            width: 80%;
+            display: block;
+            margin: auto;
+        }
+
+        // [type="submit"]{
+        //     margin-top: 115px;
+        //     width: 85%;
+        // }
+
+        @media (max-width: 640px) {
+            .form-group {
+                margin-bottom: 5px;
+            }
+        }
+
+        i{
+            margin-left: 8px;
+            font-size: 13px;
+        }
+
+        .btn-pixel:hover {
+            color: white;
+            background-color: #4039cc;
+        }
+    }
+}
+
+.btn-pixel {
+    background-color: #312AAD;
+    color: white;
 }
 
 .social {
@@ -235,16 +347,6 @@ span.round-tab {
     display: block;
     width: 30%;
     margin: auto;
-}
-
-.btn-pixel {
-    background-color: #312AAD;
-    color: white;
-}
-
-.btn-pixel:hover {
-    color: white;
-    background-color: #4039cc;
 }
 
 .custom-bg {
@@ -269,19 +371,14 @@ span.round-tab {
     padding: 20px 32px;
 }
 
-.row {
-    display: flex;
-    padding: 20px 35px;
-}
-
-.column {
-    flex: 50%;
-    padding: 15px 15px;
-}
-
 .date {
     padding: 0;
     margin: 0;
+
+    span{
+        margin-left: 2px;
+        font-size: 12px;
+    }
 
     small {
         color: rgba(0, 0, 0, 0.5);
@@ -289,32 +386,41 @@ span.round-tab {
         line-height: 1em;
     }
     p {
-        font-size: 18px;
-        margin: 0 !important;
-        margin-left: 4px;
+        font-size: 20px;
+        margin: 0 3px !important;
         line-height: 1em;
     }
 }
 
-.ctm-label-comp {
-    background-color: #5EAD6B;
-    color: white;
-    border-radius: 20px;
-    font-size: 13px;
-}
+.ctm-label {
 
-.ctm-label-pend {
-    background-color: #8348A5;
-    color: white;
-    border-radius: 20px;
-    font-size: 12px;
-}
+    .label-pend{
+        background-color:#8348A5;
+        color: white;
+        border-radius: 20px;
+        font-size: 12px;
+    }
 
-.ctm-label-vacio {
-    background-color: #ceca42;
-    color: white;
-    border-radius: 20px;
-    font-size: 12px;
+    .label-comp{
+        background-color: #736BBA;
+        color: white;
+        border-radius: 20px;
+        font-size: 12px;
+    }
+
+    .label-vacio{
+        background-color:#9BB1BD;
+        color: white;
+        border-radius: 20px;
+        font-size: 12px;
+    }
+
+    .label-editado{
+        background-color:#4B81B3;
+        color: white;
+        border-radius: 20px;
+        font-size: 12px;
+    }
 }
 
 .center {
@@ -377,4 +483,90 @@ span.round-tab {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.attachments_container {
+    background-color: #dddddd;
+    padding:15px 15px;
+    margin-bottom:15px;
+    border-radius: 6px;
+
+    h3, p{
+        display: flex;
+        justify-content: center;
+    }
+
+    a{
+        display: block;
+        margin: auto;
+        max-width: 180px;
+    }
+
+    .switch_container{
+        display: flex;
+        justify-content: center;
+        padding: 10px 15px;
+        margin-top: 13px;
+    }
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+        margin-right: 5px;
+    }
+
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
 }

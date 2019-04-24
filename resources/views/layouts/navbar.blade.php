@@ -34,8 +34,11 @@
                     <a href="{{ route('new-customer') }}">Nuevo Contrato</a>
                 </li>
                 <li>
-                    <a href="{{ route('index') }}">Todos los Contratos</a>
+                    <a href="{{route('attach-contract')}}">Subir Contrato</a>
                 </li>
+                {{-- <li>
+                    <a href="{{ route('index') }}">Todos los Contratos</a>
+                </li> --}}
                 <li>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
@@ -47,40 +50,7 @@
                             {{ csrf_field() }}
                     </form>
                 </li>
-                {{-- <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
-                        aria-haspopup="true" v-pre>
-                        Contratos PixelPay<span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="{{ route('new-customer') }}">Nuevo Contrato</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('index') }}">Todos los Contratos</a>
-                        </li>
-                    </ul>
-                </li> --}}
-                {{-- <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
-                        aria-haspopup="true" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                Cerrar Sesión
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
-                        </li>
-                    </ul>
-                </li> --}}
-                @endguest
+                 @endguest
             </ul>
         </div>
     </div>

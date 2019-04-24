@@ -22,6 +22,8 @@ class Contract extends Model
         'company_adress',
         'company_tel',
         'company_email',
+        'contract_status',
+        'contract_file_pdf',
         'contract_date',
     ];
 
