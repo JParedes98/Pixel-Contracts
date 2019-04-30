@@ -434,7 +434,7 @@
                                 <div class="attachments_container">
                                     <h3 class="text-warning">Anexos Contrato PixelPay-{{$contrato->company_social_reason}} </h3>
                                     <p>Los anexos relacionados al contrato se encuentran adjuntos en un archivo PDF, favor revisar los mismos en el siguiente link.</p>
-                                    <a class="btn btn-primary" href="{{route('get-contract-attachments', ['id' => $contrato->id])}}" target="_blank" id="btn-anexos">ANEXOS DE CONTRATO</a>
+                                    <a class="btn btn-primary" href="{{route('get-once-contract-attachments', ['id' => $contrato->id])}}" target="_blank" id="btn-anexos">ANEXOS DE CONTRATO</a>
                                     <div class="switch_container">
                                         <label class="switch">
                                             <input type="checkbox" id="agree" name="agree">

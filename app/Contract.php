@@ -4,11 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Contract extends Model
 {
 
     use Notifiable;
+    use SoftDeletes;
 
     protected $table = 'contracts';
     protected $fillable =[
@@ -24,6 +26,7 @@ class Contract extends Model
         'company_email',
         'contract_status',
         'contract_file_pdf',
+        'created_by',
         'contract_date',
     ];
 

@@ -538,6 +538,8 @@ p{
                             <img src="{{ storage_path('/signatures/'.$contrato->id.'.png') }}" alt="Firma" width="300" height="188"/>
                             <p>
                             <hr>
+                            <span>{{$contrato->legal_representative_name}}</span><br>
+                            <span>{{$contrato->company_social_reason}}</span><br>
                             <span>Comercio Afiliado</span>
                             </p>
                         </div>
@@ -549,7 +551,7 @@ p{
                             <hr>
                             <span>Daniel Alberto Bernhard Lutz</span><br>
                             <span>EL PROVEEDOR</span><br>
-                            <span>Pixel s.A. de C.V.</span>
+                            <span>Pixel S.A. de C.V.</span>
                             </p>
                         </div>
                     </td>
