@@ -20,10 +20,17 @@
         </thead>
         <tbody>
             @if (session()->has('new-customer'))
-                <div class="alert alert-info">
-                    <p class="text-center">{{ session('new-customer') }}</p>
-                </div>
+            <div class="alert alert-info">
+                <p class="text-center">{{ session('new-customer') }}</p>
+            </div>
             @endif
+
+            @if (session()->has('deleted-contract'))
+            <div class="alert alert-danger">
+                <p class="text-center">{{ session('deleted-contract') }}</p>
+            </div>    
+            @endif
+
             @foreach ($contract as $item)
             <tr>
                 <td class="date" style="vertical-align:middle;">
@@ -68,23 +75,28 @@
                 <td style="vertical-align:middle;">
                     <div class="ctm-label">
                         @if ($item->contract_status==0)
-                        <div class="label label-pend" data-toggle="tooltip" data-placement="top" title="A espera de firma del cliente">PENDIENTE</div>
+                        <div class="label label-pend" data-toggle="tooltip" data-placement="top"
+                            title="A espera de firma del cliente">PENDIENTE</div>
                         @endif
 
                         @if ($item->contract_status==1)
-                        <div class="label ctm-label label-comp" data-toggle="tooltip" data-placement="top" title="Compañia ya afiliada">AFILIADO</div>
+                        <div class="label ctm-label label-comp" data-toggle="tooltip" data-placement="top"
+                            title="Compañia ya afiliada">AFILIADO</div>
                         @endif
 
                         @if ($item->contract_status==2)
-                        <div class="label ctm-label label-vacio" data-toggle="tooltip" data-placement="top" title="Sin Informacion del Cliente">VACIO</div>
+                        <div class="label ctm-label label-vacio" data-toggle="tooltip" data-placement="top"
+                            title="Sin Informacion del Cliente">VACIO</div>
                         @endif
 
                         @if ($item->contract_status==3)
-                        <div class="label ctm-label label-editado" data-toggle="tooltip" data-placement="top" title="Contrato en proceso de cambios">EDITADO</div>
+                        <div class="label ctm-label label-editado" data-toggle="tooltip" data-placement="top"
+                            title="Contrato en proceso de cambios">EDITADO</div>
                         @endif
 
                         @if ($item->contract_status==4)
-                        <div class="label ctm-label label-comp" data-toggle="tooltip" data-placement="top" title="Escaneado y subido">ADJUNTO</div>
+                        <div class="label ctm-label label-comp" data-toggle="tooltip" data-placement="top"
+                            title="Escaneado y subido">ADJUNTO</div>
                         @endif
                     </div>
                 </td>
@@ -97,35 +109,38 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             @if ($item->contract_file_pdf != NULL)
-                                <a class="dropdown-item" href="{{route('get-contract', ['id' => $item->id])}}">
-                                    Ver Contrato PDF
-                                </a>
+                            <a class="dropdown-item" href="{{route('get-contract', ['id' => $item->id])}}">
+                                Ver Contrato PDF
+                            </a>
                             @endif
 
                             @if ($item->contract_attachments != NULL)
-                                @if ($item->contract_status == 2)
-                                    <a class="dropdown-item" href="{{route('get-once-contract-attachments', ['id' => $item->id])}}">
-                                        Ver Anexos
-                                    </a>
-                                @endif
-                                @if ($item->contract_status == 1 || $item->contract_status == 4)
-                                    <a class="dropdown-item" href="{{route('get-contract-attachments', ['id' => $item->id])}}">
-                                        Ver Anexos
-                                    </a>
-                                @endif
+                            @if ($item->contract_status == 2)
+                            <a class="dropdown-item"
+                                href="{{route('get-once-contract-attachments', ['id' => $item->id])}}">
+                                Ver Anexos
+                            </a>
+                            @endif
+                            @if ($item->contract_status == 1 || $item->contract_status == 4)
+                            <a class="dropdown-item" href="{{route('get-contract-attachments', ['id' => $item->id])}}">
+                                Ver Anexos
+                            </a>
+                            @endif
                             @endif
 
                             @if ($item->contract_status != 4)
-                                <a class="dropdown-item" href="{{route('edit-contract', ['id' => $item->id])}}">
-                                    Editar Contrato
-                                </a>
+                            <a class="dropdown-item" href="{{route('edit-contract', ['id' => $item->id])}}">
+                                Editar Contrato
+                            </a>
                             @endif
 
-                            <form action="{{route('delete-contract')}}" method="POST">
+                            @if ($item->contract_status != 1)
+                            <form id="form-delete-contract" action="{{route('delete-contract')}}" method="POST">
                                 {{ csrf_field() }}
                                 <input type="hidden" value="{{$item->id}}" name="id">
-                                <input type="submit" value="Eliminar Contrato" style="border:none !important;">
+                                <button type="button" id="confirm-delete" style="border:none;">Eliminar Contrato</button>
                             </form>
+                            @endif
                         </div>
                     </div>
                 </td>

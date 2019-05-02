@@ -383,6 +383,7 @@ class ContractController extends Controller
         $contrato = Contract::find($request->id);
         // $this->deletePDF($contrato);
         $contrato->delete();
+        session()->flash('deleted-contract', 'El contrato respectivo a ' . $contrato->company_social_reason . ' ha sido eliminado');
         return redirect(route('index'));
     }
 }

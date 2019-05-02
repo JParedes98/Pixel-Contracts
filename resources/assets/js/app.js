@@ -25,6 +25,20 @@ $(".alert").fadeTo(2500, 500).slideUp(500, function () {
     $("#success-alert").slideUp(500);
 });
 
+//Confirm delete contract
+$("#confirm-delete").click(function (e) {
+    Snackbar.show({
+        text: 'Seguro desea eliminar el contrato?',
+        width: '475px',
+        actionText: 'Eliminar!',
+        duration: 10000,
+        pos: 'top-center',
+        onActionClick: function (element) {
+            document.getElementById("form-delete-contract").submit();
+        }
+    });
+});
+
 $(".text-danger").fadeTo(2500, 500).slideUp(500, function () {
     $("#success-alert").slideUp(500);
 });
