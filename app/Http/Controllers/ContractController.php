@@ -43,6 +43,14 @@ class ContractController extends Controller
         ]]);
     }
 
+    public function newCustomer(){
+        return redirect( route('new-customer') );
+    }
+
+    public function getAttachView(){
+        return redirect(route('attach-contract'));
+    }
+
     public function getContract($id){
         if($contrato = Contract::find($id)) {
             if ($contrato->contract_status == 4 || $contrato->contract_status == 3) {
