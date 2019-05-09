@@ -44,11 +44,11 @@ class ContractController extends Controller
     }
 
     public function newCustomer(){
-        return redirect( route('new-customer') );
+        return view('new-customer');
     }
 
     public function getAttachView(){
-        return redirect(route('attach-contract'));
+        return view('attach-contract');
     }
 
     public function getContract($id){
