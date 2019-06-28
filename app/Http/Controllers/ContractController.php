@@ -22,14 +22,14 @@ class ContractController extends Controller
 {
 
     public $contractRules = [
-        'legal_representative_name' => 'required',
-        'company_social_reason' => 'required',
-        'legal_representative_rtn' => 'required',
-        'legal_representative_id_number'=> 'required',
-        'contact_name' => 'required',
-        'company_adress' => 'required',
-        'company_tel' => 'required',
-        'company_email' => 'required'
+        'legal_representative_name' => 'required|max:60',
+        'company_social_reason' => 'required|max:60',
+        'legal_representative_rtn' => 'required|max:24',
+        'legal_representative_id_number'=> 'required|max:24',
+        'contact_name' => 'required|max:30',
+        'company_adress' => 'required|max:80',
+        'company_tel' => 'required|max:20',
+        'company_email' => 'required|max:40'
     ];
 
     public function __construct()
@@ -106,8 +106,8 @@ class ContractController extends Controller
     
     public function createCustomer(Request $request){
         $request->validate([
-            'legal_representative_name' => 'required',
-            'company_email' => 'required',
+            'legal_representative_name' => 'required|max:60',
+            'company_email' => 'required|max:40',
             'created_by' => 'required'
         ]);
 

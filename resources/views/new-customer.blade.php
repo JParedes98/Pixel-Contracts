@@ -27,14 +27,14 @@
                         </div>
                         <div class="form-group">
                             <input type="text" name="legal_representative_name" id="legal_representative_name" class="form-control" placeholder="Nombre de Representante"
-                                value="{{old('legal_representative_name')}}" style="width:80%; margin:auto;" autofocus>
+                                value="{{old('legal_representative_name')}}" style="width:80%; margin:auto;" max="60" autofocus>
                             @if ($errors->has('legal_representative_name'))
                             <p class="text-danger">{{ $errors->first('legal_representative_name') }}</p>
                             @endif
                         </div>
                         <div class="form-group">
                             <input type="email" name="company_email" id="company_email" class="form-control" value="{{old('company_email')}}"
-                                placeholder="Correo Electronico" style="width:80%; margin:auto;">
+                                placeholder="Correo Electronico" style="width:80%; margin:auto;" max="40">
                             @if ($errors->has('company_email'))
                                 <p class="text-danger">{{ $errors->first('company_email') }}</p>
                             @endif

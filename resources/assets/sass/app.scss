@@ -1,13 +1,10 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
 // Variables
 @import "variables";
 @import "responsive";
-
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
-
 .navbar-static-top {
     margin-bottom: 0px;
 }
@@ -36,7 +33,6 @@ canvas {
     .block-title {
         margin: 35px 0px 10px;
     }
-
     .block-subtitle {
         margin: 6px 0px 25px;
     }
@@ -49,11 +45,9 @@ canvas {
         overflow: hidden;
         width: 0;
     }
-
     .col-md-6 {
         margin-bottom: 30px;
     }
-
     [type="file"]+label {
         background: #f15d22;
         border: none;
@@ -70,16 +64,13 @@ canvas {
         position: relative;
         transition: all 0.3s;
         vertical-align: middle;
-
         &:hover {
             background-color: darken(#f15d22, 10%);
         }
-
         &.btn-2 {
             background-color: #302DAB;
             border-radius: 50px;
             overflow: hidden;
-
             &::before {
                 color: #fff;
                 content: "\f382";
@@ -92,10 +83,8 @@ canvas {
                 top: 0px;
                 transition: all 0.3s;
             }
-
             &:hover {
                 background-color: darken(#736BBA, 30%);
-
                 &::before {
                     right: 75%;
                 }
@@ -106,13 +95,10 @@ canvas {
 
 //ESTILOS CUADRO CONTACTO CONTRATO
 table {
-
     margin-top: 50px;
-
     .tablaContrato {
         border: solid 1px;
         width: 50%;
-
         th {
             width: 200px;
             padding: 3px;
@@ -120,23 +106,20 @@ table {
     }
 }
 
-
 //TABS CONTRATO
 .wizard {
     margin: 20px auto;
     background: #fff;
-
+    padding: 30px;
     .nav-tabs {
         position: relative;
         margin: 40px auto;
         margin-bottom: 0;
         border-bottom-color: #e0e0e0;
     }
-
     div.wizard-inner {
         position: relative;
     }
-
     .nav-tabs>li.active>a,
     .wizard .nav-tabs>li.active>a:hover,
     .wizard .nav-tabs>li.active>a:focus {
@@ -145,17 +128,13 @@ table {
         border: 0;
         border-bottom-color: transparent;
     }
-
     li.active span.round-tab {
         background: #fff;
         border: 2px solid #5bc0de;
-
     }
-
     li.active span.round-tab i {
         color: #5bc0de;
     }
-
     li:after {
         content: " ";
         position: absolute;
@@ -167,7 +146,6 @@ table {
         border-bottom-color: #5bc0de;
         transition: 0.1s ease-in-out;
     }
-
     li.active:after {
         content: " ";
         position: absolute;
@@ -178,16 +156,13 @@ table {
         border: 10px solid transparent;
         border-bottom-color: #5bc0de;
     }
-
     span.round-tab:hover {
         color: #333;
         border: 2px solid #333;
     }
-
     .nav-tabs>li {
         width: 16%;
     }
-
     .nav-tabs>li a {
         width: 70px;
         height: 70px;
@@ -195,15 +170,12 @@ table {
         border-radius: 100%;
         padding: 0;
     }
-
     .nav-tabs>li a:hover {
         background: transparent;
     }
-
     .tab-pane {
         position: relative;
     }
-
     h3 {
         margin-top: 0;
     }
@@ -234,12 +206,10 @@ span.round-tab {
     left: 0;
     text-align: center;
     font-size: 25px;
-
     i {
         color: #555555;
     }
 }
-
 
 //CUSTOM STYLES
 .back-deco-us {
@@ -296,35 +266,29 @@ span.round-tab {
     left: 10%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-
     form {
         display: block;
         margin: auto;
         max-width: 720px;
-
         input,
         select {
             width: 80%;
             display: block;
             margin: auto;
         }
-
         // [type="submit"]{
         //     margin-top: 115px;
         //     width: 85%;
         // }
-
         @media (max-width: 640px) {
             .form-group {
                 margin-bottom: 5px;
             }
         }
-
         i {
             margin-left: 8px;
             font-size: 13px;
         }
-
         .btn-pixel:hover {
             color: white;
             background-color: #4039cc;
@@ -361,14 +325,13 @@ span.round-tab {
     border-radius: 10px;
 }
 
-.mr-t{
+.mr-t {
     margin-top: 220px;
 }
 
 .form-new {
     max-width: 420px;
 }
-
 
 .form-ctm-noti {
     background-color: #fff;
@@ -381,18 +344,15 @@ span.round-tab {
 .date {
     padding: 0;
     margin: 0;
-
     span {
         margin-left: 2px;
         font-size: 12px;
     }
-
     small {
         color: rgba(0, 0, 0, 0.5);
         margin: 0 !important;
         line-height: 1em;
     }
-
     p {
         font-size: 20px;
         margin: 0 3px !important;
@@ -401,28 +361,24 @@ span.round-tab {
 }
 
 .ctm-label {
-
     .label-pend {
         background-color: #8348A5;
         color: white;
         border-radius: 20px;
         font-size: 12px;
     }
-
     .label-comp {
         background-color: #00ae69;
         color: white;
         border-radius: 20px;
         font-size: 12px;
     }
-
     .label-vacio {
         background-color: #9BB1BD;
         color: white;
         border-radius: 20px;
         font-size: 12px;
     }
-
     .label-editado {
         background-color: #e0bb26;
         color: white;
@@ -498,26 +454,22 @@ span.round-tab {
     padding: 15px 15px;
     margin-bottom: 15px;
     border-radius: 6px;
-
     h3,
     p {
         display: flex;
         justify-content: center;
     }
-
     a {
         display: block;
         margin: auto;
         max-width: 180px;
     }
-
     .switch_container {
         display: flex;
         justify-content: center;
         padding: 10px 15px;
         margin-top: 13px;
     }
-
     .switch {
         position: relative;
         display: inline-block;
@@ -525,13 +477,11 @@ span.round-tab {
         height: 24px;
         margin-right: 5px;
     }
-
     input {
         opacity: 0;
         width: 0;
         height: 0;
     }
-
     .slider {
         position: absolute;
         cursor: pointer;
@@ -543,7 +493,6 @@ span.round-tab {
         -webkit-transition: .4s;
         transition: .4s;
     }
-
     .slider:before {
         position: absolute;
         content: "";
@@ -555,28 +504,22 @@ span.round-tab {
         -webkit-transition: .4s;
         transition: .4s;
     }
-
     input:checked+.slider {
         background-color: #2196F3;
     }
-
     input:focus+.slider {
         box-shadow: 0 0 1px #2196F3;
     }
-
     input:checked+.slider:before {
         -webkit-transform: translateX(26px);
         -ms-transform: translateX(26px);
         transform: translateX(26px);
     }
-
     /* Rounded sliders */
     .slider.round {
         border-radius: 34px;
     }
-
     .slider.round:before {
         border-radius: 50%;
     }
-
 }
