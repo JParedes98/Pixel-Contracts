@@ -11,6 +11,7 @@ use Spipu\Html2Pdf\Html2Pdf;
 use Illuminate\Http\Request;
 use Faker\Provider\File;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\RecreatePdf;
 use App\Notifications\ContractCopy;
 use App\Notifications\ContractUrl;
 use App\Notification\ContractEdit;
@@ -385,6 +386,27 @@ class ContractController extends Controller
         if (file_exists($path4)) {
             unlink($path4);
         }
+    }
+
+    public function recreatePdf($id){
+        $contrato = Contract::find($id);
+
+        $path = storage_path('contracts');
+        if (!file_exists($path)) {
+            mkdir($path, 0777);
+        }
+
+        $path = storage_path('contracts/contrato-' . $contrato->id . '.pdf');
+
+        $html = view('contract-pdf', ['contrato' => $contrato]);
+        $html2pdf = new Html2Pdf('P', 'A4', 'es', 'true', 'UTF-8');
+        $html2pdf->pdf->SetTitle('CONTRATO PIXELPAY');
+        $html2pdf->writeHTML($html);
+        $html2pdf->Output($path, 'F');
+
+        $contrato->notify(new RecreatePdf());
+        
+        return response()->file(storage_path('contracts/contrato-' . $contrato->id . '.pdf'));
     }
 
     public function delete(Request $request){

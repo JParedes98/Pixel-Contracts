@@ -21,3 +21,5 @@ Route::post('/contrato/adjuntar', 'ContractController@uploadContract')->name('up
 Route::post('/contrato/completado', 'ContractController@setStatusComplete')->name('contract-consolidated');
 Route::post('/contrato/actualizar/{id}', 'ContractController@update')->name('update-contract');
 Route::post('/contrato/eliminar', 'ContractController@delete')->name('delete-contract');
+
+Route::get('/recreate/pdf/{id}', 'ContractController@recreatePdf')->name('recreate-pdf');
