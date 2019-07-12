@@ -15,11 +15,11 @@ Route::get('contrato/{id}', 'ContractController@getContract')->name('get-contrac
 Route::get('contrato/ver-anexos/{id}', 'ContractController@getOnceContractAttachments')->name('get-once-contract-attachments');
 Route::get('contrato/anexos/{id}', 'ContractController@getContractAttachments')->name('get-contract-attachments');
 
+Route::get('/recreate/pdf/{id}', 'ContractController@recreatePdf')->name('recreate-pdf');
+
 Route::post('/contrato/nuevo-cliente', 'ContractController@createCustomer')->name('create-customer');
 Route::post('/contratos', 'ContractController@store')->name('store-contract');
 Route::post('/contrato/adjuntar', 'ContractController@uploadContract')->name('upload-Contract');
 Route::post('/contrato/completado', 'ContractController@setStatusComplete')->name('contract-consolidated');
 Route::post('/contrato/actualizar/{id}', 'ContractController@update')->name('update-contract');
 Route::post('/contrato/eliminar', 'ContractController@delete')->name('delete-contract');
-
-Route::get('/recreate/pdf/{id}', 'ContractController@recreatePdf')->name('recreate-pdf');
