@@ -22,12 +22,18 @@
             @if (session()->has('new-customer'))
             <div class="alert alert-info">
                 <p class="text-center">{{ session('new-customer') }}</p>
-            </div>
+            </div>          
             @endif
 
             @if (session()->has('deleted-contract'))
             <div class="alert alert-danger">
                 <p class="text-center">{{ session('deleted-contract') }}</p>
+            </div>    
+            @endif
+
+            @if (session()->has('resend-contract'))
+            <div class="alert alert-success">
+                <p class="text-center">{{ session('resend-contract') }}</p>
             </div>    
             @endif
 
@@ -131,6 +137,12 @@
                             @if ($item->contract_status != 4)
                             <a class="dropdown-item" href="{{route('edit-contract', ['id' => $item->id])}}">
                                 Editar Contrato
+                            </a>                            
+                            @endif
+                            
+                            @if ($item->contract_status != 4 && $item->contract_status !=1)
+                            <a class="dropdown-item" href="{{route('resend-contract', ['id' => $item->id])}}">
+                                Reenviar
                             </a>
                             @endif
 
@@ -138,7 +150,7 @@
                             <form id="form-delete-contract" action="{{route('delete-contract')}}" method="POST">
                                 {{ csrf_field() }}
                                 <input type="hidden" value="{{$item->id}}" name="id">
-                                <button type="button" id="confirm-delete" style="border:none;">Eliminar Contrato</button>
+                                <button type="button" id="confirm-delete" style="background:none; border:none;">Eliminar Contrato</button>
                             </form>
                             @endif
                         </div>

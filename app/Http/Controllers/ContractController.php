@@ -98,6 +98,10 @@ class ContractController extends Controller
             return view('error-view');
         }
 
+        if ($model->contract_status == 0) {
+            return redirect()->route('contract-preview', ['key' => base64_encode($model->id)]);
+        }
+
         if ($model->contract_status==1) {
             return view('preview-denied');
         }
@@ -274,6 +278,19 @@ class ContractController extends Controller
         $this->deleteContractPDF($contrato);
 
         
+
+        return redirect()->route('index');
+    }
+
+    public function resend($id)
+    {   
+        try {
+            $contrato = Contract::find($id);
+            $contrato->notify(new GenerateContract(), $contrato->id);
+            session()->flash('resend-contract', 'El contrato respectivo a ' . $contrato->company_social_reason . ' ha sido reenviado');
+        } catch (\Throwable $th) {
+            return view('error-view');
+        }
 
         return redirect()->route('index');
     }

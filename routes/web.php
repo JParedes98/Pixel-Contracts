@@ -10,6 +10,7 @@ Route::get('/contrato/consolidacion/{key}', 'ContractController@previewCompleted
 Route::get('/contrato/consolidado', 'ContractController@previewCompleted');
 // Route::get('/contrato/pdf/{rtn}', 'ContractController@pdf')->name('contrato.pdf');
 Route::get('/contrato/editar/{id}', 'ContractController@editContract')->name('edit-contract');
+Route::get('/contrato/reenviar/{id}', 'ContractController@resend')->name('resend-contract');
 
 Route::get('contrato/{id}', 'ContractController@getContract')->name('get-contract');
 Route::get('contrato/ver-anexos/{id}', 'ContractController@getOnceContractAttachments')->name('get-once-contract-attachments');
